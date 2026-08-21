@@ -270,18 +270,41 @@
     }
     .hero-meta span + span { padding-top: 1.2rem; border-top: 1px solid rgb(255 255 255 / 50%); }
 
+    /* Ecrã de entrada: os dois espaços lado a lado, cada um na sua cor.
+       Sem gap — as duas cores tocam-se, é essa a referência visual. */
     .locations {
-      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem);
-      padding: clamp(5rem, 10vw, 9rem) var(--pad); background: var(--brass);
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr;
+      min-height: 100svh; background: var(--ink-deep);
     }
-    .locations-head { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
-    .locations-logo { width: 14rem; height: auto; flex-shrink: 0; }
-    .locations-head .section-heading { margin-bottom: 0; text-align: left; }
+    .locations-head {
+      grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+      padding: calc(6.4rem + clamp(1.25rem, 3vw, 2.5rem)) var(--pad) clamp(1.5rem, 3vw, 2.5rem);
+      background: var(--brass);
+    }
+    .locations-logo { width: clamp(7rem, 11vw, 13rem); height: auto; flex-shrink: 0; }
+    .locations-head .section-heading {
+      margin-bottom: 0; text-align: left; font-size: clamp(2.1rem, 4.4vw, 4.6rem); animation: none;
+    }
+    .locations-hint {
+      margin: .9rem 0 0; font-size: .62rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--leaf);
+    }
+
     .local {
-      display: grid; grid-template-rows: auto 1fr auto; gap: 1rem;
-      background: var(--ink-deep); color: var(--brass); border-top: 3px solid var(--leaf);
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      /* topo reserva a altura da faixa de cor */
+      padding: 3.4rem clamp(1.5rem, 2.6vw, 2.75rem) clamp(1.5rem, 2.6vw, 2.75rem);
+      background: var(--ink-deep); color: var(--brass);
     }
-    .local-info { padding: 0 1.5rem 1.75rem; }
+    /* Faixa cheia na cor do espaço — a referência visual tem de ler-se de longe */
+    .local-eyebrow {
+      position: absolute; z-index: 1; inset: 0 0 auto 0; margin: 0;
+      padding: .8rem clamp(1.5rem, 2.6vw, 2.75rem);
+      background: var(--leaf); color: var(--paper);
+      font-size: .72rem; font-weight: 800; letter-spacing: .24em; text-transform: uppercase;
+    }
+    .local-info { padding: 0; }
 
     /* Hotel Ílhavo Plaza — turquesa, cinza escuro, letra prateada */
     #ilhavo {
@@ -292,15 +315,23 @@
       --brass: #DDE5E5;
       --rose: #A9BDBC;
     }
-    .local-main { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
-    .local-main img { transition: opacity .2s; }
+    .local-main { position: absolute; z-index: -1; inset: 0; overflow: hidden; background: var(--ink); }
+    .local-main::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--ink-deep) 28%, transparent) 0%,
+        color-mix(in srgb, var(--ink-deep) 72%, transparent) 46%,
+        var(--ink-deep) 93%);
+    }
+    .local-main img { transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .2s; }
+    .local:hover .local-main img, .local:focus-within .local-main img { transform: scale(1.045); }
     .local-placeholder {
       display: grid; place-items: center; color: var(--ivory);
       font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
     }
     .local-info h3 { margin: 0 0 .6rem; font-family: var(--display); font-size: 1.6rem; font-weight: 400; }
     .local-info p { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.6; color: color-mix(in srgb, currentColor 82%, transparent); }
-    .local-actions { margin-top: 1.4rem; align-items: center; flex-wrap: nowrap; }
+    .local-actions { margin-top: 1.4rem; align-items: center; flex-wrap: wrap; }
     .local-map { display: inline-block; flex: none; margin-left: .4rem; font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-decoration: underline; text-underline-offset: .35rem; }
 
     .locations .section-heading em,
@@ -524,7 +555,7 @@
     .reveal { opacity: 1; transform: none; }
 
     @media (max-width: 980px) {
-      .locations { grid-template-columns: 1fr; }
+      .locations { grid-template-columns: 1fr; grid-template-rows: auto 1fr 1fr; }
       .header { grid-template-columns: 1fr auto; }
       .location { display: none; }
       .nav-local { display: block; }
@@ -554,6 +585,21 @@
     }
 
     @media (max-width: 640px) {
+      .locations-head {
+        flex-direction: column; gap: 1rem; text-align: center;
+        padding: calc(4.9rem + 1.1rem) var(--pad) 1.25rem;
+      }
+      .locations-logo { width: 6.5rem; }
+      .locations-head .section-heading { text-align: center; font-size: clamp(1.6rem, 7vw, 2.3rem); }
+      .locations-hint { margin-top: .55rem; }
+      .local { padding: 2.9rem 1.25rem 1.4rem; }
+      .local-eyebrow { padding: .6rem 1.25rem; font-size: .62rem; letter-spacing: .2em; }
+      .local-info h3 { margin-bottom: .35rem; font-size: 1.35rem; }
+      .local-info p { margin-bottom: .25rem; font-size: .82rem; line-height: 1.45; }
+      .local-actions { margin-top: .9rem; gap: .5rem; }
+      .local-actions .button { flex: 1 1 8rem; width: auto; min-width: 0; gap: .7rem; padding: .65rem .8rem; font-size: .62rem; }
+      .local-map { flex-basis: 100%; margin-left: 0; }
+
       .header { height: 4.9rem; }
       .header.scrolled { height: 4.5rem; }
       .header-actions { gap: .65rem; }
@@ -591,6 +637,18 @@
       .contact-row { grid-template-columns: 1fr; gap: .45rem; }
       .contact-cards { grid-template-columns: 1fr; }
       .footer { flex-direction: column; }
+    }
+
+    /* Telemóveis baixos: comprime a cabeceira para que os dois espaços caibam sem scroll */
+    @media (max-width: 980px) and (max-height: 720px) {
+      .locations-head { gap: .6rem; padding: calc(4.9rem + .6rem) var(--pad) .85rem; }
+      .locations-logo { width: 4.6rem; }
+      .locations-head .section-heading { font-size: clamp(1.35rem, 5.4vw, 1.85rem); }
+      .locations-hint { margin-top: .35rem; font-size: .58rem; }
+      .local { padding-top: 2.6rem; }
+      .local-info h3 { font-size: 1.2rem; }
+      .local-info p { font-size: .78rem; }
+      .local-actions { margin-top: .7rem; }
     }
 
     @keyframes spotlight-drift { from { transform: translate3d(-6%, -2%, 0); } to { transform: translate3d(7%, 4%, 0); } }
@@ -652,11 +710,15 @@
     <section class="locations" id="locais" aria-labelledby="locations-title">
       <div class="locations-head">
         <img src="assets/img/galeano-logo.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo">
-        <h2 class="section-heading" id="locations-title">Dois espaços pensados para si. <em>O mesmo cuidado.</em></h2>
+        <div class="locations-headings">
+          <h2 class="section-heading" id="locations-title">Dois espaços pensados para si. <em>O mesmo cuidado.</em></h2>
+          <p class="locations-hint">Escolha onde quer ser atendida</p>
+        </div>
       </div>
 
       <article class="local" id="aveiro">
         <div class="local-main"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></div>
+        <p class="local-eyebrow">Aveiro</p>
         <div class="local-info">
           <h3>Studio 316 · Aveiro</h3>
           <p>R. do Sr. dos Aflitos 59, 3800-260 Aveiro</p>
@@ -671,6 +733,7 @@
 
       <article class="local" id="ilhavo">
         <div class="local-main"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></div>
+        <p class="local-eyebrow">Ílhavo</p>
         <div class="local-info">
           <h3>Hotel Ílhavo Plaza</h3>
           <p>Av. Mário Sacramento 113, 3830-052 Ílhavo</p>
