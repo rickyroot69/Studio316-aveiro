@@ -1,0 +1,17 @@
+/*
+!index.html
+!og-image.jpg
+!*.jpg
+!*.png
+!assets
+!ilhavo
+!trabalhos
+!videos
+
+/*.mp4
+/videos/*
+!/videos/ig
+!/videos/apresentacao-studio316.mp4
+!/videos/apresentacao-poster.jpg
+!/videos/3922489808254948253.mp4
+!/videos/3936699251624716149.mp4

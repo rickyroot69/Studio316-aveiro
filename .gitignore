@@ -1,0 +1,12 @@
+.vercel
+.env*
+
+# Backups manuales
+*.bak
+
+# Descargas crudas de Instagram — no se deployan (ver .vercelignore)
+/*.mp4
+/Imagenes nuevas/
+
+# Logs
+*.log
