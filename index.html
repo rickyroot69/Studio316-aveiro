@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#212E1A">
-  <meta name="description" content="Grupo Cabeleireiro Galeano — dois espaços: Studio 316 em Aveiro e o cabeleireiro do Hotel Ílhavo Plaza. Escolha o espaço onde quer ser atendida.">
+  <meta name="theme-color" content="#2A2438">
+  <meta name="description" content="Grupo Cabeleireiro Galeano — dois salões: Studio 316 em Aveiro e o salão do Hotel Ílhavo Plaza. Cabelo, unhas, estética e massagem com diagnóstico personalizado.">
   <link rel="canonical" href="https://studio316-aveiro.vercel.app/">
   <meta property="og:title" content="Studio 316 · Grupo Cabeleireiro Galeano — Aveiro e Ílhavo">
-  <meta property="og:description" content="Dois espaços, o mesmo cuidado: Studio 316 Aveiro e o cabeleireiro do Hotel Ílhavo Plaza.">
+  <meta property="og:description" content="Dois espaços, o mesmo cuidado: Studio 316 Aveiro e o salão do Hotel Ílhavo Plaza. Cabelo, unhas, estética e massagem.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_PT">
   <meta property="og:url" content="https://studio316-aveiro.vercel.app/">
@@ -16,18 +16,17 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Interior do Studio 316 Hair em Aveiro">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23212E1A'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23C7CFC2'%3E316%3C/text%3E%3C/svg%3E">
-  <title>Grupo Cabeleireiro Galeano — Aveiro e Ílhavo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232A2438'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23E8DCC4'%3E316%3C/text%3E%3C/svg%3E">
+  <title>Studio 316 Aveiro — Hair, Nails, Estética & Massagem</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "HealthAndBeautyBusiness",
-        "@id": "https://studio316-aveiro.vercel.app/aveiro.html#negocio",
+        "@id": "https://studio316-aveiro.vercel.app/#aveiro",
         "name": "Studio 316 Hair — Aveiro",
         "brand": "Grupo Cabeleireiro Galeano",
-        "url": "https://studio316-aveiro.vercel.app/aveiro.html",
         "image": "https://studio316-aveiro.vercel.app/og-image.jpg",
         "telephone": ["+351234351054", "+351927829171"],
         "address": {
@@ -42,11 +41,9 @@
       },
       {
         "@type": "HealthAndBeautyBusiness",
-        "@id": "https://studio316-aveiro.vercel.app/ilhavo.html#negocio",
+        "@id": "https://studio316-aveiro.vercel.app/#ilhavo",
         "name": "Cabeleireiro Hotel Ílhavo Plaza",
         "brand": "Grupo Cabeleireiro Galeano",
-        "url": "https://studio316-aveiro.vercel.app/ilhavo.html",
-        "image": "https://studio316-aveiro.vercel.app/ilhavo/10.jpg",
         "telephone": "+351913456651",
         "address": {
           "@type": "PostalAddress",
@@ -55,86 +52,204 @@
           "addressLocality": "Ílhavo",
           "addressCountry": "PT"
         },
-        "geo": { "@type": "GeoCoordinates", "latitude": 40.60333, "longitude": -8.6725 },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.60333,
+          "longitude": -8.6725
+        },
         "priceRange": "€€"
       }
     ]
   }
   </script>
   <style>
-    /* Paleta Studio 316 — verde da parede do salão + prateado sage.
-       Cada espaço redefine os tokens no seu cartão: é a cor que serve de referência. */
+    @property --split {
+      syntax: "<percentage>";
+      inherits: true;
+      initial-value: 50%;
+    }
     :root {
-      --ink: #23301D;
-      --ink-deep: #212E1A;
-      --leaf: #4A5C42;
-      --brass: #C7CFC2;
-      --ivory: #F2F4EF;
-      --paper: #FBFCFA;
+      --ink: #131313;
+      --ink-deep: #0A0A0A;
+      --leaf: #B8933F;
+      --brass: #C8CDD7;
+      --ivory: #E8DCC4;
+      --paper: #fffdf8;
+      --rose: #B8933F;
+      --charcoal: #131313;
+      --gold: #B8933F;
+      --silver: #D6D9DE;
+      --silver-deep: #A7ACB6;
+      --line: color-mix(in srgb, var(--ink) 22%, transparent);
       --pad: clamp(1.25rem, 4vw, 4.5rem);
       --display: Georgia, "Times New Roman", serif;
       --sans: Arial, Helvetica, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ivory); }
     body {
-      margin: 0; min-height: 100svh;
-      background: var(--ivory); color: var(--ink);
-      font-family: var(--sans); -webkit-font-smoothing: antialiased;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
     }
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    body.menu-open { overflow: hidden; }
+    img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
     a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
     ::selection { background: var(--brass); color: var(--ink-deep); }
-    :focus-visible { outline: 3px solid var(--leaf); outline-offset: 4px; }
+    :focus-visible { outline: 3px solid var(--brass); outline-offset: 4px; }
 
     .skip-link {
-      position: fixed; z-index: 9; left: 1rem; top: 1rem; padding: .75rem 1rem;
-      background: var(--paper); color: var(--ink); transform: translateY(-180%); transition: transform .2s;
+      position: fixed; z-index: 999; left: 1rem; top: 1rem;
+      padding: .75rem 1rem; background: var(--paper); color: var(--ink);
+      transform: translateY(-180%); transition: transform .2s;
     }
     .skip-link:focus { transform: none; }
 
-    .locations {
-      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr;
-      min-height: 100svh; background: var(--ink-deep);
-    }
-    .locations-head {
-      grid-column: 1 / -1; display: flex; align-items: center; justify-content: center;
-      gap: 2.5rem; padding: clamp(1.75rem, 4vw, 3.25rem) var(--pad) clamp(1.5rem, 3vw, 2.5rem);
-      background: var(--brass);
-    }
-    .locations-logo { width: clamp(7rem, 11vw, 13rem); height: auto; flex-shrink: 0; }
-    .locations-head h1 {
-      margin: 0; font-family: var(--display); font-size: clamp(2.1rem, 4.4vw, 4.6rem);
-      font-weight: 400; line-height: .95; letter-spacing: -.055em;
-    }
-    .locations-head em { color: var(--leaf); font-weight: 400; }
-    .locations-hint {
-      margin: .9rem 0 0; font-size: .62rem; font-weight: 800; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--leaf);
+    .topline {
+      position: fixed; z-index: 120; top: 0; left: 0; width: 0; height: 3px;
+      background: var(--brass); pointer-events: none;
     }
 
-    .local {
-      display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-height: 0;
-      background: var(--ink-deep); color: var(--brass);
+    .header {
+      position: fixed; z-index: 100; inset: 0 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      height: 6.4rem; padding: 0 var(--pad); color: #000;
+      background: var(--gold);
+      transition: background .25s, color .25s, height .25s, box-shadow .25s;
     }
-    /* Faixa cheia na cor do espaço — a referência visual tem de ler-se de longe */
-    .local-bar {
-      margin: 0; padding: .8rem clamp(1.5rem, 2.6vw, 2.75rem);
-      background: var(--leaf); color: var(--paper);
-      font-size: .72rem; font-weight: 800; letter-spacing: .24em; text-transform: uppercase;
+    .header.scrolled {
+      height: 5.2rem; color: #000; background: var(--gold);
+      box-shadow: 0 1px 0 color-mix(in srgb, #000 18%, transparent); backdrop-filter: blur(14px);
     }
-    .local-main { position: relative; min-height: 0; overflow: hidden; background: var(--ink); }
-    /* fora do fluxo: senão a altura intrínseca da foto estica a linha da grelha */
-    .local-main img {
-      position: absolute; inset: 0;
-      transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+    .brand-side, .nav a, .menu-toggle {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
     }
-    .local:hover .local-main img, .local:focus-within .local-main img { transform: scale(1.045); }
-    .local-info { padding: clamp(1.25rem, 2.2vw, 1.9rem) clamp(1.5rem, 2.6vw, 2.75rem) clamp(1.5rem, 2.6vw, 2.75rem); }
-    .local-info h2 { margin: 0 0 .6rem; font-family: var(--display); font-size: 1.6rem; font-weight: 400; }
-    .local-info p { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.6; color: color-mix(in srgb, currentColor 82%, transparent); }
+    .brand-side { position: relative; display: inline-block; padding-bottom: .25rem; }
+    .brand-side::after { content: ""; position: absolute; inset: auto 0 0; height: 1px; background: currentColor; transform: scaleX(0); transition: transform .2s; }
+    a:hover > .brand-side::after, .brand-side:hover::after { transform: scaleX(1); }
+    .nav-local { display: none; }
+    .brand-group { grid-column: 2; justify-self: center; display: flex; align-items: center; gap: clamp(1.6rem, 3.4vw, 3.4rem); }
+    .brand { min-width: 13rem; text-align: center; line-height: .78; }
+    .brand strong { display: block; margin-right: -.22em; font-family: var(--display); font-size: clamp(1.5rem, 1.7vw, 1.85rem); font-weight: 400; letter-spacing: .22em; }
+    .brand small { display: block; margin: .55rem -.48em 0 0; font-size: .58rem; font-weight: 700; letter-spacing: .48em; text-transform: uppercase; }
+    .brand-ilhavo { flex-shrink: 0; display: flex; align-items: center; gap: .8rem; }
+    .brand-ilhavo img { display: block; height: clamp(2.9rem, 3.6vw, 3.9rem); width: auto; }
+    .header-actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 1rem; padding-left: 2rem; }
+    .nav { display: flex; align-items: center; gap: 1.7rem; }
+    .nav a { position: relative; }
+    .nav a::after { content: ""; position: absolute; inset: auto 0 -.4rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .25s; }
+    .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav .nav-cta { padding: .8rem 1rem; border: 1px solid currentColor; }
+    .nav .nav-cta::after { display: none; }
+    .menu-toggle { display: none; border: 0; background: transparent; padding: .7rem 0; cursor: pointer; }
 
-    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.4rem; }
+    .language-picker { position: relative; }
+    .language-toggle {
+      display: flex; align-items: center; justify-content: center; gap: .5rem; min-width: 4.4rem;
+      padding: .68rem .8rem; border: 1px solid currentColor; border-radius: 999px;
+      background: transparent; color: inherit; cursor: pointer;
+      font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+    }
+    .language-toggle::after { content: ""; width: .38rem; height: .38rem; border: solid currentColor; border-width: 0 1px 1px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+    .language-picker.open .language-toggle::after { transform: translateY(2px) rotate(225deg); }
+    .language-list {
+      position: absolute; right: 0; top: calc(100% + .55rem); width: 13.7rem; margin: 0; padding: .45rem;
+      list-style: none; border: 1px solid var(--line); border-radius: 1rem;
+      background: var(--paper); color: var(--ink); box-shadow: 0 1.2rem 3rem rgb(11 35 30 / 20%);
+      opacity: 0; visibility: hidden; transform: translateY(-.4rem); transition: opacity .2s, visibility .2s, transform .2s;
+    }
+    .language-picker.open .language-list { opacity: 1; visibility: visible; transform: none; }
+    .language-option {
+      display: flex; justify-content: space-between; width: 100%; padding: .72rem .8rem;
+      border: 0; border-radius: .6rem; background: transparent; color: inherit; cursor: pointer;
+      font-size: .88rem; text-align: left;
+    }
+    .language-option:hover, .language-option.active { background: #e7ecea; }
+    .language-option small { color: #82908d; font-size: .65rem; letter-spacing: .14em; }
+
+    .sound-toggle {
+      display: flex; align-items: center; justify-content: center; gap: .55rem; min-width: 4.6rem;
+      padding: .68rem .8rem; border: 1px solid currentColor; border-radius: 999px;
+      background: transparent; color: inherit; cursor: pointer;
+      transition: transform .2s, background .2s, color .2s;
+    }
+    .sound-toggle:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
+    .sound-bars { display: flex; align-items: end; gap: 2px; width: 1rem; height: 1rem; }
+    .sound-bars i { width: 2px; height: 30%; background: currentColor; transform-origin: bottom; }
+    .sound-bars i:nth-child(2) { height: 80%; }
+    .sound-bars i:nth-child(3) { height: 52%; }
+    .sound-toggle.playing .sound-bars i { animation: soundbar .8s ease-in-out infinite alternate; }
+    .sound-toggle.playing .sound-bars i:nth-child(2) { animation-delay: -.45s; }
+    .sound-toggle.playing .sound-bars i:nth-child(3) { animation-delay: -.2s; }
+    .sound-copy { display: grid; gap: .1rem; text-align: left; }
+    .sound-copy strong { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; }
+    .sound-copy small { display: none; }
+    @keyframes soundbar { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
+
+    .hero {
+      position: relative; min-height: 100svh; overflow: hidden; background: var(--ink-deep); color: var(--paper);
+    }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-media::before {
+      content: ""; position: absolute; z-index: 2; inset: 0;
+      background: linear-gradient(90deg, rgb(5 21 17 / 88%) 0%, rgb(8 29 24 / 60%) 45%, rgb(8 29 24 / 8%) 78%),
+                  linear-gradient(0deg, rgb(5 20 16 / 65%) 0%, transparent 45%);
+    }
+    .hero-media video { object-position: center 30%; filter: saturate(.76) contrast(1.05); animation: hero-image-settle 1.8s cubic-bezier(.2,.8,.2,1) both; }
+    .hero-spotlight {
+      position: absolute; z-index: 2; inset: 0; pointer-events: none;
+      background: radial-gradient(circle 22rem at var(--spot-x, 58%) var(--spot-y, 38%), rgb(214 184 164 / 32%), transparent 62%);
+      mix-blend-mode: screen; opacity: .9;
+    }
+    .hero-curtain {
+      position: absolute; z-index: 8; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg, var(--ink-deep) 0 72%, var(--brass) 72% 72.35%, var(--ink) 72.35%);
+      clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%);
+      animation: curtain-open 1.45s cubic-bezier(.77,0,.18,1) .12s forwards;
+    }
+    .hero-316 {
+      position: absolute; z-index: 3; right: -1.2vw; bottom: -8vw;
+      font-family: var(--display); font-size: clamp(13rem, 32vw, 38rem); font-style: italic;
+      font-weight: 400; line-height: .68; letter-spacing: -.12em; color: transparent;
+      -webkit-text-stroke: 1px rgb(255 253 248 / 42%); opacity: .65; pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 4; display: flex; flex-direction: column; justify-content: flex-end;
+      min-height: 100svh; width: min(57rem, 100%); padding: 10rem var(--pad) 5.5rem;
+    }
+    .eyebrow {
+      display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem;
+      font-size: .69rem; font-weight: 700; letter-spacing: .2em; line-height: 1.4; text-transform: uppercase;
+    }
+    /* .eyebrow::before removido */
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 13ch; margin-bottom: 1.6rem; font-family: var(--display);
+      font-size: clamp(3.8rem, 8.5vw, 9rem); font-weight: 400; line-height: .84; letter-spacing: -.065em;
+    }
+    h1 em {
+      color: var(--rose); font-weight: 400;
+      background: linear-gradient(100deg, var(--rose) 15%, var(--paper) 48%, var(--rose) 78%);
+      background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: hair-shine 5.5s ease-in-out infinite;
+    }
+    .hero-content > * { animation: hero-arrive 1.05s cubic-bezier(.2,.8,.2,1) .75s both; }
+    .hero-content > :nth-child(2) { animation-delay: .9s; }
+    .hero-content > :nth-child(3) { animation-delay: 1.05s; }
+    .hero-content > :nth-child(4) { animation-delay: 1.2s; }
+    .hero-316 { animation: mark-breathe 7s ease-in-out infinite; }
+    @keyframes hair-shine { 0%, 65%, 100% { background-position: 100% center; } 35% { background-position: 0 center; } }
+    @keyframes hero-arrive { from { opacity: 0; transform: translateY(1.7rem); } to { opacity: 1; transform: none; } }
+    @keyframes hero-image-settle { from { transform: scale(1.1); filter: saturate(.3) contrast(1.15); } to { transform: scale(1); filter: saturate(.76) contrast(1.05); } }
+    @keyframes curtain-open { to { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); } }
+    @keyframes mark-breathe { 0%, 100% { opacity: .52; transform: translateY(0); } 50% { opacity: .72; transform: translateY(-.8rem); } }
+    .hero-copy { max-width: 39rem; margin-bottom: 2.1rem; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.55; color: rgb(255 253 248 / 82%); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
     .button {
       display: inline-flex; align-items: center; justify-content: space-between; gap: 2.2rem;
       min-width: 13rem; min-height: 2.75rem; padding: .8rem 1.15rem; border: 1px solid currentColor;
@@ -145,93 +260,957 @@
     .button:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
     .button-solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
     .button-solid:hover { background: var(--brass); border-color: var(--brass); color: var(--ink-deep); }
-    .local-map {
-      flex: none; margin-left: .4rem; font-size: .65rem; font-weight: 800; letter-spacing: .12em;
-      text-transform: uppercase; text-decoration: underline; text-underline-offset: .35rem;
+    .hero-meta {
+      position: absolute; z-index: 4; right: var(--pad); top: 50%; display: flex; gap: 1.2rem;
+      writing-mode: vertical-rl; transform: translateY(-50%); font-size: .6rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
     }
+    .hero-meta span + span { padding-top: 1.2rem; border-top: 1px solid rgb(255 255 255 / 50%); }
 
-    /* Hotel Ílhavo Plaza — turquesa, cinza escuro, letra prateada */
-    #ilhavo {
-      --ink: #253034;
-      --ink-deep: #1F272B;
-      --leaf: #1F7C79;
-      --brass: #DDE5E5;
+    .locations {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem);
+      padding: clamp(5rem, 10vw, 9rem) var(--pad); color: #000; --ink: #000;
+      background: linear-gradient(135deg, #F2F3F5 0%, var(--silver) 45%, var(--silver-deep) 100%);
     }
+    .locations-head { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
+    .locations-logo { width: 14rem; height: auto; flex-shrink: 0; filter: brightness(0); }
+    .locations-head .section-heading { margin-bottom: 0; text-align: left; color: #000; }
+    .locations-head .section-heading em { color: var(--gold); font-style: italic; }
+    .local { display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; }
+    #aveiro .local-info h3 { color: #2B3D27; }
+    .local-main { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
+    .local-main img { transition: opacity .2s; }
+    .carousel-track {
+      display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-slide { flex: 0 0 100%; height: 100%; scroll-snap-align: start; }
+    .carousel-slide img { width: 100%; height: 100%; }
+    .carousel-arrow {
+      position: absolute; z-index: 2; top: 50%; transform: translateY(-50%);
+      width: 2.5rem; height: 2.5rem; border: 0; border-radius: 999px;
+      background: rgb(0 0 0 / 35%); color: #fff; font-size: 1.35rem; line-height: 1;
+      display: grid; place-items: center; cursor: pointer; transition: background .2s;
+    }
+    .carousel-arrow:hover { background: rgb(0 0 0 / 55%); }
+    .carousel-prev { left: .75rem; }
+    .carousel-next { right: .75rem; }
+    .carousel-dots { position: absolute; z-index: 2; left: 0; right: 0; bottom: .9rem; display: flex; justify-content: center; gap: .5rem; }
+    .carousel-dot { width: .5rem; height: .5rem; padding: 0; border: 0; border-radius: 999px; background: rgb(255 255 255 / 55%); cursor: pointer; transition: background .2s, transform .2s; }
+    .carousel-dot.active { background: #fff; transform: scale(1.3); }
+    .carousel-single .carousel-arrow, .carousel-single .carousel-dots { display: none; }
+    .local-placeholder {
+      display: grid; place-items: center; color: var(--ivory);
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .local-info h3 { margin: 0 0 .6rem; font-family: var(--display); font-size: 1.6rem; font-weight: 400; }
+    .local-info p { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.6; color: color-mix(in srgb, var(--ink) 78%, white); }
+    .local-actions { margin-top: 1.4rem; align-items: center; flex-wrap: nowrap; }
+    .local-gallery { position: relative; margin-top: 1.4rem; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ink); }
+    .local-gallery .carousel-slide img { object-fit: contain; }
+    .local-map { display: inline-block; flex: none; margin-left: .4rem; font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-decoration: underline; text-underline-offset: .35rem; }
+
+    .flyers { padding: clamp(5rem, 10vw, 9rem) var(--pad); background: var(--brass); color: var(--ink-deep); }
+    .flyers-head .section-heading em { color: var(--gold); }
+    .flyers-head { margin-bottom: 3rem; }
+    .flyers-head .section-heading { margin-bottom: 0; }
+    .flyer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.5rem; }
+    .flyer { margin: 0; }
+    .flyer img { aspect-ratio: 4 / 5; object-fit: contain; background: var(--paper); border: 1px solid var(--line); }
+    .flyer figcaption { margin-top: .8rem; font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--leaf); }
+
+    .intro {
+      display: grid; grid-template-columns: .65fr 1.35fr; gap: clamp(2rem, 7vw, 8rem);
+      padding: clamp(6rem, 12vw, 11rem) var(--pad); background: var(--paper);
+    }
+    .section-tag { font-size: .65rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .intro h2, .section-heading {
+      margin-bottom: 2.5rem; font-family: var(--display); font-size: clamp(3rem, 6.7vw, 7.2rem);
+      font-weight: 400; line-height: .91; letter-spacing: -.055em;
+    }
+    .intro h2 em, .section-heading em { color: var(--brass); font-weight: 400; }
+    .intro-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 52rem; }
+    .intro-copy p { margin: 0; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.65; color: color-mix(in srgb, var(--ink) 78%, white); }
+
+    .marquee {
+      overflow: hidden; padding: 1.2rem 0; background: var(--brass); color: var(--ink); border-block: 1px solid rgb(255 255 255 / 18%);
+    }
+    .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    .marquee span { padding-right: 2.4rem; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
+    .marquee b { color: var(--gold); font-weight: 400; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    .services { padding: clamp(6rem, 11vw, 10rem) var(--pad); background: var(--ink); color: var(--paper); }
+    .services .section-heading em { color: var(--leaf); }
+    .services-head p { color: var(--paper); }
+    .service { border-bottom-color: color-mix(in srgb, var(--paper) 22%, transparent); }
+    .service-number { color: var(--brass); }
+    .services-head { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 4rem; }
+    .services-head .section-heading { max-width: 10ch; margin: 0; }
+    .services-head p { max-width: 28rem; margin: 0; line-height: 1.65; }
+    .service-list { border-top: 1px solid var(--line); }
+    .service {
+      display: grid; grid-template-columns: 5rem .8fr 1.4fr 17rem; gap: 2rem; align-items: center;
+      min-height: 12rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+    }
+    .service-number { font-family: var(--display); font-size: 1.2rem; font-style: italic; color: var(--brass); }
+    .service h3 { margin: 0; font-family: var(--display); font-size: clamp(2.3rem, 4.3vw, 5rem); font-weight: 400; letter-spacing: -.05em; }
+    .service p { margin: 0; max-width: 38rem; line-height: 1.6; }
+    .service-thumb {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; height: 8.5rem; overflow: hidden;
+    }
+    .service-thumb video { transition: transform .65s; }
+    .service:hover .service-thumb video { transform: scale(1.05); }
+    .service-thumb img { transition: transform .65s; }
+    .service:hover .service-thumb img { transform: scale(1.05); }
+
+    .feature {
+      display: grid; grid-template-columns: 1.05fr .95fr; min-height: 52rem; background: var(--ink); color: var(--paper);
+    }
+    .feature-media { position: relative; min-height: 45rem; overflow: hidden; }
+    .feature-media::after { content: "LOIROS"; position: absolute; right: -2rem; bottom: 2rem; font-family: var(--display); font-size: clamp(5rem, 12vw, 13rem); line-height: .7; color: transparent; -webkit-text-stroke: 1px rgb(255 255 255 / 38%); transform: rotate(-90deg) translateX(100%); transform-origin: right bottom; }
+    .feature-media img { object-position: center top; }
+    .feature-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 8vw, 8rem); }
+    .feature-copy .section-heading { margin-bottom: 2rem; }
+    .feature-copy > p { max-width: 34rem; line-height: 1.7; color: rgb(255 253 248 / 76%); }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 2.2rem 0 2.8rem; border-top: 1px solid rgb(255 255 255 / 22%); }
+    .checks span { padding: 1rem .5rem 1rem 0; border-bottom: 1px solid rgb(255 255 255 / 22%); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .checks span::before { content: "✦"; margin-right: .7rem; color: var(--brass); }
+
+    .transformation-lab {
+      display: grid; grid-template-columns: .72fr 1.28fr; min-height: 95vh;
+      background: var(--ink); color: var(--paper); overflow: hidden;
+    }
+    .transformation-lab .section-heading em { color: var(--leaf); }
+    .transform-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 8vw, 8rem) var(--pad); }
+    .transform-copy .section-heading { max-width: 7ch; margin-bottom: 1.8rem; }
+    .transform-copy > p:last-child { max-width: 31rem; line-height: 1.7; }
+    .compare {
+      --split: 48%; position: relative; justify-self: center; width: 100%; max-width: 45rem;
+      min-height: 48rem; overflow: hidden; background: var(--ink-deep);
+      animation: compare-breathe 5.5s ease-in-out infinite;
+    }
+    .compare.touched { animation: none; }
+    .compare > img, .compare-layer, .compare-layer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .compare-layer { clip-path: inset(0 calc(100% - var(--split)) 0 0); will-change: clip-path; }
+    .compare-divider { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--split); width: 2px; background: var(--paper); transform: translateX(-1px); pointer-events: none; }
+    .compare-handle {
+      position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 3.8rem; height: 3.8rem;
+      border: 1px solid var(--paper); border-radius: 50%; background: rgb(11 35 30 / 72%); color: var(--paper);
+      font-family: var(--display); font-size: 1.1rem; transform: translate(-50%, -50%); box-shadow: 0 .8rem 2rem rgb(11 35 30 / 26%);
+    }
+    .compare-range { position: absolute; z-index: 5; inset: 0; width: 100%; height: 100%; margin: 0; cursor: ew-resize; opacity: 0; }
+    .compare-range:focus-visible + .compare-divider .compare-handle { outline: 3px solid var(--brass); outline-offset: 5px; }
+    .compare-label { position: absolute; z-index: 4; top: 1.3rem; padding: .65rem .8rem; border: 1px solid rgb(255 255 255 / 55%); border-radius: 999px; background: rgb(11 35 30 / 54%); color: var(--paper); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(9px); }
+    .compare-label.before { left: 1.3rem; }
+    .compare-label.after { right: 1.3rem; }
+    @keyframes compare-breathe { 0%, 100% { --split: 35%; } 50% { --split: 67%; } }
+
+    .diagnosis {
+      position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 9vw, 10rem);
+      padding: clamp(6rem, 12vw, 12rem) var(--pad); background: var(--brass); color: var(--ink-deep); overflow: hidden;
+    }
+    .diagnosis::before { content: "316"; position: absolute; right: -2vw; top: -6vw; font-family: var(--display); font-size: clamp(12rem, 30vw, 32rem); font-style: italic; line-height: .8; color: var(--ink); pointer-events: none; }
+    .diagnosis-media { position: relative; z-index: 1; align-self: start; height: min(72vw, 52rem); }
+    .diagnosis-media img { object-position: center; }
+    .diagnosis-media figcaption { position: absolute; right: -2rem; bottom: 2rem; padding: 1rem; background: var(--brass); color: var(--ink-deep); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .diagnosis-copy { position: relative; z-index: 1; align-self: start; }
+    .diagnosis-copy .section-heading { max-width: 9ch; }
+    .diagnosis-copy .section-heading em { color: var(--gold); }
+    .diagnosis-copy > p { max-width: 38rem; font-size: 1.08rem; line-height: 1.7; }
+    .steps { margin-top: 3rem; counter-reset: step; }
+    .step { position: relative; padding: 1.3rem 0 1.3rem 3.6rem; border-top: 1px solid var(--line); counter-increment: step; }
+    .step:last-child { border-bottom: 1px solid var(--line); }
+    .step::before { content: "0" counter(step); position: absolute; left: 0; top: 1.45rem; color: var(--brass); font-family: var(--display); font-style: italic; }
+    .step strong { display: block; margin-bottom: .35rem; font-family: var(--display); font-size: 1.45rem; font-weight: 400; }
+    .step p { margin: 0; color: color-mix(in srgb, var(--ink) 70%, white); line-height: 1.55; }
+
+    .lookbook { padding: clamp(6rem, 11vw, 10rem) 0; background: var(--ink); color: var(--paper); }
+    .lookbook .section-heading em { color: var(--leaf); }
+    .lookbook-aside p { color: var(--paper); }
+    .lookbook-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding: 0 var(--pad); margin-bottom: 3.5rem; }
+    .lookbook-head .section-heading { margin: 0; }
+    .lookbook-aside { display: grid; justify-items: start; gap: 1rem; max-width: 27rem; }
+    .lookbook-aside p { margin: 0; line-height: 1.6; }
+    .send-looks { font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-decoration: underline; text-underline-offset: .35rem; text-transform: uppercase; }
+    .send-looks[hidden] { display: none; }
+    .saved-looks[hidden] { display: none; }
+    .gallery {
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(18rem, 29vw); gap: 1rem;
+      overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory;
+      scrollbar-width: none; padding: 0 var(--pad) 1rem;
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70vh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
+    .shot:nth-child(2n) { margin-top: 4rem; height: min(61vh, 41rem); }
+    .shot img, .shot video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.002); transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .4s; }
+    .shot:hover img, .shot:hover video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.045); filter: saturate(1.1); }
+    .shot figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem; padding: 3rem 1.2rem 1.2rem; color: var(--paper); background: linear-gradient(transparent, rgb(5 20 16 / 80%)); font-size: .64rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .shot.filtered-out { display: none; }
+    .look-like {
+      position: absolute; z-index: 4; top: 1rem; right: 1rem; display: grid; place-items: center;
+      width: 2.8rem; height: 2.8rem; padding: 0; border: 1px solid rgb(255 255 255 / 62%); border-radius: 50%;
+      background: rgb(11 35 30 / 48%); color: var(--paper); cursor: pointer; backdrop-filter: blur(10px);
+      opacity: 0; transform: translateY(-.5rem) scale(.88); transition: opacity .2s, transform .25s, background .2s, color .2s;
+    }
+    .shot:hover .look-like, .look-like:focus-visible, .look-like.liked { opacity: 1; transform: none; }
+    .look-like:hover { transform: scale(1.08); }
+    .look-like.liked { background: var(--brass); color: var(--ink-deep); border-color: var(--brass); }
+    .look-like svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.7; }
+    .look-like.liked svg { fill: currentColor; }
+    .gallery-hint { margin: 1.4rem var(--pad) 0; font-size: .65rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+
+    .beauty-toast {
+      position: fixed; z-index: 180; left: 50%; bottom: 1.4rem; width: max-content; max-width: calc(100vw - 2rem);
+      padding: .9rem 1.1rem; border-radius: 999px; background: var(--ink-deep); color: var(--paper);
+      box-shadow: 0 1rem 3rem rgb(11 35 30 / 28%); font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+      opacity: 0; pointer-events: none; transform: translate(-50%, 1rem); transition: opacity .25s, transform .25s;
+    }
+    .beauty-toast.show { opacity: 1; transform: translate(-50%, 0); }
+    .sparkle-particle {
+      position: fixed; z-index: 200; left: 0; top: 0; color: var(--brass); pointer-events: none;
+      font-family: var(--display); font-size: 1rem; animation: sparkle-burst .75s cubic-bezier(.1,.7,.2,1) forwards;
+    }
+    @keyframes sparkle-burst { from { opacity: 1; transform: translate(-50%, -50%) scale(.4); } to { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--spin)) scale(1.25); } }
+
+    @keyframes heading-kinetic {
+      from { opacity: .08; filter: blur(10px); clip-path: inset(0 100% 0 0); transform: translateX(-7vw) skewX(-7deg); }
+      to { opacity: 1; filter: blur(0); clip-path: inset(0); transform: none; }
+    }
+    @keyframes service-enter { from { opacity: .15; transform: translateX(-5rem); } to { opacity: 1; transform: none; } }
+    @keyframes image-parallax { from { transform: scale(1.14) translateY(4%); } to { transform: scale(1.14) translateY(-4%); } }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .section-heading {
+          animation: heading-kinetic linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 34%;
+        }
+        .service {
+          animation: service-enter linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 26%;
+        }
+        .feature-media img, .diagnosis-media img, .wellbeing-media img {
+          animation: image-parallax linear both;
+          animation-timeline: view();
+          animation-range: entry 0% exit 100%;
+        }
+      }
+    }
+    .motion-fallback .section-heading, .motion-fallback .service { opacity: 0; transform: translateY(2.5rem); transition: opacity .75s, transform .75s cubic-bezier(.2,.8,.2,1); }
+    .motion-fallback .section-heading.trend-visible, .motion-fallback .service.trend-visible { opacity: 1; transform: none; }
+
+    .wellbeing { display: grid; grid-template-columns: 1fr 1fr; background: var(--brass); color: var(--ink-deep); }
+    .wellbeing .section-heading em { color: var(--leaf); }
+    .wellbeing-copy { padding: clamp(5rem, 9vw, 9rem) var(--pad); }
+    .wellbeing-copy .section-heading { max-width: 9ch; }
+    .wellbeing-copy p { max-width: 35rem; font-size: 1.08rem; line-height: 1.7; }
+    .wellbeing-media { display: grid; grid-template-columns: 1fr 1fr; min-height: 48rem; }
+    .wellbeing-media figure { position: relative; margin: 0; overflow: hidden; }
+    .wellbeing-media figure:last-child { margin-top: 7rem; }
+
+    .contact-section { position: relative; overflow: hidden; background: var(--ink-deep); color: var(--paper); }
+    .contact-section::before { content: "AVEIRO"; position: absolute; left: -3vw; bottom: -4vw; font-family: var(--display); font-size: 21vw; line-height: .7; color: transparent; -webkit-text-stroke: 1px rgb(255 255 255 / 11%); pointer-events: none; }
+    .contact-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; padding: clamp(7rem, 12vw, 12rem) var(--pad) 8rem; }
+    .contact-wrap .section-heading { max-width: 10ch; }
+    .contact-lead { max-width: 39rem; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.65; color: rgb(255 253 248 / 75%); }
+    .contact-actions { margin-top: 2.5rem; }
+    .contact-cards { align-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
+    .contact-card { margin: 0; border-top: 1px solid rgb(255 255 255 / 35%); }
+    .contact-card-wide { grid-column: 1 / -1; }
+    .contact-title dd strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
+    .contact-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
+    .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+    .contact-row dd { margin: 0; line-height: 1.55; }
+    .contact-row a { text-decoration: underline; text-decoration-color: rgb(255 255 255 / 35%); text-underline-offset: .3rem; }
+    .footer { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem var(--pad); border-top: 1px solid rgb(255 255 255 / 18%); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+
+    .reveal { opacity: 1; transform: none; }
 
     @media (max-width: 980px) {
-      .locations { grid-template-columns: 1fr; grid-template-rows: auto 1fr 1fr; }
+      .locations { grid-template-columns: 1fr; }
+      .header { grid-template-columns: 1fr auto; }
+      .nav-local { display: block; }
+      .brand-group { grid-column: 1; justify-self: start; }
+      .brand { min-width: 0; }
+      .brand strong { margin-right: -.16em; font-size: 1.2rem; letter-spacing: .16em; }
+      .brand small { margin: .4rem -.35em 0 0; font-size: .44rem; letter-spacing: .35em; }
+      .brand-group > .brand-side, .brand-ilhavo { display: none; }
+      .header-actions { grid-column: 2; gap: .8rem; }
+      .menu-toggle { display: block; justify-self: end; color: inherit; }
+      .nav {
+        position: fixed; inset: 0; z-index: -1; display: flex; flex-direction: column; justify-content: center;
+        justify-self: stretch; width: 100vw; max-width: none; height: 100dvh;
+        gap: 2.2rem; padding: 6rem var(--pad); background: var(--ink-deep); color: var(--paper);
+        opacity: 0; visibility: hidden; transform: translateY(-1rem); transition: opacity .25s, visibility .25s, transform .25s;
+      }
+      .nav.open { z-index: -1; opacity: 1; visibility: visible; transform: none; }
+      .nav a { font-family: var(--display); font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; letter-spacing: -.04em; text-transform: none; }
+      .nav .nav-cta { padding: 0; border: 0; }
+      .language-list { position: fixed; right: 1rem; top: 4.5rem; width: min(13.7rem, calc(100vw - 2rem)); }
+      .intro { grid-template-columns: 1fr; }
+      .service { grid-template-columns: 5rem .8fr 1.4fr 17rem; gap: 2rem; align-items: center; }
+      .feature, .transformation-lab, .diagnosis, .wellbeing, .contact-wrap { grid-template-columns: 1fr; }
+      .feature-copy { grid-row: 1; }
+      .feature-media { min-height: 40rem; }
+      .compare { min-height: 70vh; }
+      .diagnosis-media { width: min(82%, 40rem); height: 42rem; }
+      .wellbeing-media { min-height: 38rem; }
     }
 
     @media (max-width: 640px) {
-      /* cabeceira compacta em linha: a altura poupada vai para as fotos */
-      .locations-head { gap: 1rem; padding: 1.1rem var(--pad) 1rem; }
-      .locations-logo { width: 4.6rem; }
-      .locations-head h1 { font-size: clamp(1.25rem, 5vw, 1.6rem); }
-      .locations-hint { margin-top: .4rem; font-size: .56rem; letter-spacing: .13em; }
-      .local-info { padding: .95rem 1.25rem 1.3rem; }
-      .local-bar { padding: .6rem 1.25rem; font-size: .62rem; letter-spacing: .2em; }
-      .local-info h2 { margin-bottom: .35rem; font-size: 1.35rem; }
-      .local-info p { margin-bottom: .25rem; font-size: .82rem; line-height: 1.45; }
-      .actions { margin-top: .9rem; gap: .5rem; }
-      .actions .button { flex: 1 1 8rem; min-width: 0; gap: .7rem; padding: .65rem .8rem; font-size: .62rem; }
-      .local-map { flex-basis: 100%; margin-left: 0; }
+      .header { height: 4.9rem; }
+      .header.scrolled { height: 4.5rem; }
+      .header-actions { gap: .65rem; }
+      .language-toggle { min-width: 3.8rem; padding: .58rem .65rem; }
+      .sound-toggle { min-width: 2.65rem; width: 2.65rem; height: 2.45rem; padding: .55rem; }
+      .sound-copy { display: none; }
+      .hero-content { justify-content: flex-end; padding-top: 8rem; padding-bottom: 3rem; }
+      .hero-media::before { background: linear-gradient(0deg, rgb(5 21 17 / 92%) 0%, rgb(5 21 17 / 48%) 68%, rgb(5 21 17 / 20%)); }
+      .hero-media video { object-position: 56% center; }
+      .hero-spotlight { background: radial-gradient(circle 14rem at 55% 34%, rgb(214 184 164 / 28%), transparent 68%); animation: spotlight-drift 7s ease-in-out infinite alternate; }
+      .hero-meta { display: none; }
+      .hero-316 { right: -5vw; bottom: 8rem; font-size: 60vw; }
+      h1 { font-size: clamp(3.4rem, 16vw, 5.3rem); }
+      .hero-copy { font-size: .96rem; }
+      .button { width: 100%; }
+      .intro-copy { grid-template-columns: 1fr; }
+      .services-head, .lookbook-head { display: block; }
+      .services-head p, .lookbook-head p { margin-top: 1.4rem; }
+      .service { grid-template-columns: 2.2rem 1fr; gap: 1rem; padding: 2rem 0; }
+      .service h3 { font-size: 2.7rem; }
+      .service p { grid-column: 2; }
+      .service-thumb { grid-column: 1 / -1; grid-row: auto; height: 14rem; }
+      .feature-media { min-height: 34rem; }
+      .feature-copy { padding-inline: var(--pad); }
+      .transform-copy { padding-inline: var(--pad); }
+      .compare { min-height: 72vh; }
+      .checks { grid-template-columns: 1fr; }
+      .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
+      .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
+      .gallery { grid-auto-columns: 81vw; }
+      .shot, .shot:nth-child(2n) { height: 62vh; margin-top: 0; }
+      .look-like { opacity: 1; transform: none; }
+      .wellbeing-media { min-height: 30rem; }
+      .wellbeing-media figure:last-child { margin-top: 3rem; }
+      .contact-row { grid-template-columns: 1fr; gap: .45rem; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
     }
 
-    /* Telemóveis baixos: não há altura para uma foto decente, fica só a cor do espaço */
-    @media (max-width: 980px) and (max-height: 720px) {
-      .locations-head { gap: .8rem; padding: .8rem var(--pad) .75rem; }
-      .locations-logo { width: 3.9rem; }
-      .locations-head h1 { font-size: clamp(1.15rem, 4.6vw, 1.45rem); }
-      .local-main { display: none; }
-      .local-info { padding: 1.1rem 1.25rem 1.35rem; }
-    }
+    @keyframes spotlight-drift { from { transform: translate3d(-6%, -2%, 0); } to { transform: translate3d(7%, 4%, 0); } }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition-duration: .01ms !important; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .hero-curtain { display: none; }
+      .hero-media video, .hero-content > *, .hero-316, .compare, .hero-spotlight { animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#locais">Saltar para a escolha de espaço</a>
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <div class="topline" aria-hidden="true"></div>
+  <audio id="ambience" loop preload="auto" autoplay aria-hidden="true">
+    <source src="assets/audio/ambience.mp3" type="audio/mpeg">
+  </audio>
 
-  <main class="locations" id="locais">
-    <div class="locations-head">
-      <img src="assets/img/galeano-logo-verde.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo" width="343" height="348">
+  <header class="header scrolled" id="header">
+    <div class="brand-group">
+      <a class="brand-side" href="espaco-aveiro.html">Aveiro</a>
+      <a class="brand" href="#aveiro" aria-label="Studio 316 Hair, Aveiro">
+        <strong>STUDIO 316</strong><small>Hair</small>
+      </a>
+      <a class="brand-ilhavo" href="espaco-ilhavo.html" aria-label="Hotel Ílhavo Plaza, cabeleireiros">
+        <span class="brand-side">Ílhavo</span>
+        <img src="assets/img/hotel-ilhavo-plaza-logo.png" alt="Hotel Ílhavo Plaza · Cabeleireiros">
+      </a>
+    </div>
+    <div class="header-actions">
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#top">Início</a>
+        <a class="nav-local" href="#aveiro">Aveiro</a>
+        <a class="nav-local" href="#ilhavo">Ílhavo</a>
+        <a href="espaco-aveiro.html#servicos">Serviços</a>
+        <a href="#campanhas">Campanhas</a>
+        <a href="espaco-aveiro.html#resultados">Resultados</a>
+        <a href="#sobre">Método</a>
+        <a class="nav-cta" href="#contactos">Marcar</a>
+      </nav>
+      <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Reproduzir música ambiente">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sound-copy"><strong>Som</strong></span>
+      </button>
+      <div class="language-picker">
+        <button class="language-toggle" type="button" aria-expanded="false" aria-controls="language-list" aria-label="Escolher idioma"><span>PT</span></button>
+        <ul class="language-list" id="language-list">
+          <li><button class="language-option active" type="button" data-lang="pt"><span>Português</span><small>PT</small></button></li>
+          <li><button class="language-option" type="button" data-lang="es"><span>Español</span><small>ES</small></button></li>
+          <li><button class="language-option" type="button" data-lang="en"><span>English</span><small>EN</small></button></li>
+          <li><button class="language-option" type="button" data-lang="de"><span>Deutsch</span><small>DE</small></button></li>
+          <li><button class="language-option" type="button" data-lang="fr"><span>Français</span><small>FR</small></button></li>
+        </ul>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="locations" id="locais" aria-labelledby="locations-title">
+      <div class="locations-head">
+        <img src="assets/img/galeano-logo.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo">
+        <h2 class="section-heading" id="locations-title">Dois salões, <em>a mesma excelência,</em> pensados para si.</h2>
+      </div>
+
+      <article class="local" id="aveiro">
+        <div class="local-main"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></div>
+        <div class="local-info">
+          <h3>Studio 316 · Aveiro</h3>
+          <p>R. do Sr. dos Aflitos 59, 3800-260 Aveiro</p>
+          <p><a href="tel:+351234351054">234 351 054</a> · <a href="tel:+351927829171">927 829 171</a></p>
+          <div class="actions local-actions">
+            <a class="button button-solid" href="espaco-aveiro.html">Ver o espaço</a>
+            <a class="button" href="tel:+351****1054">Ligar agora</a>
+            <a class="button" href="https://wa.me/351927829171" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
+            <a class="local-map" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
+          </div>
+          <div class="local-gallery carousel" data-carousel>
+            <div class="carousel-track" data-track>
+              <div class="carousel-slide"><img src="bienvenida.png" alt="Cartaz Bem-vinda à sua melhor versão, Studio 316 Hair" loading="lazy"></div>
+              <div class="carousel-slide"><img src="bonita.png" alt="Cada cabelo tem uma história — atendimento personalizado no Studio 316" loading="lazy"></div>
+              <div class="carousel-slide"><img src="frente.png" alt="Fachada do Studio 316 Hair em Aveiro" loading="lazy"></div>
+              <div class="carousel-slide"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy"></div>
+              <div class="carousel-slide"><img src="panfleto2.png" alt="Campanha Mãos e Pés — manicure e pedicure no Studio 316" loading="lazy"></div>
+            </div>
+            <button class="carousel-arrow carousel-prev" type="button" data-prev aria-label="Foto anterior">‹</button>
+            <button class="carousel-arrow carousel-next" type="button" data-next aria-label="Foto seguinte">›</button>
+            <div class="carousel-dots" data-dots></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="local" id="ilhavo">
+        <div class="local-main"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></div>
+        <div class="local-info">
+          <h3>Hotel Ílhavo Plaza</h3>
+          <p>Av. Mário Sacramento 113, 3830-052 Ílhavo</p>
+          <p><a href="tel:+351****6651">913 456 651</a></p>
+          <div class="actions local-actions">
+            <a class="button button-solid" href="espaco-ilhavo.html">Ver o espaço</a>
+            <a class="button" href="tel:+351****6651">Ligar agora</a>
+            <a class="button" href="https://wa.me/351913456651" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
+            <a class="local-map" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
+          </div>
+          <div class="local-gallery carousel" data-carousel>
+            <div class="carousel-track" data-track>
+              <div class="carousel-slide"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/21.jpg" alt="Campanha Massagem Bem-Estar" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/22.jpg" alt="Redken Shades EQ Gloss" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/23.jpg" alt="Campanha Mãos e Pés" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/24.jpg" alt="Lavagem de cabelo no salão do Hotel Ílhavo Plaza" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/25.jpg" alt="Corte masculino no salão do Hotel Ílhavo Plaza" loading="lazy"></div>
+              <div class="carousel-slide"><img src="ilhavo/26.jpg" alt="Campanha Realce a sua beleza — pestanas" loading="lazy"></div>
+            </div>
+            <button class="carousel-arrow carousel-prev" type="button" data-prev aria-label="Foto anterior">‹</button>
+            <button class="carousel-arrow carousel-next" type="button" data-next aria-label="Foto seguinte">›</button>
+            <div class="carousel-dots" data-dots></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="hero" id="inicio" aria-label="Studio 316 Aveiro">
+      <div class="hero-media">
+        <video autoplay muted loop playsinline poster="videos/apresentacao-poster.jpg" aria-label="Apresentação do Studio 316: espaço, diagnóstico, tratamento e resultado">
+          <source src="videos/apresentacao-studio316.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-spotlight" aria-hidden="true"></div>
+      <div class="hero-curtain" aria-hidden="true"></div>
+      <div class="hero-316" aria-hidden="true">316</div>
+      <div class="hero-content">
+        <p class="eyebrow">Hair · Nails · Estética · Massagem</p>
+        <h1>A sua beleza, <em>sem filtros.</em></h1>
+        <p class="hero-copy">Especialistas em transformação e beleza. Criamos resultados elegantes e personalizados, respeitando sempre a sua identidade e a saúde do seu cabelo.</p>
+        <div class="actions">
+          <a class="button button-solid" href="tel:+351234351054">Marcar avaliação</a>
+          <a class="button" href="espaco-aveiro.html#resultados">Ver resultados</a>
+        </div>
+      </div>
+      <div class="hero-meta" aria-hidden="true"><span>@studio316aveiro</span><span>@redkenpro</span></div>
+    </section>
+
+    <section class="intro" aria-labelledby="intro-title" hidden style="display:none">
+      <p class="section-tag reveal">Studio 316 · Aveiro</p>
       <div>
-        <h1>Dois espaços pensados para si. <em>O mesmo cuidado.</em></h1>
-        <p class="locations-hint">Escolha onde quer ser atendida</p>
+        <h2 class="reveal" id="intro-title">Beleza que se sente.<br><em>Confiança que fica.</em></h2>
+        <div class="intro-copy reveal">
+          <p>Cuidamos de cada detalhe para realçar a sua beleza natural. Mais brilho, mais leveza e um visual renovado — sempre com profissionalismo e atenção.</p>
+          <p>Cada pessoa é única. Por isso, começamos por ouvir, avaliar e desenhar um cuidado feito à sua medida.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Cabelo saudável <b>✦</b> Cor apaixonante <b>✦</b> Beleza natural <b>✦</b> Cuidado personalizado <b>✦</b>&nbsp;</span>
+        <span>Cabelo saudável <b>✦</b> Cor apaixonante <b>✦</b> Beleza natural <b>✦</b> Cuidado personalizado <b>✦</b>&nbsp;</span>
       </div>
     </div>
 
-    <article class="local" id="aveiro">
-      <p class="local-bar">Aveiro</p>
-      <div class="local-main"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem" width="1080" height="810"></div>
-      <div class="local-info">
-        <h2>Studio 316 · Aveiro</h2>
-        <p>R. do Sr. dos Aflitos 59, 3800-260 Aveiro</p>
-        <p><a href="tel:+351234351054">234 351 054</a> · <a href="tel:+351927829171">927 829 171</a></p>
-        <div class="actions">
-          <a class="button button-solid" href="aveiro.html">Ver o espaço</a>
-          <a class="button" href="tel:+351234351054">Ligar agora</a>
-          <a class="local-map" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
-        </div>
+    <section class="flyers" id="campanhas" aria-labelledby="flyers-title">
+      <div class="flyers-head">
+        <p class="section-tag reveal">Campanhas em sala</p>
+        <h2 class="section-heading reveal" id="flyers-title">O que está <em>em destaque.</em></h2>
       </div>
-    </article>
+      <div class="flyer-grid">
+        <figure class="flyer"><img src="3918741754922279733.jpg" alt="Cartaz de boas-vindas: Bem-vinda à sua melhor versão" loading="lazy"><figcaption>Bem-vinda</figcaption></figure>
+        <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy"><figcaption>Tratamento 30€</figcaption></figure>
+        <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy"><figcaption>Unhas</figcaption></figure>
+        <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy"><figcaption>Mãos & pés</figcaption></figure>
+        <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy"><figcaption>Massagem</figcaption></figure>
+      </div>
+    </section>
 
-    <article class="local" id="ilhavo">
-      <p class="local-bar">Ílhavo</p>
-      <div class="local-main"><img src="ilhavo/12.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" width="1080" height="810"></div>
-      <div class="local-info">
-        <h2>Hotel Ílhavo Plaza</h2>
-        <p>Av. Mário Sacramento 113, 3830-052 Ílhavo</p>
-        <p><a href="tel:+351913456651">913 456 651</a></p>
-        <div class="actions">
-          <a class="button button-solid" href="ilhavo.html">Ver o espaço</a>
-          <a class="button" href="tel:+351913456651">Ligar agora</a>
-          <a class="local-map" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
+    <section class="feature" aria-labelledby="blonde-title">
+      <div class="feature-media">
+        <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
+      </div>
+      <div class="feature-copy reveal">
+        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer">@ropinheirohair</a></p>
+        <h2 class="section-heading" id="blonde-title">O loiro dos <em>sonhos.</em></h2>
+        <p>O loiro perfeito começa com um diagnóstico profissional e um cabelo saudável. Criamos loiros luminosos, elegantes e personalizados, sem comprometer a fibra capilar.</p>
+        <div class="checks">
+          <span>Loiro sem manchas</span><span>Madeixas e balayage</span><span>Correção de cor</span><span>Acabamento natural</span><span>Reconstrução</span><span>Hidratação profunda</span>
+        </div>
+        <a class="button" href="tel:+351234351054">Avaliar o meu cabelo</a>
+      </div>
+    </section>
+
+    <section class="transformation-lab" aria-labelledby="transform-title">
+      <div class="transform-copy">
+        <p class="eyebrow">Transformação real</p>
+        <h2 class="section-heading" id="transform-title">Arraste. <em>Veja o brilho.</em></h2>
+        <p>Mova o controlo e compare o resultado real. Cor mais luminosa, acabamento polido e movimento sem perder a identidade.</p>
+      </div>
+      <div class="compare">
+        <img src="assets/img/transform-after.jpg" alt="Resultado depois da transformação: cabelo loiro luminoso e polido" loading="lazy">
+        <div class="compare-layer"><img src="assets/img/transform-before.jpg" alt="Cabelo antes da transformação" loading="lazy"></div>
+        <span class="compare-label before">Antes</span>
+        <span class="compare-label after">Depois</span>
+        <input class="compare-range" type="range" min="0" max="100" value="48" aria-label="Comparar cabelo antes e depois">
+        <div class="compare-divider" aria-hidden="true"><span class="compare-handle">↔</span></div>
+      </div>
+    </section>
+
+    <section class="diagnosis" id="sobre" aria-labelledby="diagnosis-title">
+      <figure class="diagnosis-media reveal">
+        <img src="3926900488737946808_3926900427653664959.jpg" alt="Profissional do Studio 316 a trabalhar no salão" loading="lazy">
+        <figcaption>Segurança primeiro. Sempre.</figcaption>
+      </figure>
+      <div class="diagnosis-copy reveal">
+        <p class="section-tag">O nosso método</p>
+        <h2 class="section-heading" id="diagnosis-title">Cada cabelo é único. <em>Cada tratamento também.</em></h2>
+        <p>Antes de qualquer procedimento químico, realizamos um teste de madeixas para avaliar a resistência e condição do cabelo. Assim garantimos um resultado seguro, personalizado e de excelência.</p>
+        <div class="steps">
+          <div class="step"><strong>Diagnóstico profissional</strong><p>Ouvimos o seu objetivo e avaliamos o estado real do cabelo.</p></div>
+          <div class="step"><strong>Teste de madeixas</strong><p>Confirmamos resistência e compatibilidade antes da transformação.</p></div>
+          <div class="step"><strong>Plano personalizado</strong><p>Escolhemos cor, técnica e tratamento adequados ao seu cabelo.</p></div>
+          <div class="step"><strong>Cuidado contínuo</strong><p>Protegemos brilho, suavidade e força para um resultado duradouro.</p></div>
         </div>
       </div>
-    </article>
+    </section>
+
+    <section class="contact-section" id="contactos" aria-labelledby="contact-title">
+      <div class="contact-wrap">
+        <div class="reveal">
+          <p class="eyebrow">Estamos à sua espera</p>
+          <h2 class="section-heading" id="contact-title">Vamos criar a sua <em>melhor versão?</em></h2>
+          <p class="contact-lead">Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.</p>
+          <div class="actions contact-actions">
+            <a class="button button-solid" href="tel:+351****1054">Ligar agora</a>
+            <a class="button" href="https://wa.me/351927829171" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
+          </div>
+        </div>
+        <div class="contact-cards reveal">
+          <dl class="contact-card">
+            <div class="contact-row contact-title"><dt>Local</dt><dd><strong>Studio 316 · Aveiro</strong></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd>R. do Sr. dos Aflitos 59<br>3800-260 Aveiro, Portugal<br><a href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a><br><a href="tel:+351927829171">+351 927 829 171</a></dd></div>
+            <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351927829171" target="_blank" rel="noreferrer">+351 927 829 171 ↗</a></dd></div>
+            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer">@studio316aveiro ↗</a></dd></div>
+          </dl>
+          <dl class="contact-card">
+            <div class="contact-row contact-title"><dt>Local</dt><dd><strong>Hotel Ílhavo Plaza</strong></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd>Hotel Ílhavo Plaza<br>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
+            <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
+          </dl>
+          <dl class="contact-card contact-card-wide">
+            <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
+            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer">@redkenpro ↗</a></dd></div>
+          </dl>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>© <span id="year">2026</span> Grupo Cabeleireiro Galeano · Studio 316 Hair</span>
+        <span>Hair · Nails · Estética · Massagem</span>
+        <a href="#top">Voltar ao topo ↑</a>
+      </footer>
+    </section>
   </main>
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (!location.hash) addEventListener('load', () => scrollTo(0, 0));
+
+    const header = document.querySelector('.header');
+    const progress = document.querySelector('.topline');
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    const ambience = document.getElementById('ambience');
+    const soundToggle = document.querySelector('.sound-toggle');
+    const soundLabel = soundToggle.querySelector('strong');
+    const languagePicker = document.querySelector('.language-picker');
+    const languageToggle = document.querySelector('.language-toggle');
+    const languageCode = languageToggle.querySelector('span');
+    const languageOptions = [...document.querySelectorAll('.language-option')];
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const hero = document.querySelector('.hero');
+    const comparison = document.querySelector('.compare');
+    const compareRange = document.querySelector('.compare-range');
+    compareRange.addEventListener('input', () => {
+      comparison.classList.add('touched');
+      comparison.style.setProperty('--split', `${compareRange.value}%`);
+    });
+    if (!reduceMotion) {
+      hero.addEventListener('pointermove', event => {
+        const rect = hero.getBoundingClientRect();
+        hero.style.setProperty('--spot-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
+        hero.style.setProperty('--spot-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      });
+      hero.addEventListener('pointerleave', () => {
+        hero.style.setProperty('--spot-x', '58%');
+        hero.style.setProperty('--spot-y', '38%');
+      });
+      if (!CSS.supports('animation-timeline: view()')) {
+        document.documentElement.classList.add('motion-fallback');
+        const trendObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('trend-visible');
+            trendObserver.unobserve(entry.target);
+          }
+        }), { threshold: .18 });
+        document.querySelectorAll('.section-heading, .service').forEach(element => trendObserver.observe(element));
+      }
+    }
+
+    const languageIndex = { es: 0, en: 1, de: 2, fr: 3 };
+    const languageMeta = {
+      pt: { html: 'pt-PT', code: 'PT', menu: 'Menu', close: 'Fechar', sound: 'Som', pause: 'Pausa', choose: 'Escolher idioma', play: 'Reproduzir música ambiente', stop: 'Pausar música ambiente', compare: 'Comparar cabelo antes e depois', saveLook: 'Guardar look', removeLook: 'Remover look', savedToast: 'Look guardado ✦ Mostre-o na sua avaliação.', removedToast: 'Look removido.', emptyToast: 'Guarde primeiro um look que adore.' },
+      es: { html: 'es', code: 'ES', menu: 'Menú', close: 'Cerrar', sound: 'Sonido', pause: 'Pausa', choose: 'Elegir idioma', play: 'Reproducir música ambiente', stop: 'Pausar música ambiente', compare: 'Comparar el cabello antes y después', saveLook: 'Guardar look', removeLook: 'Eliminar look', savedToast: 'Look guardado ✦ Muéstralo en tu diagnóstico.', removedToast: 'Look eliminado.', emptyToast: 'Guarda primero un look que te encante.' },
+      en: { html: 'en', code: 'EN', menu: 'Menu', close: 'Close', sound: 'Sound', pause: 'Pause', choose: 'Choose language', play: 'Play ambient music', stop: 'Pause ambient music', compare: 'Compare hair before and after', saveLook: 'Save look', removeLook: 'Remove look', savedToast: 'Look saved ✦ Show it at your consultation.', removedToast: 'Look removed.', emptyToast: 'Save a look you love first.' },
+      de: { html: 'de', code: 'DE', menu: 'Menü', close: 'Schließen', sound: 'Klang', pause: 'Pause', choose: 'Sprache wählen', play: 'Hintergrundmusik abspielen', stop: 'Hintergrundmusik pausieren', compare: 'Haare vorher und nachher vergleichen', saveLook: 'Look speichern', removeLook: 'Look entfernen', savedToast: 'Look gespeichert ✦ Zeigen Sie ihn bei Ihrer Beratung.', removedToast: 'Look entfernt.', emptyToast: 'Speichern Sie zuerst einen Lieblingslook.' },
+      fr: { html: 'fr', code: 'FR', menu: 'Menu', close: 'Fermer', sound: 'Son', pause: 'Pause', choose: 'Choisir la langue', play: "Lire la musique d'ambiance", stop: "Mettre la musique d'ambiance en pause", compare: 'Comparer les cheveux avant et après', saveLook: 'Enregistrer le look', removeLook: 'Supprimer le look', savedToast: 'Look enregistré ✦ Montrez-le lors du diagnostic.', removedToast: 'Look supprimé.', emptyToast: "Enregistrez d'abord un look que vous aimez." }
+    };
+    const translations = {
+      'Início': ['Inicio', 'Home', 'Start', 'Accueil'],
+      'Cor': ['Color', 'Colour', 'Farbe', 'Couleur'],
+      'Corte': ['Corte', 'Cut', 'Schnitt', 'Coupe'],
+      'Estética': ['Estética', 'Beauty', 'Kosmetik', 'Esthétique'],
+      'Natural': ['Natural', 'Natural', 'Natürlich', 'Naturel'],
+      'Dois salões,': ['Dos salones,', 'Two salons,', 'Zwei Salons,', 'Deux salons,'],
+      'a mesma excelência,': ['la misma excelencia,', 'the same excellence,', 'dieselbe Exzellenz,', 'la même excellence,'],
+      'pensados para si.': ['pensados para ti.', 'designed for you.', 'für Sie konzipiert.', 'pensés pour vous.'],
+      'Campanhas em sala': ['Campañas en salón', 'In-salon campaigns', 'Aktionen im Salon', 'Campagnes en salon'],
+      'O que está': ['Lo que está', 'What is', 'Was gerade', 'Ce qui est'],
+      'em destaque.': ['en destaque.', 'in the spotlight.', 'im Fokus steht.', 'à l’honneur.'],
+      'Bem-vinda': ['Bienvenida', 'Welcome', 'Willkommen', 'Bienvenue'],
+      'Tratamento 30€': ['Tratamiento 30€', 'Treatment €30', 'Behandlung 30€', 'Soin 30€'],
+      'Mãos & pés': ['Manos y pies', 'Hands & feet', 'Hände & Füße', 'Mains & pieds'],
+      'Local': ['Local', 'Location', 'Standort', 'Adresse'],
+      'Grupo': ['Grupo', 'Group', 'Gruppe', 'Groupe'],
+      'Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa': ['Grupo Cabeleireiro Galeano · dos espacios, el mismo equipo', 'Grupo Cabeleireiro Galeano · two spaces, the same team', 'Grupo Cabeleireiro Galeano · zwei Räume, dasselbe Team', 'Grupo Cabeleireiro Galeano · deux espaces, la même équipe'],
+      'Os nossos espaços': ['Nuestros espacios', 'Our spaces', 'Unsere Räume', 'Nos espaces'],
+      'Loiro dos sonhos': ['Rubio de ensueño', 'Dream blonde', 'Traumblond', 'Blond de rêve'],
+      'Técnica Oreo': ['Técnica Oreo', 'Oreo technique', 'Oreo-Technik', 'Technique Oreo'],
+      'Madeixas vermelhas': ['Mechas rojas', 'Red highlights', 'Rote Strähnen', 'Mèches rouges'],
+      'Tratamento': ['Tratamiento', 'Treatment', 'Behandlung', 'Soin'],
+      'Teste de madeixas': ['Test de mechas', 'Highlight test', 'Strähnen-Test', 'Test de mèches'],
+      'Diagnóstico': ['Diagnóstico', 'Consultation', 'Diagnose', 'Diagnostic'],
+      'Avaliação': ['Evaluación', 'Consultation', 'Beratung', 'Diagnostic'],
+      'Madeixas': ['Mechas', 'Highlights', 'Strähnen', 'Mèches'],
+      'Movimento': ['Movimiento', 'Movement', 'Bewegung', 'Mouvement'],
+      'Corte & cor': ['Corte y color', 'Cut & colour', 'Schnitt & Farbe', 'Coupe & couleur'],
+      'Textura': ['Textura', 'Texture', 'Textur', 'Texture'],
+      'Definição': ['Definición', 'Definition', 'Definition', 'Définition'],
+      'Precisão': ['Precisión', 'Precision', 'Präzision', 'Précision'],
+      'Cuidado': ['Cuidado', 'Care', 'Pflege', 'Soin'],
+      'Castanho': ['Castaño', 'Brunette', 'Braun', 'Châtain'],
+      'Brilho': ['Brillo', 'Shine', 'Glanz', 'Brillance'],
+      'Balayage': ['Balayage', 'Balayage', 'Balayage', 'Balayage'],
+      'Ondas': ['Ondas', 'Waves', 'Wellen', 'Ondulations'],
+      'Volume': ['Volumen', 'Volume', 'Volumen', 'Volume'],
+      'Reflexos': ['Reflejos', 'Highlights', 'Reflexe', 'Reflets'],
+      'Caramelo': ['Caramelo', 'Caramel', 'Karamell', 'Caramel'],
+      'Loiro': ['Rubio', 'Blonde', 'Blond', 'Blond'],
+      'Platinado': ['Platino', 'Platinum', 'Platin', 'Platine'],
+      'Cor criativa': ['Color creativo', 'Creative colour', 'Kreative Farbe', 'Couleur créative'],
+      'Vermelho': ['Rojo', 'Red', 'Rot', 'Rouge'],
+      'Loiro mel': ['Rubio miel', 'Honey blonde', 'Honigblond', 'Blond miel'],
+      'Camadas': ['Capas', 'Layers', 'Stufen', 'Dégradé'],
+      'Ombré': ['Ombré', 'Ombré', 'Ombré', 'Ombré'],
+      'Corte médio': ['Corte medio', 'Mid-length cut', 'Mittellanger Schnitt', 'Coupe mi-longue'],
+      'Liso': ['Liso', 'Straight', 'Glatt', 'Lisse'],
+      'Polido': ['Pulido', 'Polished', 'Poliert', 'Poli'],
+      'Comprimento': ['Longitud', 'Length', 'Länge', 'Longueur'],
+      'Luminoso': ['Luminoso', 'Luminous', 'Leuchtend', 'Lumineux'],
+      'Caracóis': ['Rizos', 'Curls', 'Locken', 'Boucles'],
+      'Saltar para o conteúdo': ['Saltar al contenido', 'Skip to content', 'Zum Inhalt springen', 'Aller au contenu'],
+      'Serviços': ['Servicios', 'Services', 'Leistungen', 'Services'],
+      'Campanhas': ['Campañas', 'Campaigns', 'Aktionen', 'Campagnes'],
+      'Resultados': ['Resultados', 'Results', 'Ergebnisse', 'Résultats'],
+      'Método': ['Método', 'Method', 'Methode', 'Méthode'],
+      'Marcar': ['Reservar', 'Book', 'Buchen', 'Réserver'],
+      'Hair · Nails · Estética · Massagem': ['Cabello · Uñas · Estética · Masaje', 'Hair · Nails · Beauty · Massage', 'Haare · Nägel · Kosmetik · Massage', 'Coiffure · Ongles · Esthétique · Massage'],
+      'A sua beleza,': ['Tu belleza,', 'Your beauty,', 'Ihre Schönheit,', 'Votre beauté,'],
+      'sem filtros.': ['sin filtros.', 'unfiltered.', 'ungefiltert.', 'sans filtres.'],
+      'Especialistas em transformação e beleza. Criamos resultados elegantes e personalizados, respeitando sempre a sua identidade e a saúde do seu cabelo.': ['Especialistas en transformación y belleza. Creamos resultados elegantes y personalizados, respetando siempre tu identidad y la salud de tu cabello.', 'Specialists in transformation and beauty. We create elegant, personalised results while always respecting your identity and hair health.', 'Spezialisten für Verwandlung und Schönheit. Wir schaffen elegante, individuelle Ergebnisse und achten stets auf Ihre Persönlichkeit und Haargesundheit.', 'Spécialistes de la transformation et de la beauté. Nous créons des résultats élégants et personnalisés dans le respect de votre identité et de la santé de vos cheveux.'],
+      'Marcar avaliação': ['Reservar diagnóstico', 'Book a consultation', 'Beratung buchen', 'Réserver un diagnostic'],
+      'Ver resultados': ['Ver resultados', 'See results', 'Ergebnisse ansehen', 'Voir les résultats'],
+      'Beleza que se sente.': ['Belleza que se siente.', 'Beauty you can feel.', 'Schönheit, die man spürt.', 'La beauté qui se ressent.'],
+      'Confiança que fica.': ['Confianza que permanece.', 'Confidence that lasts.', 'Selbstvertrauen, das bleibt.', 'La confiance qui reste.'],
+      'Cuidamos de cada detalhe para realçar a sua beleza natural. Mais brilho, mais leveza e um visual renovado — sempre com profissionalismo e atenção.': ['Cuidamos cada detalle para realzar tu belleza natural. Más brillo, más ligereza y una imagen renovada, siempre con profesionalidad y atención.', 'We care for every detail to enhance your natural beauty. More shine, more lightness and a renewed look — always with expertise and attention.', 'Wir kümmern uns um jedes Detail, um Ihre natürliche Schönheit zu unterstreichen. Mehr Glanz, mehr Leichtigkeit und ein frischer Look — immer professionell und aufmerksam.', 'Nous soignons chaque détail pour révéler votre beauté naturelle. Plus de brillance, de légèreté et un style renouvelé — toujours avec expertise et attention.'],
+      'Cada pessoa é única. Por isso, começamos por ouvir, avaliar e desenhar um cuidado feito à sua medida.': ['Cada persona es única. Por eso empezamos escuchando, evaluando y diseñando un cuidado a tu medida.', 'Every person is unique. That is why we begin by listening, assessing and designing care made for you.', 'Jeder Mensch ist einzigartig. Deshalb hören wir zuerst zu, analysieren und entwickeln eine Pflege, die zu Ihnen passt.', 'Chaque personne est unique. Nous commençons donc par écouter, évaluer et créer un soin sur mesure.'],
+      'Cabelo saudável': ['Cabello sano', 'Healthy hair', 'Gesundes Haar', 'Cheveux sains'],
+      'Cor apaixonante': ['Color irresistible', 'Captivating colour', 'Faszinierende Farbe', 'Couleur passion'],
+      'Beleza natural': ['Belleza natural', 'Natural beauty', 'Natürliche Schönheit', 'Beauté naturelle'],
+      'Cuidado personalizado': ['Cuidado personalizado', 'Personalised care', 'Individuelle Pflege', 'Soin personnalisé'],
+      'Tudo para se sentir': ['Todo para sentirte', 'Everything to make you feel', 'Alles, damit Sie sich', 'Tout pour vous sentir'],
+      'incrível.': ['increíble.', 'incredible.', 'großartig fühlen.', 'incroyable.'],
+      'Um espaço, quatro formas de cuidar de si. Tratamentos pensados para resultados visíveis e uma experiência de verdadeiro bem-estar.': ['Un espacio, cuatro formas de cuidarte. Tratamientos pensados para resultados visibles y una verdadera experiencia de bienestar.', 'One space, four ways to care for yourself. Treatments designed for visible results and a true wellbeing experience.', 'Ein Ort, vier Wege, sich etwas Gutes zu tun. Behandlungen für sichtbare Ergebnisse und echtes Wohlbefinden.', 'Un espace, quatre façons de prendre soin de vous. Des soins pensés pour des résultats visibles et une véritable expérience de bien-être.'],
+      'Cabelo': ['Cabello', 'Hair', 'Haare', 'Cheveux'],
+      'Unhas': ['Uñas', 'Nails', 'Nägel', 'Ongles'],
+      'Massagem': ['Masaje', 'Massage', 'Massage', 'Massage'],
+      'Cortes clássicos ou mudanças de look, madeixas, balayage, correção de cor, Chocolate Quente, reparação, nutrição e hidratação.': ['Cortes clásicos o cambios de look, mechas, balayage, corrección de color, Chocolate Caliente, reparación, nutrición e hidratación.', 'Classic cuts or a new look, highlights, balayage, colour correction, Warm Chocolate, repair, nourishment and hydration.', 'Klassische Schnitte oder Typveränderungen, Strähnen, Balayage, Farbkorrektur, Warmes Schokolade, Reparatur, Pflege und Feuchtigkeit.', 'Coupes classiques ou changement de style, mèches, balayage, correction couleur, Chocolat Chaud, réparation, nutrition et hydratation.'],
+      'Cuidados de mãos e pés com foco na beleza, conforto e bem-estar.': ['Cuidados de manos y pies centrados en la belleza, la comodidad y el bienestar.', 'Hand and foot care focused on beauty, comfort and wellbeing.', 'Hand- und Fußpflege mit Fokus auf Schönheit, Komfort und Wohlbefinden.', 'Soins des mains et des pieds axés sur la beauté, le confort et le bien-être.'],
+      'Cuidados personalizados para valorizar a sua beleza natural e devolver confiança.': ['Cuidados personalizados para realzar tu belleza natural y recuperar la confianza.', 'Personalised care to enhance your natural beauty and restore confidence.', 'Individuelle Pflege, die Ihre natürliche Schönheit betont und Selbstvertrauen schenkt.', 'Des soins personnalisés pour révéler votre beauté naturelle et retrouver confiance.'],
+      'Sessões para aliviar o stress, reduzir tensões musculares e recuperar o seu bem-estar.': ['Sesiones para aliviar el estrés, reducir tensiones musculares y recuperar tu bienestar.', 'Sessions to relieve stress, reduce muscle tension and restore your wellbeing.', 'Behandlungen zum Stressabbau, zur Lösung von Muskelverspannungen und für neues Wohlbefinden.', 'Des séances pour soulager le stress, réduire les tensions musculaires et retrouver votre bien-être.'],
+      'Especialistas em cor ·': ['Especialistas en color ·', 'Colour specialists ·', 'Farbspezialisten ·', 'Spécialistes de la couleur ·'],
+      'O loiro dos': ['El rubio de tus', 'The blonde of your', 'Das Blond Ihrer', 'Le blond de vos'],
+      'sonhos.': ['sueños.', 'dreams.', 'Träume.', 'rêves.'],
+      'O loiro perfeito começa com um diagnóstico profissional e um cabelo saudável. Criamos loiros luminosos, elegantes e personalizados, sem comprometer a fibra capilar.': ['El rubio perfecto empieza con un diagnóstico profesional y un cabello sano. Creamos rubios luminosos, elegantes y personalizados sin comprometer la fibra capilar.', 'Perfect blonde starts with a professional consultation and healthy hair. We create luminous, elegant and personalised blondes without compromising the hair fibre.', 'Perfektes Blond beginnt mit professioneller Diagnose und gesundem Haar. Wir kreieren leuchtende, elegante und individuelle Blondtöne, ohne die Haarfaser zu belasten.', 'Le blond parfait commence par un diagnostic professionnel et des cheveux sains. Nous créons des blonds lumineux, élégants et personnalisés sans fragiliser la fibre capillaire.'],
+      'Loiro sem manchas': ['Rubio sin manchas', 'Even blonde', 'Fleckenfreies Blond', 'Blond uniforme'],
+      'Madeixas e balayage': ['Mechas y balayage', 'Highlights and balayage', 'Strähnen und Balayage', 'Mèches et balayage'],
+      'Correção de cor': ['Corrección de color', 'Colour correction', 'Farbkorrektur', 'Correction couleur'],
+      'Acabamento natural': ['Acabado natural', 'Natural finish', 'Natürliches Finish', 'Finition naturelle'],
+      'Reconstrução': ['Reconstrucción', 'Reconstruction', 'Rekonstruktion', 'Reconstruction'],
+      'Hidratação profunda': ['Hidratación profunda', 'Deep hydration', 'Intensive Feuchtigkeit', 'Hydratation profonde'],
+      'Avaliar o meu cabelo': ['Evaluar mi cabello', 'Assess my hair', 'Mein Haar analysieren', 'Diagnostiquer mes cheveux'],
+      'Transformação real': ['Transformación real', 'Real transformation', 'Echte Verwandlung', 'Transformation réelle'],
+      'Arraste.': ['Desliza.', 'Drag.', 'Ziehen.', 'Faites glisser.'],
+      'Veja o brilho.': ['Descubre el brillo.', 'See the shine.', 'Sehen Sie den Glanz.', 'Voyez la brillance.'],
+      'Mova o controlo e compare o resultado real. Cor mais luminosa, acabamento polido e movimento sem perder a identidade.': ['Mueve el control y compara el resultado real. Color más luminoso, acabado pulido y movimiento sin perder identidad.', 'Move the control and compare the real result. Brighter colour, a polished finish and movement without losing identity.', 'Bewegen Sie den Regler und vergleichen Sie das echte Ergebnis. Leuchtendere Farbe, glänzendes Finish und Bewegung, ohne die Persönlichkeit zu verlieren.', 'Déplacez le curseur et comparez le résultat réel. Une couleur plus lumineuse, une finition soignée et du mouvement sans perdre son identité.'],
+      'Antes': ['Antes', 'Before', 'Vorher', 'Avant'],
+      'Depois': ['Después', 'After', 'Nachher', 'Après'],
+      'Segurança primeiro. Sempre.': ['La seguridad primero. Siempre.', 'Safety first. Always.', 'Sicherheit zuerst. Immer.', "La sécurité d'abord. Toujours."],
+      'O nosso método': ['Nuestro método', 'Our method', 'Unsere Methode', 'Notre méthode'],
+      'Cada cabelo é único.': ['Cada cabello es único.', 'Every head of hair is unique.', 'Jedes Haar ist einzigartig.', 'Chaque chevelure est unique.'],
+      'Cada tratamento também.': ['Cada tratamiento también.', 'So is every treatment.', 'Jede Behandlung ebenso.', 'Chaque soin aussi.'],
+      'Antes de qualquer procedimento químico, realizamos um teste de madeixas para avaliar a resistência e condição do cabelo. Assim garantimos um resultado seguro, personalizado e de excelência.': ['Antes de cualquier procedimiento químico realizamos una prueba de mecha para evaluar la resistencia y el estado del cabello. Así garantizamos un resultado seguro, personalizado y excelente.', 'Before any chemical procedure, we perform a strand test to assess hair strength and condition. This ensures a safe, personalised and outstanding result.', 'Vor jeder chemischen Behandlung führen wir einen Strähnentest durch, um Widerstandskraft und Zustand des Haares zu prüfen. So garantieren wir ein sicheres, individuelles und hochwertiges Ergebnis.', 'Avant toute procédure chimique, nous réalisons un test sur mèche pour évaluer la résistance et l’état du cheveu. Nous garantissons ainsi un résultat sûr, personnalisé et d’excellence.'],
+      'Diagnóstico profissional': ['Diagnóstico profesional', 'Professional consultation', 'Professionelle Diagnose', 'Diagnostic professionnel'],
+      'Ouvimos o seu objetivo e avaliamos o estado real do cabelo.': ['Escuchamos tu objetivo y evaluamos el estado real del cabello.', 'We listen to your goal and assess the true condition of your hair.', 'Wir hören Ihre Wünsche und beurteilen den tatsächlichen Haarzustand.', 'Nous écoutons votre objectif et évaluons l’état réel de vos cheveux.'],
+      'Teste de madeixas': ['Prueba de mecha', 'Strand test', 'Strähnentest', 'Test sur mèche'],
+      'Confirmamos resistência e compatibilidade antes da transformação.': ['Confirmamos resistencia y compatibilidad antes de la transformación.', 'We confirm strength and compatibility before the transformation.', 'Wir prüfen Widerstandskraft und Verträglichkeit vor der Veränderung.', 'Nous confirmons résistance et compatibilité avant la transformation.'],
+      'Plano personalizado': ['Plan personalizado', 'Personalised plan', 'Individueller Plan', 'Plan personnalisé'],
+      'Escolhemos cor, técnica e tratamento adequados ao seu cabelo.': ['Elegimos el color, la técnica y el tratamiento adecuados para tu cabello.', 'We select the right colour, technique and treatment for your hair.', 'Wir wählen Farbe, Technik und Behandlung passend zu Ihrem Haar.', 'Nous choisissons la couleur, la technique et le soin adaptés à vos cheveux.'],
+      'Cuidado contínuo': ['Cuidado continuo', 'Ongoing care', 'Kontinuierliche Pflege', 'Soin continu'],
+      'Protegemos brilho, suavidade e força para um resultado duradouro.': ['Protegemos el brillo, la suavidad y la fuerza para un resultado duradero.', 'We protect shine, softness and strength for lasting results.', 'Wir bewahren Glanz, Geschmeidigkeit und Kraft für ein langanhaltendes Ergebnis.', 'Nous préservons brillance, douceur et force pour un résultat durable.'],
+      'Transformações': ['Transformaciones', 'Transformations', 'Verwandlungen', 'Transformations'],
+      'reais.': ['reales.', 'real.', 'echte.', 'réelles.'],
+      'Cor, textura e movimento criados para pessoas reais. Deslize para conhecer alguns resultados Studio 316.': ['Color, textura y movimiento creados para personas reales. Desliza para descubrir algunos resultados de Studio 316.', 'Colour, texture and movement created for real people. Swipe to discover Studio 316 results.', 'Farbe, Textur und Bewegung für echte Menschen. Wischen Sie, um Ergebnisse von Studio 316 zu entdecken.', 'Couleur, texture et mouvement créés pour de vraies personnes. Faites défiler pour découvrir les résultats Studio 316.'],
+      'Meus looks': ['Mis looks', 'My looks', 'Meine Looks', 'Mes looks'],
+      'Enviar para avaliação ↗': ['Enviar para diagnóstico ↗', 'Send for consultation ↗', 'Zur Beratung senden ↗', 'Envoyer pour diagnostic ↗'],
+      'Arraste para explorar →': ['Desliza para explorar →', 'Swipe to explore →', 'Wischen zum Entdecken →', 'Faites glisser pour explorer →'],
+      'Tempo para si': ['Tiempo para ti', 'Time for yourself', 'Zeit für Sie', 'Du temps pour vous'],
+      'Cuidar de si nunca é um exagero.': ['Cuidarte nunca es demasiado.', 'Self-care is never too much.', 'Selbstfürsorge ist nie zu viel.', "Prendre soin de soi n'est jamais excessif."],
+      'É prioridade.': ['Es una prioridad.', 'It is a priority.', 'Es hat Priorität.', "C'est une priorité."],
+      'Uma massagem regular ajuda a aliviar o stress, reduzir tensões musculares e recuperar o bem-estar. Ofereça ao seu corpo o cuidado que merece.': ['Un masaje regular ayuda a aliviar el estrés, reducir las tensiones musculares y recuperar el bienestar. Dale a tu cuerpo el cuidado que merece.', 'Regular massage helps relieve stress, reduce muscle tension and restore wellbeing. Give your body the care it deserves.', 'Regelmäßige Massage hilft, Stress abzubauen, Muskelverspannungen zu lösen und Wohlbefinden zurückzugewinnen. Geben Sie Ihrem Körper die Pflege, die er verdient.', 'Un massage régulier aide à soulager le stress, réduire les tensions musculaires et retrouver le bien-être. Offrez à votre corps le soin qu’il mérite.'],
+      'Marcar sessão': ['Reservar sesión', 'Book a session', 'Termin buchen', 'Réserver une séance'],
+      'Estamos à sua espera': ['Te esperamos', 'We are waiting for you', 'Wir freuen uns auf Sie', 'Nous vous attendons'],
+      'Vamos criar a sua': ['Vamos a crear tu', 'Let’s create your', 'Gestalten wir Ihre', 'Créons votre'],
+      'melhor versão?': ['¿mejor versión?', 'best version?', 'beste Version?', 'meilleure version ?'],
+      'Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.': ['Reserva tu diagnóstico y transforma tu imagen con seguridad, profesionalidad y un cuidado hecho para ti.', 'Book your consultation and transform your look with safety, expertise and care made for you.', 'Buchen Sie Ihre Beratung und verändern Sie Ihren Look sicher, professionell und mit individueller Pflege.', 'Réservez votre diagnostic et transformez votre style en toute sécurité, avec expertise et un soin sur mesure.'],
+      'Ligar agora': ['Llamar ahora', 'Call now', 'Jetzt anrufen', 'Appeler maintenant'],
+      'Marcar por WhatsApp': ['Pedir cita por WhatsApp', 'Book on WhatsApp', 'Per WhatsApp buchen', 'Réserver sur WhatsApp'],
+      'Abrir no mapa ↗': ['Abrir en Google Maps ↗', 'Open in Google Maps ↗', 'In Google Maps öffnen ↗', 'Ouvrir dans Google Maps ↗'],
+      'Morada': ['Dirección', 'Address', 'Adresse', 'Adresse'],
+      'Telefone': ['Teléfono', 'Phone', 'Telefon', 'Téléphone'],
+      'Parceiro': ['Colaborador', 'Partner', 'Partner', 'Partenaire'],
+      'Voltar ao topo ↑': ['Volver arriba ↑', 'Back to top ↑', 'Nach oben ↑', 'Retour en haut ↑']
+    };
+    document.querySelectorAll('.shot').forEach((shot, index) => {
+      shot.dataset.look = `look-${index + 1}`;
+      shot.insertAdjacentHTML('beforeend', `<button class="look-like" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.25 6.2 6.45 2.2-6.45 2.25L12 20l-2.25-6.55L3.3 11.2 9.75 9 12 2.8z"/></svg></button>`);
+    });
+    const textNodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        return parent && node.nodeValue.trim() && !parent.closest('script, style, .language-picker, .sound-toggle, .music-credit, .brand, .hero-meta')
+          ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    const originalText = new Map(textNodes.map(node => [node, node.nodeValue]));
+    let currentLang = 'pt';
+    let syncSavedLooks = () => {};
+
+    const closeLanguagePicker = () => {
+      languagePicker.classList.remove('open');
+      languageToggle.setAttribute('aria-expanded', 'false');
+    };
+    const applyLanguage = lang => {
+      currentLang = languageMeta[lang] ? lang : 'pt';
+      const meta = languageMeta[currentLang];
+      const index = languageIndex[currentLang];
+      document.documentElement.lang = meta.html;
+      languageCode.textContent = meta.code;
+      languageToggle.setAttribute('aria-label', meta.choose);
+      document.querySelector('.compare-range')?.setAttribute('aria-label', meta.compare);
+      textNodes.forEach(node => {
+        const original = originalText.get(node);
+        const key = original.trim();
+        const translated = currentLang === 'pt' ? key : translations[key]?.[index];
+        node.nodeValue = translated ? original.replace(key, translated) : original;
+      });
+      languageOptions.forEach(option => option.classList.toggle('active', option.dataset.lang === currentLang));
+      toggle.textContent = nav.classList.contains('open') ? meta.close : meta.menu;
+      setSoundState(!ambience.paused);
+      syncSavedLooks();
+      localStorage.setItem('studio316Lang', currentLang);
+      closeLanguagePicker();
+    };
+
+    languageToggle.addEventListener('click', event => {
+      event.stopPropagation();
+      const open = !languagePicker.classList.contains('open');
+      languagePicker.classList.toggle('open', open);
+      languageToggle.setAttribute('aria-expanded', String(open));
+    });
+    languageOptions.forEach(option => option.addEventListener('click', () => applyLanguage(option.dataset.lang)));
+    addEventListener('click', event => {
+      if (!languagePicker.contains(event.target)) closeLanguagePicker();
+    });
+    addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLanguagePicker();
+    });
+
+    ambience.volume = .22;
+    ambience.play().catch(() => {});
+    const setSoundState = playing => {
+      const meta = languageMeta[currentLang];
+      soundToggle.classList.toggle('playing', playing);
+      soundToggle.setAttribute('aria-pressed', String(playing));
+      soundToggle.setAttribute('aria-label', playing ? meta.stop : meta.play);
+      soundLabel.textContent = playing ? meta.pause : meta.sound;
+    };
+    soundToggle.addEventListener('click', async () => {
+      if (ambience.paused) {
+        try {
+          await ambience.play();
+          localStorage.setItem('studio316Sound', 'on');
+        } catch {
+          setSoundState(false);
+        }
+      } else {
+        ambience.pause();
+        localStorage.setItem('studio316Sound', 'off');
+      }
+    });
+    ambience.addEventListener('play', () => setSoundState(true));
+    ambience.addEventListener('pause', () => setSoundState(false));
+
+    applyLanguage(localStorage.getItem('studio316Lang') || 'pt');
+    if (localStorage.getItem('studio316Sound') === 'on') {
+      addEventListener('pointerdown', event => {
+        if (!soundToggle.contains(event.target)) ambience.play().catch(() => {});
+      }, { once: true });
+    }
+
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = max > 0 ? `${(scrollY / max) * 100}%` : '0';
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    toggle.addEventListener('click', () => {
+      const open = !nav.classList.contains('open');
+      const meta = languageMeta[currentLang];
+      closeLanguagePicker();
+      nav.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? meta.close : meta.menu;
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = languageMeta[currentLang].menu;
+    }));
+
+    if (reduceMotion) {
+      document.querySelectorAll('video').forEach(video => video.pause());
+    } else {
+      const videos = document.querySelectorAll('.gallery video, .service-thumb video, .wellbeing video');
+      videos.forEach(v => { if (v.dataset.slow) v.playbackRate = parseFloat(v.dataset.slow); });
+      const videoObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        entry.isIntersecting ? entry.target.play().catch(() => {}) : entry.target.pause();
+      }), { threshold: .55 });
+      videos.forEach(video => videoObserver.observe(video));
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+      const track = carousel.querySelector('[data-track]');
+      const slides = [...track.children];
+      if (slides.length <= 1) { carousel.classList.add('carousel-single'); return; }
+      const dotsWrap = carousel.querySelector('[data-dots]');
+      const dots = slides.map((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `Ir para a foto ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+      let index = 0;
+      const setActive = i => {
+        index = i;
+        dots.forEach((dot, di) => dot.classList.toggle('active', di === i));
+      };
+      const goTo = i => track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' });
+      track.addEventListener('scroll', () => {
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        if (i !== index) setActive(i);
+      }, { passive: true });
+      carousel.querySelector('[data-prev]').addEventListener('click', () => goTo((index - 1 + slides.length) % slides.length));
+      carousel.querySelector('[data-next]').addEventListener('click', () => goTo((index + 1) % slides.length));
+      setActive(0);
+      if (!reduceMotion) {
+        let timer = setInterval(() => goTo((index + 1) % slides.length), 5000);
+        carousel.addEventListener('mouseenter', () => clearInterval(timer));
+        carousel.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((index + 1) % slides.length), 5000); });
+      }
+    });
+  </script>
 </body>
 </html>
