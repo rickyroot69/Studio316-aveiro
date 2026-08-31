@@ -640,7 +640,7 @@
 <body>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
   <div class="topline" aria-hidden="true"></div>
-  <audio id="ambience" loop preload="auto" autoplay aria-hidden="true">
+  <audio id="ambience" loop preload="none" aria-hidden="true">
     <source src="assets/audio/ambience.mp3" type="audio/mpeg">
   </audio>
 
@@ -1160,7 +1160,6 @@
     });
 
     ambience.volume = .22;
-    ambience.play().catch(() => {});
     const setSoundState = playing => {
       const meta = languageMeta[currentLang];
       soundToggle.classList.toggle('playing', playing);

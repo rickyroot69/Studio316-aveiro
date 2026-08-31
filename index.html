@@ -17,7 +17,7 @@
   <meta property="og:image:alt" content="Interior do Studio 316 Hair em Aveiro">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232A2438'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23E8DCC4'%3E316%3C/text%3E%3C/svg%3E">
-  <title>Studio 316 Aveiro — Hair, Nails, Estética & Massagem</title>
+  <title>Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Hotel Ílhavo Plaza</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -614,7 +614,7 @@
 <body>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
   <div class="topline" aria-hidden="true"></div>
-  <audio id="ambience" loop preload="auto" autoplay aria-hidden="true">
+  <audio id="ambience" loop preload="none" aria-hidden="true">
     <source src="assets/audio/ambience.mp3" type="audio/mpeg">
   </audio>
 
@@ -673,7 +673,7 @@
           <p><a href="tel:+351234351054">234 351 054</a> · <a href="tel:+351927829171">927 829 171</a></p>
           <div class="actions local-actions">
             <a class="button button-solid" href="espaco-aveiro.html">Ver o espaço</a>
-            <a class="button" href="tel:+351****1054">Ligar agora</a>
+            <a class="button" href="tel:+351234351054">Ligar agora</a>
             <a class="button" href="https://wa.me/351927829171" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
             <a class="local-map" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
           </div>
@@ -697,10 +697,10 @@
         <div class="local-info">
           <h3>Hotel Ílhavo Plaza</h3>
           <p>Av. Mário Sacramento 113, 3830-052 Ílhavo</p>
-          <p><a href="tel:+351****6651">913 456 651</a></p>
+          <p><a href="tel:+351913456651">913 456 651</a></p>
           <div class="actions local-actions">
             <a class="button button-solid" href="espaco-ilhavo.html">Ver o espaço</a>
-            <a class="button" href="tel:+351****6651">Ligar agora</a>
+            <a class="button" href="tel:+351913456651">Ligar agora</a>
             <a class="button" href="https://wa.me/351913456651" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
             <a class="local-map" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a>
           </div>
@@ -831,7 +831,7 @@
           <h2 class="section-heading" id="contact-title">Vamos criar a sua <em>melhor versão?</em></h2>
           <p class="contact-lead">Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.</p>
           <div class="actions contact-actions">
-            <a class="button button-solid" href="tel:+351****1054">Ligar agora</a>
+            <a class="button button-solid" href="tel:+351234351054">Ligar agora</a>
             <a class="button" href="https://wa.me/351927829171" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
           </div>
         </div>
@@ -1111,7 +1111,6 @@
     });
 
     ambience.volume = .22;
-    ambience.play().catch(() => {});
     const setSoundState = playing => {
       const meta = languageMeta[currentLang];
       soundToggle.classList.toggle('playing', playing);
