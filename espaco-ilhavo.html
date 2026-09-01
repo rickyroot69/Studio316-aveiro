@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Trabalhos reais do salão do Hotel Ílhavo Plaza — cor, corte, textura e cuidado de mãos e pés.">
-  <meta name="theme-color" content="#1F272B">
+  <meta name="theme-color" content="#4A1F8C">
   <meta property="og:title" content="Hotel Ílhavo Plaza · Cabeleireiros — O espaço">
   <meta property="og:description" content="Trabalhos reais do salão do Hotel Ílhavo Plaza — cor, corte, textura e cuidado de mãos e pés.">
   <meta property="og:type" content="website">
@@ -15,21 +15,26 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Hotel Ílhavo Plaza">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231F272B'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23DDE5E5'%3EIP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%234A1F8C'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23E6E5E4'%3EIP%3C/text%3E%3C/svg%3E">
   <title>Hotel Ílhavo Plaza · Cabeleireiros — O espaço</title>
   <style>
     :root {
-      --ink: #253034;
-      --ink-deep: #1F272B;
-      --leaf: #1A6E6B;
-      --leaf-soft: #6FC5C1;
-      --brass: #DDE5E5;
-      --ivory: #EDF1F1;
-      --paper: #FBFDFD;
-      --gold: #B8933F;
-      --rose: #A9BDBC;
-      --silver: #DDE5E5;
-      --silver-deep: #A9BDBC;
+      /* prateado + violeta + rosado — identidade propria desta pagina */
+      --ink: #4A1F8C;          /* violeta, o chao da pagina */
+      --ink-deep: #2E0F5C;     /* violeta profundo */
+      --leaf: #6B2FB0;         /* violeta medio, sobre prata */
+      --leaf-soft: #8A4FE8;
+      --rose: #EFB8D2;         /* rosado, o acento */
+      --rose-deep: #C97BA4;
+      --brass: #CBC9C6;        /* prateado */
+      --ivory: #E6E1EC;
+      --paper: #FBF8FD;
+      --silver: #D8D6D4;
+      --silver-deep: #A4A19E;
+      --steel-hi: #E6E5E4;
+      --steel-light: #C2C0BE;
+      --steel: #94918E;
+      --steel-deep: #86837F;
       --line: color-mix(in srgb, var(--paper) 22%, transparent);
       --pad: clamp(1.25rem, 4vw, 4.5rem);
       --display: Georgia, "Times New Roman", serif;
@@ -45,7 +50,10 @@
 
     .top {
       display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
-      padding: 1.6rem var(--pad); background: var(--gold); color: #000;
+      padding: 1.6rem var(--pad); color: #000;
+      background: linear-gradient(101deg,
+        var(--steel) 0%, var(--steel-light) 12%, var(--steel-hi) 24%, #ACAAA7 38%,
+        #D8D7D5 52%, var(--steel) 66%, #CFCECC 80%, #A3A09D 92%, var(--steel-deep) 100%);
     }
     .top-back { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; text-decoration: underline; text-underline-offset: .3rem; }
     .top-brand { display: flex; align-items: center; gap: .7rem; }
@@ -60,7 +68,7 @@
       margin: 0; font-family: var(--display); font-size: clamp(2.6rem, 6vw, 5.2rem);
       font-weight: 400; line-height: .95; letter-spacing: -.05em;
     }
-    .lookbook-head h1 em { color: var(--gold); font-style: italic; }
+    .lookbook-head h1 em { color: var(--rose); font-style: italic; }
     .lookbook-head p { margin: 0; max-width: 24rem; font-size: 1.02rem; line-height: 1.6; color: rgb(255 253 248 / 78%); }
 
     @media (max-width: 900px) {
@@ -109,7 +117,7 @@
       min-height: 100svh; width: min(57rem, 100%); padding: 10rem var(--pad) 5.5rem;
     }
     .eyebrow {
-      display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem; color: var(--gold);
+      display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem; color: var(--rose);
       font-size: .69rem; font-weight: 700; letter-spacing: .2em; line-height: 1.4; text-transform: uppercase;
     }
     .hero h1 {
@@ -117,8 +125,8 @@
       font-size: clamp(3.4rem, 8.5vw, 9rem); font-weight: 400; line-height: .84; letter-spacing: -.065em;
     }
     .hero h1 em {
-      color: var(--gold); font-weight: 400; font-style: italic;
-      background: linear-gradient(100deg, var(--gold) 15%, var(--paper) 48%, var(--gold) 78%);
+      color: var(--rose); font-weight: 400; font-style: italic;
+      background: linear-gradient(100deg, var(--rose) 15%, var(--paper) 48%, var(--rose) 78%);
       background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       animation: hair-shine 5.5s ease-in-out infinite;
     }
@@ -172,9 +180,9 @@
       margin: 0 0 2.5rem; font-family: var(--display); font-size: clamp(3rem, 6.7vw, 7.2rem);
       font-weight: 400; line-height: .91; letter-spacing: -.055em;
     }
-    .section-heading em { color: var(--gold); font-weight: 400; font-style: italic; }
+    .section-heading em { color: var(--rose); font-weight: 400; font-style: italic; }
 
-    .marquee { overflow: hidden; padding: 1.2rem 0; background: var(--gold); border-block: 1px solid rgb(0 0 0 / 12%); }
+    .marquee { overflow: hidden; padding: 1.2rem 0; background: var(--rose); border-block: 1px solid rgb(0 0 0 / 12%); }
     .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
     .marquee span { padding-right: 2.4rem; color: #000; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
     .marquee b { color: var(--paper); font-weight: 400; }
@@ -189,13 +197,13 @@
       display: grid; grid-template-columns: 5rem .8fr 1.4fr 17rem; gap: 2rem; align-items: center;
       min-height: 12rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line);
     }
-    .service-number { font-family: var(--display); font-size: 1.2rem; font-style: italic; color: var(--gold); }
+    .service-number { font-family: var(--display); font-size: 1.2rem; font-style: italic; color: var(--rose); }
     .service h3 {
       margin: 0; font-family: var(--display); font-size: clamp(2.3rem, 4.3vw, 5rem); font-weight: 400; letter-spacing: -.05em;
-      background: linear-gradient(100deg, var(--paper) 10%, var(--gold) 45%, var(--paper) 80%);
-      background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--gold);
+      background: linear-gradient(100deg, var(--paper) 10%, var(--rose) 45%, var(--paper) 80%);
+      background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--rose);
     }
-    .service p { margin: 0; max-width: 38rem; line-height: 1.6; color: var(--gold); }
+    .service p { margin: 0; max-width: 38rem; line-height: 1.6; color: var(--rose); }
     .service-thumb { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; height: 8.5rem; overflow: hidden; }
     .service-thumb video, .service-thumb img { transition: transform .65s; }
     .service:hover .service-thumb video, .service:hover .service-thumb img { transform: scale(1.05); }
@@ -219,7 +227,7 @@
     .contact-card-wide { grid-column: 1 / -1; }
     .contact-title dd strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
     .contact-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
-    .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+    .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rose); }
     .contact-row dd { margin: 0; line-height: 1.55; }
     .contact-row a { text-decoration: underline; text-decoration-color: rgb(255 255 255 / 35%); text-underline-offset: .3rem; }
     .footer { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem var(--pad); border-top: 1px solid rgb(255 255 255 / 18%); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
