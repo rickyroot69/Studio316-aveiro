@@ -72,14 +72,19 @@
       --ink: #131313;
       --ink-deep: #0A0A0A;
       --leaf: #B8933F;
-      --brass: #C8CDD7;
+      --brass: #CBC9C6;
       --ivory: #E8DCC4;
       --paper: #fffdf8;
       --rose: #B8933F;
       --charcoal: #131313;
       --gold: #B8933F;
-      --silver: #D6D9DE;
-      --silver-deep: #A7ACB6;
+      --silver: #CFCECD;
+      --silver-deep: #A4A19E;
+      /* aco escovado, amostrado da foto do cliente */
+      --steel-hi: #E6E5E4;
+      --steel-light: #C2C0BE;
+      --steel: #94918E;
+      --steel-deep: #86837F;
       --line: color-mix(in srgb, var(--ink) 22%, transparent);
       --pad: clamp(1.25rem, 4vw, 4.5rem);
       --display: Georgia, "Times New Roman", serif;
@@ -119,11 +124,16 @@
       position: fixed; z-index: 100; inset: 0 0 auto;
       display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
       height: 6.4rem; padding: 0 var(--pad); color: #000;
-      background: var(--gold);
+      background: linear-gradient(101deg,
+        var(--steel) 0%, var(--steel-light) 12%, var(--steel-hi) 24%, #ACAAA7 38%,
+        #D8D7D5 52%, var(--steel) 66%, #CFCECC 80%, #A3A09D 92%, var(--steel-deep) 100%);
       transition: background .25s, color .25s, height .25s, box-shadow .25s;
     }
     .header.scrolled {
-      height: 5.2rem; color: #000; background: var(--gold);
+      height: 5.2rem; color: #000;
+      background: linear-gradient(101deg,
+        var(--steel) 0%, var(--steel-light) 12%, var(--steel-hi) 24%, #ACAAA7 38%,
+        #D8D7D5 52%, var(--steel) 66%, #CFCECC 80%, #A3A09D 92%, var(--steel-deep) 100%);
       box-shadow: 0 1px 0 color-mix(in srgb, #000 18%, transparent); backdrop-filter: blur(14px);
     }
     .nav a, .menu-toggle {
@@ -261,7 +271,7 @@
     .locations {
       display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem);
       padding: clamp(5rem, 10vw, 9rem) var(--pad); color: #000; --ink: #000;
-      background: linear-gradient(135deg, #F2F3F5 0%, var(--silver) 45%, var(--silver-deep) 100%);
+      background: linear-gradient(135deg, #F0EFEE 0%, var(--silver) 45%, var(--silver-deep) 100%);
     }
     .locations-head { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
     .locations-logo { width: 14rem; height: auto; flex-shrink: 0; filter: brightness(0); }
