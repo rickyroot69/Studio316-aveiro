@@ -182,10 +182,15 @@
     }
     .section-heading em { color: var(--rose); font-weight: 400; font-style: italic; }
 
-    .marquee { overflow: hidden; padding: 1.2rem 0; background: var(--rose); border-block: 1px solid rgb(0 0 0 / 12%); }
+    .marquee {
+      overflow: hidden; padding: 1.2rem 0; border-block: 1px solid rgb(0 0 0 / 12%);
+      background: linear-gradient(101deg,
+        var(--steel) 0%, var(--steel-light) 12%, var(--steel-hi) 24%, #ACAAA7 38%,
+        #D8D7D5 52%, var(--steel) 66%, #CFCECC 80%, #A3A09D 92%, var(--steel-deep) 100%);
+    }
     .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
     .marquee span { padding-right: 2.4rem; color: #000; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
-    .marquee b { color: var(--paper); font-weight: 400; }
+    .marquee b { color: var(--ink-deep); font-weight: 400; }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     .services { padding: clamp(6rem, 11vw, 10rem) var(--pad); }
@@ -269,7 +274,6 @@
       <div class="gallery" aria-label="Galeria de trabalhos Hotel Ílhavo Plaza">
         <figure class="shot"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" loading="lazy"><figcaption><span>Sala</span><span>Ílhavo</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/16.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/17.jpg" alt="Cabeleireira a trabalhar no salão do Hotel Ílhavo Plaza" loading="lazy"><figcaption><span>Equipa</span><span>Ílhavo</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/18.jpg" alt="Cabelo castanho com camadas e movimento" loading="lazy"><figcaption><span>Camadas</span><span>Movimento</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/19.jpg" alt="Corte bob em castanho escuro" loading="lazy"><figcaption><span>Bob</span><span>Castanho</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/20.jpg" alt="Cabelo comprido e liso com iluminação" loading="lazy"><figcaption><span>Loiro</span><span>Liso</span></figcaption></figure>
