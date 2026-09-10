@@ -286,6 +286,30 @@
     .flyers-head .section-heading em { color: var(--gold); }
     .flyers-head { margin-bottom: 3rem; }
     .flyers-head .section-heading { margin-bottom: 0; }
+    .galeria { position: relative; padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem); background: var(--ink-deep); }
+    .galeria-rail { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity;
+      scrollbar-width: none; padding-inline: var(--pad); }
+    .galeria-rail::-webkit-scrollbar { display: none; }
+    .galeria-track { display: flex; gap: clamp(.8rem, 1.4vw, 1.4rem); width: max-content; }
+    .galeria-foto { position: relative; flex: 0 0 clamp(11rem, 19vw, 17rem); margin: 0; aspect-ratio: 3 / 4;
+      overflow: clip; scroll-snap-align: center; cursor: zoom-in; background: #000;
+      transition: transform .5s cubic-bezier(.2,.7,.3,1), box-shadow .5s; }
+    .galeria-foto img { transition: transform .8s cubic-bezier(.2,.7,.3,1), filter .5s; filter: saturate(.78) contrast(1.04) brightness(.92); }
+    .galeria-foto::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(200deg, rgb(255 255 255 / 22%) 0%, transparent 38%);
+      opacity: 0; transition: opacity .5s; }
+    .galeria-foto:hover, .galeria-foto:focus-within { transform: translateY(-.5rem); box-shadow: 0 1.6rem 3rem rgb(0 0 0 / 55%); }
+    .galeria-foto:hover img { transform: scale(1.09); filter: saturate(1.06) contrast(1) brightness(1); }
+    .galeria-foto:hover::after { opacity: 1; }
+    .galeria-nav { display: flex; justify-content: flex-end; gap: .6rem; margin-top: 1.4rem; padding-inline: var(--pad); }
+    .galeria-seta { width: 2.9rem; height: 2.9rem; border: 1px solid color-mix(in srgb, var(--paper) 45%, transparent);
+      background: none; color: var(--paper); font-size: 1.3rem; line-height: 1; cursor: pointer;
+      transition: background .25s, color .25s, border-color .25s; }
+    .galeria-seta:hover, .galeria-seta:focus-visible { background: var(--brass); border-color: var(--brass); color: var(--ink-deep); }
+    @media (prefers-reduced-motion: reduce) {
+      .galeria-foto, .galeria-foto img { transition: none; }
+      .galeria-foto:hover img { transform: none; }
+    }
     .flyer-rail { overflow: visible; }
     .flyer-track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: clamp(.6rem, 1vw, 1.2rem); width: auto; }
     .flyer { margin: 0; cursor: zoom-in; }
@@ -676,6 +700,34 @@
         <span>Cabelo saudável <b>✦</b> Cor apaixonante <b>✦</b> Beleza natural <b>✦</b> Cuidado personalizado <b>✦</b>&nbsp;</span>
       </div>
     </div>
+
+    <section class="galeria" aria-label="Galeria do Studio 316">
+      <div class="galeria-rail" data-galeria>
+        <div class="galeria-track">
+          <figure class="galeria-foto"><img src="galeria/01.jpg" alt="Manicure francesa feita no Studio 316" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/02.jpg" alt="Unhas em gel brancas, formato amendoado" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/03.jpg" alt="Zona de lavagem do salão, com cliente atendida" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/04.jpg" alt="Unhas pretas brilhantes, acabamento espelhado" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/05.jpg" alt="Loiro comprido e liso, junto ao color bar" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/06.jpg" alt="Vista da sala do Studio 316 em Aveiro" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/07.jpg" alt="Loiro curto com raiz esbatida, visto de trás" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/08.jpg" alt="Cartaz: cada cabelo tem uma história" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/09.jpg" alt="Corte lob loiro, trabalhado em sala" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/10.jpg" alt="Cachos definidos em cabelo castanho comprido" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/11.jpg" alt="Equipa a trabalhar numa transformação de cor" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/12.jpg" alt="Ondas largas em cabelo castanho comprido" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/13.jpg" alt="Sala do salão com clientes em atendimento" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/14.jpg" alt="Loiro polido com brilho, visto de trás" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/15.jpg" alt="Cabelo preto liso e comprido, com brilho" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/16.jpg" alt="Balayage em ondas compridas" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/17.jpg" alt="Posto de manicure do Studio 316" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+      <div class="galeria-nav">
+        <button class="galeria-seta" type="button" data-ir="-1" aria-label="Fotografias anteriores">‹</button>
+        <button class="galeria-seta" type="button" data-ir="1" aria-label="Fotografias seguintes">›</button>
+      </div>
+    </section>
 
     <section class="feature" aria-labelledby="blonde-title">
       <div class="feature-media">
@@ -1107,14 +1159,40 @@
       const caixa = document.getElementById('lightbox');
       if (!caixa) return;
       const alvo = caixa.querySelector('img');
-      document.querySelectorAll('.flyer img').forEach(img => {
-        img.closest('.flyer').addEventListener('click', () => {
+      document.querySelectorAll('.flyer img, .galeria-foto img').forEach(img => {
+        img.closest('.flyer, .galeria-foto').addEventListener('click', () => {
           alvo.src = img.currentSrc || img.src;
           alvo.alt = img.alt;
           caixa.showModal();
         });
       });
       caixa.addEventListener('click', e => { if (e.target === caixa || e.target.hasAttribute('data-close')) caixa.close(); });
+    })();
+
+    // galeria: setas, avanco automatico e clique para ampliar
+    (() => {
+      const rail = document.querySelector('[data-galeria]');
+      if (!rail) return;
+      const passo = () => {
+        const foto = rail.querySelector('.galeria-foto');
+        return foto ? foto.getBoundingClientRect().width + 16 : 320;
+      };
+      document.querySelectorAll('.galeria-seta').forEach(botao => {
+        botao.addEventListener('click', () => {
+          rail.scrollBy({ left: passo() * Number(botao.dataset.ir) * 2, behavior: 'smooth' });
+        });
+      });
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      let parado = false, aVista = false;
+      ['pointerenter', 'focusin', 'pointerdown'].forEach(e => rail.addEventListener(e, () => { parado = true; }));
+      ['pointerleave', 'focusout'].forEach(e => rail.addEventListener(e, () => { parado = false; }));
+      new IntersectionObserver(([e]) => { aVista = e.isIntersecting; }, { threshold: .2 }).observe(rail);
+      setInterval(() => {
+        if (parado || !aVista || document.hidden) return;
+        const fim = rail.scrollWidth - rail.clientWidth - 4;
+        if (rail.scrollLeft >= fim) rail.scrollTo({ left: 0, behavior: 'smooth' });
+        else rail.scrollBy({ left: passo(), behavior: 'smooth' });
+      }, 3200);
     })();
   </script>
 </body>
