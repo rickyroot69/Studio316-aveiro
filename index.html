@@ -332,6 +332,10 @@
     .flyer-rail { overflow: visible; }
     .flyer-track { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: clamp(.6rem, 1vw, 1.2rem); width: auto; }
     .flyer { margin: 0; cursor: zoom-in; }
+    .flyer img { transition: transform .45s ease; }
+    .flyer { overflow: clip; }
+    .flyer:hover img, .flyer:focus-within img { transform: scale(1.08); }
+    @media (prefers-reduced-motion: reduce) { .flyer img { transition: none; } .flyer:hover img { transform: none; } }
     @media (max-width: 1200px) { .flyer-track { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
     @media (max-width: 820px) { .flyer-track { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 560px) { .flyer-track { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -404,34 +408,6 @@
     .checks span { padding: 1rem .5rem 1rem 0; border-bottom: 1px solid rgb(255 255 255 / 22%); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .checks span::before { content: "✦"; margin-right: .7rem; color: var(--brass); }
 
-    .transformation-lab {
-      display: grid; grid-template-columns: .72fr 1.28fr; min-height: 95vh;
-      background: var(--ink); color: var(--paper); overflow: hidden;
-    }
-    .transformation-lab .section-heading em { color: var(--leaf); }
-    .transform-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 8vw, 8rem) var(--pad); }
-    .transform-copy .section-heading { max-width: 7ch; margin-bottom: 1.8rem; }
-    .transform-copy > p:last-child { max-width: 31rem; line-height: 1.7; }
-    .compare {
-      --split: 48%; position: relative; justify-self: center; width: 100%; max-width: 45rem;
-      min-height: 48rem; overflow: hidden; background: var(--ink-deep);
-      animation: compare-breathe 5.5s ease-in-out infinite;
-    }
-    .compare.touched { animation: none; }
-    .compare > img, .compare-layer, .compare-layer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-    .compare-layer { clip-path: inset(0 calc(100% - var(--split)) 0 0); will-change: clip-path; }
-    .compare-divider { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--split); width: 2px; background: var(--paper); transform: translateX(-1px); pointer-events: none; }
-    .compare-handle {
-      position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 3.8rem; height: 3.8rem;
-      border: 1px solid var(--paper); border-radius: 50%; background: rgb(11 35 30 / 72%); color: var(--paper);
-      font-family: var(--display); font-size: 1.1rem; transform: translate(-50%, -50%); box-shadow: 0 .8rem 2rem rgb(11 35 30 / 26%);
-    }
-    .compare-range { position: absolute; z-index: 5; inset: 0; width: 100%; height: 100%; margin: 0; cursor: ew-resize; opacity: 0; }
-    .compare-range:focus-visible + .compare-divider .compare-handle { outline: 3px solid var(--brass); outline-offset: 5px; }
-    .compare-label { position: absolute; z-index: 4; top: 1.3rem; padding: .65rem .8rem; border: 1px solid rgb(255 255 255 / 55%); border-radius: 999px; background: rgb(11 35 30 / 54%); color: var(--paper); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(9px); }
-    .compare-label.before { left: 1.3rem; }
-    .compare-label.after { right: 1.3rem; }
-    @keyframes compare-breathe { 0%, 100% { --split: 35%; } 50% { --split: 67%; } }
 
     .diagnosis {
       position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 9vw, 10rem);
@@ -573,10 +549,9 @@
       .language-list { position: fixed; right: 1rem; top: 4.5rem; width: min(13.7rem, calc(100vw - 2rem)); }
       .intro { grid-template-columns: 1fr; }
       .service { grid-template-columns: 5rem .8fr 1.4fr 17rem; gap: 2rem; align-items: center; }
-      .feature, .transformation-lab, .diagnosis, .wellbeing, .contact-wrap { grid-template-columns: 1fr; }
+      .feature, .diagnosis, .wellbeing, .contact-wrap { grid-template-columns: 1fr; }
       .feature-copy { grid-row: 1; }
       .feature-media { min-height: 40rem; }
-      .compare { min-height: 70vh; }
       .diagnosis-media { width: min(82%, 40rem); height: 42rem; }
       .wellbeing-media { min-height: 38rem; }
     }
@@ -609,7 +584,6 @@
       .feature-media { min-height: 34rem; }
       .feature-copy { padding-inline: var(--pad); }
       .transform-copy { padding-inline: var(--pad); }
-      .compare { min-height: 72vh; }
       .checks { grid-template-columns: 1fr; }
       .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
       .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
@@ -629,7 +603,7 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .hero-curtain { display: none; }
-      .hero-media video, .hero-content > *, .hero-316, .compare, .hero-spotlight { animation: none !important; }
+      .hero-media video, .hero-content > *, .hero-316, .hero-spotlight { animation: none !important; }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -785,21 +759,6 @@
       </div>
     </section>
 
-    <section class="transformation-lab" aria-labelledby="transform-title">
-      <div class="transform-copy">
-        <p class="eyebrow">Transformação real</p>
-        <h2 class="section-heading" id="transform-title">Arraste. <em>Veja o brilho.</em></h2>
-        <p>Mova o controlo e compare o resultado real. Cor mais luminosa, acabamento polido e movimento sem perder a identidade.</p>
-      </div>
-      <div class="compare">
-        <img src="assets/img/transform-after.jpg" alt="Resultado depois da transformação: cabelo loiro luminoso e polido" loading="lazy">
-        <div class="compare-layer"><img src="assets/img/transform-before.jpg" alt="Cabelo antes da transformação" loading="lazy"></div>
-        <span class="compare-label before">Antes</span>
-        <span class="compare-label after">Depois</span>
-        <input class="compare-range" type="range" min="0" max="100" value="48" aria-label="Comparar cabelo antes e depois">
-        <div class="compare-divider" aria-hidden="true"><span class="compare-handle">↔</span></div>
-      </div>
-    </section>
 
     <section class="diagnosis" id="sobre" aria-labelledby="diagnosis-title">
       <figure class="diagnosis-media reveal">
@@ -880,12 +839,6 @@
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const hero = document.querySelector('.hero');
-    const comparison = document.querySelector('.compare');
-    const compareRange = document.querySelector('.compare-range');
-    compareRange.addEventListener('input', () => {
-      comparison.classList.add('touched');
-      comparison.style.setProperty('--split', `${compareRange.value}%`);
-    });
     if (!reduceMotion) {
       hero.addEventListener('pointermove', event => {
         const rect = hero.getBoundingClientRect();
@@ -1014,8 +967,6 @@
       'Hidratação profunda': ['Hidratación profunda', 'Deep hydration', 'Intensive Feuchtigkeit', 'Hydratation profonde'],
       'Avaliar o meu cabelo': ['Evaluar mi cabello', 'Assess my hair', 'Mein Haar analysieren', 'Diagnostiquer mes cheveux'],
       'Transformação real': ['Transformación real', 'Real transformation', 'Echte Verwandlung', 'Transformation réelle'],
-      'Arraste.': ['Desliza.', 'Drag.', 'Ziehen.', 'Faites glisser.'],
-      'Veja o brilho.': ['Descubre el brillo.', 'See the shine.', 'Sehen Sie den Glanz.', 'Voyez la brillance.'],
       'Mova o controlo e compare o resultado real. Cor mais luminosa, acabamento polido e movimento sem perder a identidade.': ['Mueve el control y compara el resultado real. Color más luminoso, acabado pulido y movimiento sin perder identidad.', 'Move the control and compare the real result. Brighter colour, a polished finish and movement without losing identity.', 'Bewegen Sie den Regler und vergleichen Sie das echte Ergebnis. Leuchtendere Farbe, glänzendes Finish und Bewegung, ohne die Persönlichkeit zu verlieren.', 'Déplacez le curseur et comparez le résultat réel. Une couleur plus lumineuse, une finition soignée et du mouvement sans perdre son identité.'],
       'Antes': ['Antes', 'Before', 'Vorher', 'Avant'],
       'Depois': ['Después', 'After', 'Nachher', 'Après'],
