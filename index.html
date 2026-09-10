@@ -329,8 +329,23 @@
     .flyers-head .section-heading em { color: var(--gold); }
     .flyers-head { margin-bottom: 3rem; }
     .flyers-head .section-heading { margin-bottom: 0; }
-    .flyer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.5rem; }
-    .flyer { margin: 0; }
+    .flyer-rail { overflow: hidden; margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); }
+    .flyer-track { display: flex; gap: 1.5rem; width: max-content; animation: flyer-rail 70s linear infinite; }
+    .flyer-rail:hover .flyer-track, .flyer-rail:focus-within .flyer-track { animation-play-state: paused; }
+    @keyframes flyer-rail { from { transform: translateX(calc(-50% - .75rem)); } to { transform: translateX(0); } }
+    .flyer { flex: 0 0 14rem; margin: 0; cursor: zoom-in; }
+    @media (prefers-reduced-motion: reduce) {
+      .flyer-rail { overflow-x: auto; }
+      .flyer-track { animation: none; }
+    }
+    .lightbox:not([open]) { display: none; }
+    .lightbox[open] { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 4vmin;
+      width: 100%; height: 100%; max-width: none; max-height: none; margin: 0;
+      background: color-mix(in srgb, var(--ink-deep) 88%, black); border: 0; }
+    .lightbox::backdrop { background: transparent; }
+    .lightbox img { max-width: min(92vw, 60rem); max-height: 92vh; width: auto; height: auto; }
+    .lightbox-close { position: absolute; top: 1.2rem; right: 1.4rem; width: 2.6rem; height: 2.6rem; border: 1px solid var(--paper);
+      background: none; color: var(--paper); font-size: 1.2rem; line-height: 1; cursor: pointer; }
     .flyer img { aspect-ratio: 4 / 5; object-fit: contain; background: var(--paper); border: 1px solid var(--line); }
     .flyer figcaption { margin-top: .8rem; font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--leaf); }
 
@@ -704,15 +719,23 @@
         <p class="section-tag reveal">Campanhas em sala</p>
         <h2 class="section-heading reveal" id="flyers-title">O que está <em>em destaque.</em></h2>
       </div>
-      <div class="flyer-grid">
-        <figure class="flyer"><img src="3918741754922279733.jpg" alt="Cartaz de boas-vindas: Bem-vinda à sua melhor versão" loading="lazy"><figcaption>Bem-vinda</figcaption></figure>
-        <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy"><figcaption>Tratamento 30€</figcaption></figure>
-        <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy"><figcaption>Unhas</figcaption></figure>
-        <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy"><figcaption>Mãos & pés</figcaption></figure>
-        <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy"><figcaption>Massagem</figcaption></figure>
-        <figure class="flyer"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€" loading="lazy"><figcaption>Combo Beauty 40€</figcaption></figure>
-        <figure class="flyer"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€" loading="lazy"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
-        <figure class="flyer"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual" loading="lazy"><figcaption>Sorteio de setembro</figcaption></figure>
+      <div class="flyer-rail" data-rail>
+        <div class="flyer-track">
+          <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy"><figcaption>Tratamento 30€</figcaption></figure>
+          <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy"><figcaption>Unhas</figcaption></figure>
+          <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy"><figcaption>Mãos & pés</figcaption></figure>
+          <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy"><figcaption>Massagem</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€" loading="lazy"><figcaption>Combo Beauty 40€</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€" loading="lazy"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual" loading="lazy"><figcaption>Sorteio de setembro</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy"><figcaption>Tratamento 30€</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy"><figcaption>Unhas</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy"><figcaption>Mãos & pés</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy"><figcaption>Massagem</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€" loading="lazy"><figcaption>Combo Beauty 40€</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€" loading="lazy"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
+          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual" loading="lazy"><figcaption>Sorteio de setembro</figcaption></figure>
+        </div>
       </div>
     </section>
 
@@ -843,6 +866,10 @@
     </section>
   </main>
 
+  <dialog class="lightbox" id="lightbox" aria-label="Campanha em tamanho grande">
+    <button class="lightbox-close" type="button" data-close aria-label="Fechar">✕</button>
+    <img alt="">
+  </dialog>
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (!location.hash) addEventListener('load', () => scrollTo(0, 0));
@@ -1194,6 +1221,21 @@
         carousel.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((index + 1) % slides.length), 5000); });
       }
     });
+
+    // campanhas: clicar num cartaz abre-o em grande
+    (() => {
+      const caixa = document.getElementById('lightbox');
+      if (!caixa) return;
+      const alvo = caixa.querySelector('img');
+      document.querySelectorAll('.flyer img').forEach(img => {
+        img.closest('.flyer').addEventListener('click', () => {
+          alvo.src = img.currentSrc || img.src;
+          alvo.alt = img.alt;
+          caixa.showModal();
+        });
+      });
+      caixa.addEventListener('click', e => { if (e.target === caixa || e.target.hasAttribute('data-close')) caixa.close(); });
+    })();
   </script>
 </body>
 </html>
