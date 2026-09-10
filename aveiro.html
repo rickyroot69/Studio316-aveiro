@@ -443,8 +443,8 @@
       scrollbar-width: none; padding: 0 var(--pad) 1rem;
     }
     .gallery::-webkit-scrollbar { display: none; }
-    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70vh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
-    .shot:nth-child(2n) { margin-top: 4rem; height: min(61vh, 41rem); }
+    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70dvh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
+    .shot:nth-child(2n) { margin-top: 4rem; height: min(61dvh, 41rem); }
     .shot img, .shot video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.002); transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .4s; }
     .shot:hover img, .shot:hover video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.045); filter: saturate(1.1); }
     .shot figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem; padding: 3rem 1.2rem 1.2rem; color: var(--paper); background: linear-gradient(transparent, rgb(5 20 16 / 80%)); font-size: .64rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
@@ -604,7 +604,7 @@
       .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
       .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
       .gallery { grid-auto-columns: 81vw; }
-      .shot, .shot:nth-child(2n) { height: 62vh; margin-top: 0; }
+      .shot, .shot:nth-child(2n) { height: 62dvh; margin-top: 0; }
       .look-like { opacity: 1; transform: none; }
       .wellbeing-media { min-height: 30rem; }
       .wellbeing-media figure:last-child { margin-top: 3rem; }
@@ -634,6 +634,17 @@
       .hero-curtain { display: none; }
       .hero-media video, .hero-content > *, .hero-316, .compare, .hero-spotlight { animation: none !important; }
       .reveal { opacity: 1; transform: none; }
+    }
+
+    /* --- afinacao para telemovel --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
+    @supports (height: 100dvh) {
+      .lightbox img { max-height: 92dvh; }
+    }
+    @media (max-width: 640px) {
+      :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+      .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
+      .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
   </style>
 </head>
@@ -698,7 +709,7 @@
           <a class="button" href="#resultados">Ver resultados</a>
         </div>
       </div>
-      <div class="hero-meta" aria-hidden="true" translate="no"><span>@studio316aveiro</span><span>@redkenpro</span></div>
+      <div class="hero-meta" aria-hidden="true" translate="no"><span><span translate="no">@studio316aveiro</span></span><span><span translate="no">@redkenpro</span></span></div>
     </section>
 
     <section class="intro" aria-labelledby="intro-title" hidden style="display:none">
@@ -771,7 +782,7 @@
         <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
       </div>
       <div class="feature-copy reveal">
-        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer">@ropinheirohair</a></p>
+        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer"><span translate="no">@ropinheirohair</span></a></p>
         <h2 class="section-heading" id="blonde-title">O loiro dos <em>sonhos.</em></h2>
         <p>O loiro perfeito começa com um diagnóstico profissional e um cabelo saudável. Criamos loiros luminosos, elegantes e personalizados, sem comprometer a fibra capilar.</p>
         <div class="checks">
@@ -833,8 +844,8 @@
         <figure class="shot"><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy"><figcaption><span>Mãos &amp; pés</span><span>Cuidado</span></figcaption></figure>
         <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/loiro-dos-sonhos.jpg"><source src="videos/ig/loiro-dos-sonhos.mp4" type="video/mp4"></video><figcaption><span>Loiro dos sonhos</span><span>Cor</span></figcaption></figure>
         <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/tecnica-oreo.jpg"><source src="videos/ig/tecnica-oreo.mp4" type="video/mp4"></video><figcaption><span>Técnica Oreo</span><span>Madeixas vermelhas</span></figcaption></figure>
-        <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/honey-copper.jpg"><source src="videos/ig/honey-copper.mp4" type="video/mp4"></video><figcaption><span>Honey Copper</span><span translate="no">Redken</span></figcaption></figure>
-        <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/protein-gloss.jpg"><source src="videos/ig/protein-gloss.mp4" type="video/mp4"></video><figcaption><span>Protein Gloss</span><span>Tratamento</span></figcaption></figure>
+        <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/honey-copper.jpg"><source src="videos/ig/honey-copper.mp4" type="video/mp4"></video><figcaption><span><span translate="no">Honey Copper</span></span><span translate="no">Redken</span></figcaption></figure>
+        <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/protein-gloss.jpg"><source src="videos/ig/protein-gloss.mp4" type="video/mp4"></video><figcaption><span><span translate="no">Protein Gloss</span></span><span>Tratamento</span></figcaption></figure>
         <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/teste-madeixas.jpg"><source src="videos/ig/teste-madeixas.mp4" type="video/mp4"></video><figcaption><span>Teste de madeixas</span><span>Diagnóstico</span></figcaption></figure>
         <figure class="shot"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/avaliacao.jpg"><source src="videos/ig/avaliacao.mp4" type="video/mp4"></video><figcaption><span>Avaliação</span><span translate="no">Studio 316</span></figcaption></figure>
         <figure class="shot"><img src="trabalhos/01.jpg" alt="Cabelo castanho liso com brilho espelhado" loading="lazy"><figcaption><span>Castanho</span><span>Brilho</span></figcaption></figure>
@@ -888,20 +899,20 @@
         <div class="contact-cards reveal">
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Studio 316 · Aveiro</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd>R. do Sr. dos Aflitos 59<br>3800-260 Aveiro, Portugal<br><a href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">R. do Sr. dos Aflitos 59</span><br><span translate="no">3800-260 Aveiro</span>, Portugal<br><a href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a><br><a href="tel:+351927829171">+351 927 829 171</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351927829171" target="_blank" rel="noreferrer">+351 927 829 171 ↗</a></dd></div>
-            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer">@studio316aveiro ↗</a></dd></div>
+            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer"><span translate="no">@studio316aveiro</span> ↗</a></dd></div>
           </dl>
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Outro espaço</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal</dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal</dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>Site</dt><dd><a href="ilhavo.html">Ver o espaço de Ílhavo ↗</a></dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
             <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
-            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer">@redkenpro ↗</a></dd></div>
+            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer"><span translate="no">@redkenpro</span> ↗</a></dd></div>
           </dl>
         </div>
       </div>
@@ -968,6 +979,11 @@
       fr: { html: 'fr', code: 'FR', menu: 'Menu', close: 'Fermer', sound: 'Son', pause: 'Pause', choose: 'Choisir la langue', play: "Lire la musique d'ambiance", stop: "Mettre la musique d'ambiance en pause", compare: 'Comparer les cheveux avant et après', saveLook: 'Enregistrer le look', removeLook: 'Supprimer le look', savedToast: 'Look enregistré ✦ Montrez-le lors du diagnostic.', removedToast: 'Look supprimé.', emptyToast: "Enregistrez d'abord un look que vous aimez." }
     };
     const translations = {
+      '← Espaços': ['← Espacios', '← Spaces', '← Räume', '← Espaces'],
+      'Espaços': ['Espacios', 'Spaces', 'Räume', 'Espaces'],
+      'Outro espaço': ['Otro espacio', 'Other space', 'Weiterer Raum', 'Autre espace'],
+      'Site': ['Web', 'Website', 'Website', 'Site'],
+      'Ver o espaço de Ílhavo ↗': ['Ver el espacio de Ílhavo ↗', 'See the Ílhavo space ↗', 'Den Raum in Ílhavo ansehen ↗', 'Voir l’espace d’Ílhavo ↗'],
       'Início': ['Inicio', 'Home', 'Start', 'Accueil'],
       'Cor': ['Color', 'Colour', 'Farbe', 'Couleur'],
       'Corte': ['Corte', 'Cut', 'Schnitt', 'Coupe'],

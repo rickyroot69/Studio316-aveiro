@@ -433,8 +433,8 @@
       scrollbar-width: none; padding: 0 var(--pad) 1rem;
     }
     .gallery::-webkit-scrollbar { display: none; }
-    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70vh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
-    .shot:nth-child(2n) { margin-top: 4rem; height: min(61vh, 41rem); }
+    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70dvh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
+    .shot:nth-child(2n) { margin-top: 4rem; height: min(61dvh, 41rem); }
     .shot img, .shot video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.002); transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .4s; }
     .shot:hover img, .shot:hover video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.045); filter: saturate(1.1); }
     .shot figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem; padding: 3rem 1.2rem 1.2rem; color: var(--paper); background: linear-gradient(transparent, rgb(9 15 17 / 80%)); font-size: .64rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
@@ -594,7 +594,7 @@
       .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
       .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
       .gallery { grid-auto-columns: 81vw; }
-      .shot, .shot:nth-child(2n) { height: 62vh; margin-top: 0; }
+      .shot, .shot:nth-child(2n) { height: 62dvh; margin-top: 0; }
       .look-like { opacity: 1; transform: none; }
       .wellbeing-media { min-height: 30rem; }
       .wellbeing-media figure:last-child { margin-top: 3rem; }
@@ -624,6 +624,17 @@
       .hero-curtain { display: none; }
       .hero-media video, .hero-media img, .hero-content > *, .hero-316, .compare, .hero-spotlight { animation: none !important; }
       .reveal { opacity: 1; transform: none; }
+    }
+
+    /* --- afinacao para telemovel --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
+    @supports (height: 100dvh) {
+      .lightbox img { max-height: 92dvh; }
+    }
+    @media (max-width: 640px) {
+      :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+      .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
+      .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
   </style>
 </head>
@@ -685,7 +696,7 @@
           <a class="button" href="#resultados">Ver resultados</a>
         </div>
       </div>
-      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Hotel Ílhavo Plaza</span><span>@redkenpro</span></div>
+      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Hotel Ílhavo Plaza</span><span><span translate="no">@redkenpro</span></span></div>
     </section>
 
     <section class="intro" aria-labelledby="intro-title" hidden style="display:none">
@@ -758,7 +769,7 @@
         <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
       </div>
       <div class="feature-copy reveal">
-        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer">@ropinheirohair</a></p>
+        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer"><span translate="no">@ropinheirohair</span></a></p>
         <h2 class="section-heading" id="blonde-title">O loiro dos <em>sonhos.</em></h2>
         <p>O loiro perfeito começa com um diagnóstico profissional e um cabelo saudável. Criamos loiros luminosos, elegantes e personalizados, sem comprometer a fibra capilar.</p>
         <div class="checks">
@@ -860,19 +871,19 @@
         <div class="contact-cards reveal">
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
           </dl>
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Outro espaço</dt><dd><strong translate="no">Studio 316 · Aveiro</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd>R. do Sr. dos Aflitos 59<br>3800-260 Aveiro, Portugal</dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">R. do Sr. dos Aflitos 59</span><br><span translate="no">3800-260 Aveiro</span>, Portugal</dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a></dd></div>
             <div class="contact-row"><dt>Site</dt><dd><a href="aveiro.html">Ver o espaço de Aveiro ↗</a></dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
             <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
-            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer">@redkenpro ↗</a></dd></div>
+            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer"><span translate="no">@redkenpro</span> ↗</a></dd></div>
           </dl>
         </div>
       </div>
@@ -939,6 +950,34 @@
       fr: { html: 'fr', code: 'FR', menu: 'Menu', close: 'Fermer', sound: 'Son', pause: 'Pause', choose: 'Choisir la langue', play: "Lire la musique d'ambiance", stop: "Mettre la musique d'ambiance en pause", compare: 'Comparer les cheveux avant et après', saveLook: 'Enregistrer le look', removeLook: 'Supprimer le look', savedToast: 'Look enregistré ✦ Montrez-le lors du diagnostic.', removedToast: 'Look supprimé.', emptyToast: "Enregistrez d'abord un look que vous aimez." }
     };
     const translations = {
+      '← Espaços': ['← Espacios', '← Spaces', '← Räume', '← Espaces'],
+      'Espaços': ['Espacios', 'Spaces', 'Räume', 'Espaces'],
+      'Outro espaço': ['Otro espacio', 'Other space', 'Weiterer Raum', 'Autre espace'],
+      'Site': ['Web', 'Website', 'Website', 'Site'],
+      '3.º andar': ['3.er piso', '3rd floor', '3. Etage', '3e étage'],
+      'Ver o espaço de Aveiro ↗': ['Ver el espacio de Aveiro ↗', 'See the Aveiro space ↗', 'Den Raum in Aveiro ansehen ↗', 'Voir l’espace d’Aveiro ↗'],
+      'Sala': ['Sala', 'Room', 'Raum', 'Salle'],
+      'Turquesa': ['Turquesa', 'Turquoise', 'Türkis', 'Turquoise'],
+      'Zona de cor': ['Zona de color', 'Colour bar', 'Farbbereich', 'Espace couleur'],
+      'Madeira': ['Madera', 'Wood', 'Holz', 'Bois'],
+      'Produtos': ['Productos', 'Products', 'Produkte', 'Produits'],
+      'Cadeiras': ['Sillones', 'Chairs', 'Stühle', 'Fauteuils'],
+      'Vista': ['Vista', 'View', 'Aussicht', 'Vue'],
+      'Panorâmica': ['Panorámica', 'Panoramic', 'Panorama', 'Panoramique'],
+      'Atendimento': ['Atención', 'Service', 'Betreuung', 'Accueil'],
+      'Luz natural': ['Luz natural', 'Natural light', 'Tageslicht', 'Lumière naturelle'],
+      'Bancada': ['Encimera', 'Counter', 'Arbeitsfläche', 'Plan de travail'],
+      'Plantas': ['Plantas', 'Plants', 'Pflanzen', 'Plantes'],
+      'Janela': ['Ventana', 'Window', 'Fenster', 'Fenêtre'],
+      'Recepção': ['Recepción', 'Reception', 'Empfang', 'Réception'],
+      'Entrada': ['Entrada', 'Entrance', 'Eingang', 'Entrée'],
+      'Terraço': ['Terraza', 'Terrace', 'Terrasse', 'Terrasse'],
+      'Esplanada': ['Terraza exterior', 'Outdoor terrace', 'Außenterrasse', 'Terrasse extérieure'],
+      'Vidro': ['Cristal', 'Glass', 'Glas', 'Verre'],
+      'Espera': ['Espera', 'Waiting area', 'Wartebereich', 'Attente'],
+      'Decoração': ['Decoración', 'Decor', 'Deko', 'Décoration'],
+      'Acesso': ['Acceso', 'Access', 'Zugang', 'Accès'],
+      'em Ílhavo.': ['en Ílhavo.', 'in Ílhavo.', 'in Ílhavo.', 'à Ílhavo.'],
       'Início': ['Inicio', 'Home', 'Start', 'Accueil'],
       'Cor': ['Color', 'Colour', 'Farbe', 'Couleur'],
       'Corte': ['Corte', 'Cut', 'Schnitt', 'Coupe'],

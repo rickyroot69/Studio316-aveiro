@@ -82,8 +82,8 @@
       scrollbar-width: none; padding: 0 var(--pad) 1rem;
     }
     .gallery::-webkit-scrollbar { display: none; }
-    .shot { position: relative; height: min(66vh, 42rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink-deep); }
-    .shot:nth-child(2n) { margin-top: 3.5rem; height: min(58vh, 37rem); }
+    .shot { position: relative; height: min(66dvh, 42rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink-deep); }
+    .shot:nth-child(2n) { margin-top: 3.5rem; height: min(58dvh, 37rem); }
     .shot figcaption {
       position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem;
       padding: 3rem 1.1rem 1.1rem; background: linear-gradient(transparent, rgb(5 5 15 / 82%));
@@ -161,7 +161,7 @@
       .top-back { font-size: .6rem; }
       .top-brand img { height: 1.7rem; }
       .gallery { grid-auto-columns: 80vw; }
-      .shot, .shot:nth-child(2n) { height: 60vh; margin-top: 0; }
+      .shot, .shot:nth-child(2n) { height: 60dvh; margin-top: 0; }
       .hero-content { justify-content: flex-end; padding-top: 8rem; padding-bottom: 3rem; }
       .hero-media::before { background: linear-gradient(0deg, rgb(9 16 18 / 92%) 0%, rgb(9 16 18 / 48%) 68%, rgb(9 16 18 / 20%)); }
       .hero-media img { object-position: 56% center; }
@@ -257,6 +257,18 @@
       .wellbeing-media { min-height: 30rem; }
       .wellbeing-media figure:last-child { margin-top: 3rem; }
     }
+
+    /* --- afinacao para telemovel --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
+    @supports (height: 100dvh) {
+      .lightbox img { max-height: 92dvh; }
+    }
+    @media (max-width: 640px) {
+      .top-back { display: inline-block; padding-block: .45rem; }
+      :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+      .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
+      .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
+    }
   </style>
 </head>
 <body>
@@ -296,7 +308,7 @@
           <a class="button" href="#resultados">Ver resultados</a>
         </div>
       </div>
-      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Hotel Ílhavo Plaza</span><span>@redkenpro</span></div>
+      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Hotel Ílhavo Plaza</span><span><span translate="no">@redkenpro</span></span></div>
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -372,19 +384,19 @@
         <div class="contact-cards">
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
           </dl>
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Outro espaço</dt><dd><strong translate="no">Studio 316 · Aveiro</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd>R. do Sr. dos Aflitos 59<br>3800-260 Aveiro, Portugal</dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">R. do Sr. dos Aflitos 59</span><br><span translate="no">3800-260 Aveiro</span>, Portugal</dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a></dd></div>
             <div class="contact-row"><dt>Site</dt><dd><a href="espaco-aveiro.html">Ver o espaço de Aveiro ↗</a></dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
             <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
-            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer">@redkenpro ↗</a></dd></div>
+            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer"><span translate="no">@redkenpro</span> ↗</a></dd></div>
           </dl>
         </div>
       </div>

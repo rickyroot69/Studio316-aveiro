@@ -422,8 +422,8 @@
       scrollbar-width: none; padding: 0 var(--pad) 1rem;
     }
     .gallery::-webkit-scrollbar { display: none; }
-    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70vh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
-    .shot:nth-child(2n) { margin-top: 4rem; height: min(61vh, 41rem); }
+    .shot { --rx: 0deg; --ry: 0deg; position: relative; height: min(70dvh, 47rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink); }
+    .shot:nth-child(2n) { margin-top: 4rem; height: min(61dvh, 41rem); }
     .shot img, .shot video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.002); transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .4s; }
     .shot:hover img, .shot:hover video { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.045); filter: saturate(1.1); }
     .shot figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem; padding: 3rem 1.2rem 1.2rem; color: var(--paper); background: linear-gradient(transparent, rgb(5 20 16 / 80%)); font-size: .64rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
@@ -560,7 +560,7 @@
       .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
       .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
       .gallery { grid-auto-columns: 81vw; }
-      .shot, .shot:nth-child(2n) { height: 62vh; margin-top: 0; }
+      .shot, .shot:nth-child(2n) { height: 62dvh; margin-top: 0; }
       .look-like { opacity: 1; transform: none; }
       .wellbeing-media { min-height: 30rem; }
       .wellbeing-media figure:last-child { margin-top: 3rem; }
@@ -575,6 +575,17 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
+    }
+
+    /* --- afinacao para telemovel --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
+    @supports (height: 100dvh) {
+      .lightbox img { max-height: 92dvh; }
+    }
+    @media (max-width: 640px) {
+      :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+      .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
+      .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
   </style>
 </head>
@@ -632,7 +643,7 @@
         <h3 class="local-title"><a href="espaco-aveiro.html" translate="no">Studio 316 · Aveiro</a></h3>
         <div class="local-main"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></div>
         <div class="local-info">
-          <p>R. do Sr. dos Aflitos 59, 3800-260 Aveiro</p>
+          <p><span translate="no">R. do Sr. dos Aflitos 59</span>, <span translate="no">3800-260 Aveiro</span></p>
           <div class="badges">
             <a class="badge" style="--ar: 3.86" href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Studio 316 Aveiro" loading="lazy"></a>
             <a class="badge" style="--ar: 2.76" href="tel:+351234351054" aria-label="Ligar 234 351 054"><img src="assets/badges/tel-aveiro.png" alt="Telefone 234 351 054" loading="lazy"></a>
@@ -647,7 +658,7 @@
         <h3 class="local-title"><a href="espaco-ilhavo.html" translate="no">Hotel Ílhavo Plaza · Cabeleireiros</a></h3>
         <div class="local-main"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></div>
         <div class="local-info">
-          <p><span translate="no">Hotel Ílhavo Plaza</span>, 3.º andar, Av. Mário Sacramento 113, 3830-052 Ílhavo</p>
+          <p><span translate="no">Hotel Ílhavo Plaza</span>, <span>3.º andar</span>, <span translate="no">Av. Mário Sacramento 113</span>, <span translate="no">3830-052 Ílhavo</span></p>
           <div class="badges">
             <a class="badge" style="--ar: 3.86" href="espaco-ilhavo.html" aria-label="Ver o espaço do Hotel Ílhavo Plaza"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Hotel Ílhavo Plaza" loading="lazy"></a>
             <a class="badge" style="--ar: 2.76" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><img src="assets/badges/whatsapp-ilhavo.png" alt="WhatsApp 913 456 651" loading="lazy"></a>
@@ -734,7 +745,7 @@
         <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
       </div>
       <div class="feature-copy reveal">
-        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer">@ropinheirohair</a></p>
+        <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer"><span translate="no">@ropinheirohair</span></a></p>
         <h2 class="section-heading" id="blonde-title">O loiro dos <em>sonhos.</em></h2>
         <p>O loiro perfeito começa com um diagnóstico profissional e um cabelo saudável. Criamos loiros luminosos, elegantes e personalizados, sem comprometer a fibra capilar.</p>
         <div class="checks">
@@ -771,10 +782,10 @@
         <div class="contact-cards reveal">
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Studio 316 · Aveiro</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd>R. do Sr. dos Aflitos 59<br>3800-260 Aveiro, Portugal<br><a href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">R. do Sr. dos Aflitos 59</span><br><span translate="no">3800-260 Aveiro</span>, Portugal<br><a href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a><br><a href="tel:+351927829171">+351 927 829 171</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351927829171" target="_blank" rel="noreferrer">+351 927 829 171 ↗</a></dd></div>
-            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer">@studio316aveiro ↗</a></dd></div>
+            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer"><span translate="no">@studio316aveiro</span> ↗</a></dd></div>
             <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
               <a class="badge" style="--ar: 3.86" href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Studio 316 Aveiro" loading="lazy"></a>
               <a class="badge" style="--ar: 2.76" href="tel:+351234351054" aria-label="Ligar 234 351 054"><img src="assets/badges/tel-aveiro.png" alt="Telefone 234 351 054" loading="lazy"></a>
@@ -785,7 +796,7 @@
           </dl>
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
             <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
@@ -796,7 +807,7 @@
           </dl>
           <dl class="contact-card contact-card-wide">
             <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
-            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer">@redkenpro ↗</a></dd></div>
+            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer"><span translate="no">@redkenpro</span> ↗</a></dd></div>
           </dl>
         </div>
       </div>
@@ -851,6 +862,7 @@
       fr: { html: 'fr', code: 'FR', menu: 'Menu', close: 'Fermer', sound: 'Son', pause: 'Pause', choose: 'Choisir la langue', play: "Lire la musique d'ambiance", stop: "Mettre la musique d'ambiance en pause", compare: 'Comparer les cheveux avant et après', saveLook: 'Enregistrer le look', removeLook: 'Supprimer le look', savedToast: 'Look enregistré ✦ Montrez-le lors du diagnostic.', removedToast: 'Look supprimé.', emptyToast: "Enregistrez d'abord un look que vous aimez." }
     };
     const translations = {
+      '3.º andar': ['3.er piso', '3rd floor', '3. Etage', '3e étage'],
       'Início': ['Inicio', 'Home', 'Start', 'Accueil'],
       'Cor': ['Color', 'Colour', 'Farbe', 'Couleur'],
       'Corte': ['Corte', 'Cut', 'Schnitt', 'Coupe'],
@@ -956,8 +968,8 @@
       'Depois': ['Después', 'After', 'Nachher', 'Après'],
       'Segurança primeiro. Sempre.': ['La seguridad primero. Siempre.', 'Safety first. Always.', 'Sicherheit zuerst. Immer.', "La sécurité d'abord. Toujours."],
       'O nosso método': ['Nuestro método', 'Our method', 'Unsere Methode', 'Notre méthode'],
-      'A tua essência é a': ['Tu esencia es', 'Your essence is', 'Deine Essenz ist', 'Ton essence est'],
-      'tua maior força.': ['tu mayor fuerza.', 'your greatest strength.', 'deine größte Stärke.', 'ta plus grande force.'],
+      'A tua essência é a': ['Tu esencia es', 'Your essence is', 'Ihre Essenz ist', 'Votre essence est'],
+      'tua maior força.': ['tu mayor fuerza.', 'your greatest strength.', 'Ihre größte Stärke.', 'votre plus grande force.'],
       'O mundo está em constante movimento, e é fácil sentirmos que somos apenas mais um. Mas a verdade é que a tua história, a tua perspetiva e a tua energia são únicas. Ninguém mais tem a tua combinação exata de talentos e experiências.': ['El mundo está en constante movimiento y es fácil sentir que somos uno más. Pero la verdad es que tu historia, tu perspectiva y tu energía son únicas. Nadie más tiene tu combinación exacta de talentos y experiencias.', 'The world never stops moving, and it is easy to feel like just one more face. But the truth is that your story, your perspective and your energy are unique. No one else has your exact blend of talents and experience.', 'Die Welt ist ständig in Bewegung, und schnell fühlt man sich als eine oder einer von vielen. In Wahrheit sind Ihre Geschichte, Ihre Sicht und Ihre Energie einzigartig. Niemand sonst hat genau diese Mischung aus Talenten und Erfahrungen.', 'Le monde est en mouvement constant et il est facile de se sentir comme une personne parmi d’autres. Pourtant, votre histoire, votre regard et votre énergie sont uniques. Personne d’autre n’a votre combinaison exacte de talents et d’expériences.'],
       'Por isso, não te contentes em ser uma cópia. Abraça a tua individualidade e usa-a para criar impacto. Quer seja com um gesto pequeno ou com um projeto ambicioso, o teu contributo importa.': ['Por eso, no te conformes con ser una copia. Abraza tu individualidad y úsala para crear impacto. Ya sea con un gesto pequeño o con un proyecto ambicioso, tu aporte importa.', 'So do not settle for being a copy. Embrace your individuality and use it to make an impact. Whether through a small gesture or an ambitious project, your contribution matters.', 'Geben Sie sich also nicht damit zufrieden, eine Kopie zu sein. Leben Sie Ihre Individualität und nutzen Sie sie, um etwas zu bewirken. Ob kleine Geste oder großes Projekt: Ihr Beitrag zählt.', 'Alors ne vous contentez pas d’être une copie. Assumez votre individualité et servez-vous-en pour créer de l’impact. Par un petit geste ou un projet ambitieux, votre contribution compte.'],
       'Acredita no teu potencial e não tenhas medo de brilhar. O mundo precisa da tua luz.': ['Cree en tu potencial y no tengas miedo de brillar. El mundo necesita tu luz.', 'Believe in your potential and do not be afraid to shine. The world needs your light.', 'Glauben Sie an Ihr Potenzial und scheuen Sie sich nicht zu strahlen. Die Welt braucht Ihr Licht.', 'Croyez en votre potentiel et n’ayez pas peur de briller. Le monde a besoin de votre lumière.'],
@@ -984,8 +996,8 @@
       'Uma massagem regular ajuda a aliviar o stress, reduzir tensões musculares e recuperar o bem-estar. Ofereça ao seu corpo o cuidado que merece.': ['Un masaje regular ayuda a aliviar el estrés, reducir las tensiones musculares y recuperar el bienestar. Dale a tu cuerpo el cuidado que merece.', 'Regular massage helps relieve stress, reduce muscle tension and restore wellbeing. Give your body the care it deserves.', 'Regelmäßige Massage hilft, Stress abzubauen, Muskelverspannungen zu lösen und Wohlbefinden zurückzugewinnen. Geben Sie Ihrem Körper die Pflege, die er verdient.', 'Un massage régulier aide à soulager le stress, réduire les tensions musculaires et retrouver le bien-être. Offrez à votre corps le soin qu’il mérite.'],
       'Marcar sessão': ['Reservar sesión', 'Book a session', 'Termin buchen', 'Réserver une séance'],
       'Estamos à sua espera': ['Te esperamos', 'We are waiting for you', 'Wir freuen uns auf Sie', 'Nous vous attendons'],
-      'Vamos criar a sua': ['Vamos a crear tu', 'Let’s create your', 'Gestalten wir Ihre', 'Créons votre'],
-      'melhor versão?': ['¿mejor versión?', 'best version?', 'beste Version?', 'meilleure version ?'],
+      'Vamos criar a sua': ['¿Vamos a crear tu', 'Let’s create your', 'Gestalten wir Ihre', 'Créons votre'],
+      'melhor versão?': ['mejor versión?', 'best version?', 'beste Version?', 'meilleure version ?'],
       'Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.': ['Reserva tu diagnóstico y transforma tu imagen con seguridad, profesionalidad y un cuidado hecho para ti.', 'Book your consultation and transform your look with safety, expertise and care made for you.', 'Buchen Sie Ihre Beratung und verändern Sie Ihren Look sicher, professionell und mit individueller Pflege.', 'Réservez votre diagnostic et transformez votre style en toute sécurité, avec expertise et un soin sur mesure.'],
       'Ligar agora': ['Llamar ahora', 'Call now', 'Jetzt anrufen', 'Appeler maintenant'],
       'Ver no Instagram': ['Ver en Instagram', 'See on Instagram', 'Auf Instagram ansehen', 'Voir sur Instagram'],
