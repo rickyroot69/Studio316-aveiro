@@ -191,38 +191,6 @@
     .sound-copy strong { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; }
     .sound-copy small { display: none; }
     @keyframes soundbar { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
-
-    .hero {
-      position: relative; min-height: 100svh; overflow: hidden; background: var(--ink-deep); color: var(--paper);
-    }
-    .hero-media { position: absolute; inset: 0; }
-    .hero-media::before {
-      content: ""; position: absolute; z-index: 2; inset: 0;
-      background: linear-gradient(90deg, rgb(5 21 17 / 88%) 0%, rgb(8 29 24 / 60%) 45%, rgb(8 29 24 / 8%) 78%),
-                  linear-gradient(0deg, rgb(5 20 16 / 65%) 0%, transparent 45%);
-    }
-    .hero-media video { object-position: center 30%; filter: saturate(.76) contrast(1.05); animation: hero-image-settle 1.8s cubic-bezier(.2,.8,.2,1) both; }
-    .hero-spotlight {
-      position: absolute; z-index: 2; inset: 0; pointer-events: none;
-      background: radial-gradient(circle 22rem at var(--spot-x, 58%) var(--spot-y, 38%), rgb(214 184 164 / 32%), transparent 62%);
-      mix-blend-mode: screen; opacity: .9;
-    }
-    .hero-curtain {
-      position: absolute; z-index: 8; inset: 0; pointer-events: none;
-      background: linear-gradient(115deg, var(--ink-deep) 0 72%, var(--brass) 72% 72.35%, var(--ink) 72.35%);
-      clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%);
-      animation: curtain-open 1.45s cubic-bezier(.77,0,.18,1) .12s forwards;
-    }
-    .hero-316 {
-      position: absolute; z-index: 3; right: -1.2vw; bottom: -8vw;
-      font-family: var(--display); font-size: clamp(13rem, 32vw, 38rem); font-style: italic;
-      font-weight: 400; line-height: .68; letter-spacing: -.12em; color: transparent;
-      -webkit-text-stroke: 1px rgb(255 253 248 / 42%); opacity: .65; pointer-events: none;
-    }
-    .hero-content {
-      position: relative; z-index: 4; display: flex; flex-direction: column; justify-content: flex-end;
-      min-height: 100svh; width: min(57rem, 100%); padding: 10rem var(--pad) 5.5rem;
-    }
     .eyebrow {
       display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem;
       font-size: .69rem; font-weight: 700; letter-spacing: .2em; line-height: 1.4; text-transform: uppercase;
@@ -239,17 +207,9 @@
       background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       animation: hair-shine 5.5s ease-in-out infinite;
     }
-    .hero-content > * { animation: hero-arrive 1.05s cubic-bezier(.2,.8,.2,1) .75s both; }
-    .hero-content > :nth-child(2) { animation-delay: .9s; }
-    .hero-content > :nth-child(3) { animation-delay: 1.05s; }
-    .hero-content > :nth-child(4) { animation-delay: 1.2s; }
-    .hero-316 { animation: mark-breathe 7s ease-in-out infinite; }
     @keyframes hair-shine { 0%, 65%, 100% { background-position: 100% center; } 35% { background-position: 0 center; } }
-    @keyframes hero-arrive { from { opacity: 0; transform: translateY(1.7rem); } to { opacity: 1; transform: none; } }
-    @keyframes hero-image-settle { from { transform: scale(1.1); filter: saturate(.3) contrast(1.15); } to { transform: scale(1); filter: saturate(.76) contrast(1.05); } }
     @keyframes curtain-open { to { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); } }
     @keyframes mark-breathe { 0%, 100% { opacity: .52; transform: translateY(0); } 50% { opacity: .72; transform: translateY(-.8rem); } }
-    .hero-copy { max-width: 39rem; margin-bottom: 2.1rem; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.55; color: rgb(255 253 248 / 82%); }
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
     .button {
       display: inline-flex; align-items: center; justify-content: space-between; gap: 2.2rem;
@@ -261,12 +221,6 @@
     .button:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
     .button-solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
     .button-solid:hover { background: var(--brass); border-color: var(--brass); color: var(--ink-deep); }
-    .hero-meta {
-      position: absolute; z-index: 4; right: var(--pad); top: 50%; display: flex; gap: 1.2rem;
-      writing-mode: vertical-rl; transform: translateY(-50%); font-size: .6rem; font-weight: 700;
-      letter-spacing: .18em; text-transform: uppercase;
-    }
-    .hero-meta span + span { padding-top: 1.2rem; border-top: 1px solid rgb(255 255 255 / 50%); }
 
     .locations {
       display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem);
@@ -362,6 +316,7 @@
       margin-bottom: 2.5rem; font-family: var(--display); font-size: clamp(3rem, 6.7vw, 7.2rem);
       font-weight: 400; line-height: .91; letter-spacing: -.055em;
     }
+    h1.section-heading { max-width: none; }
     .intro h2 em, .section-heading em { color: var(--brass); font-weight: 400; }
     .intro-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 52rem; }
     .intro-copy p { margin: 0; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.65; color: color-mix(in srgb, var(--ink) 78%, white); }
@@ -565,14 +520,7 @@
       .language-toggle { min-width: 3.8rem; padding: .58rem .65rem; }
       .sound-toggle { min-width: 2.65rem; width: 2.65rem; height: 2.45rem; padding: .55rem; }
       .sound-copy { display: none; }
-      .hero-content { justify-content: flex-end; padding-top: 8rem; padding-bottom: 3rem; }
-      .hero-media::before { background: linear-gradient(0deg, rgb(5 21 17 / 92%) 0%, rgb(5 21 17 / 48%) 68%, rgb(5 21 17 / 20%)); }
-      .hero-media video { object-position: 56% center; }
-      .hero-spotlight { background: radial-gradient(circle 14rem at 55% 34%, rgb(214 184 164 / 28%), transparent 68%); animation: spotlight-drift 7s ease-in-out infinite alternate; }
-      .hero-meta { display: none; }
-      .hero-316 { right: -5vw; bottom: 8rem; font-size: 60vw; }
       h1 { font-size: clamp(3.4rem, 16vw, 5.3rem); }
-      .hero-copy { font-size: .96rem; }
       .button { width: 100%; }
       .intro-copy { grid-template-columns: 1fr; }
       .services-head, .lookbook-head { display: block; }
@@ -602,8 +550,6 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .hero-curtain { display: none; }
-      .hero-media video, .hero-content > *, .hero-316, .hero-spotlight { animation: none !important; }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -655,7 +601,7 @@
     <section class="locations" id="locais" aria-labelledby="locations-title">
       <div class="locations-head">
         <img src="assets/img/galeano-logo.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo">
-        <h2 class="section-heading" id="locations-title">Dois espaços, <em>a mesma excelência,</em> pensados para si.</h2>
+        <h1 class="section-heading" id="locations-title">Dois espaços, <em>a mesma excelência,</em> pensados para si.</h1>
       </div>
 
       <article class="local" id="aveiro">
@@ -712,26 +658,6 @@
       </div>
     </section>
 
-    <section class="hero" id="inicio" aria-label="Studio 316 Aveiro">
-      <div class="hero-media">
-        <video autoplay muted loop playsinline poster="videos/apresentacao-poster.jpg" aria-label="Apresentação do Studio 316: espaço, diagnóstico, tratamento e resultado">
-          <source src="videos/apresentacao-studio316.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="hero-spotlight" aria-hidden="true"></div>
-      <div class="hero-curtain" aria-hidden="true"></div>
-      <div class="hero-316" aria-hidden="true">316</div>
-      <div class="hero-content">
-        <p class="eyebrow">Hair · Nails · Estética · Massagem</p>
-        <h1>A sua beleza, <em>sem filtros.</em></h1>
-        <p class="hero-copy">Especialistas em transformação e beleza. Criamos resultados elegantes e personalizados, respeitando sempre a sua identidade e a saúde do seu cabelo.</p>
-        <div class="actions">
-          <a class="button button-solid" href="tel:+351234351054">Marcar avaliação</a>
-          <a class="button" href="espaco-aveiro.html#resultados">Ver resultados</a>
-        </div>
-      </div>
-      <div class="hero-meta" aria-hidden="true" translate="no"><span>@studio316aveiro</span><span>@redkenpro</span></div>
-    </section>
 
     <section class="intro" aria-labelledby="intro-title" hidden style="display:none">
       <p class="section-tag reveal" translate="no">Studio 316 · Aveiro</p>
@@ -851,17 +777,7 @@
     const languageOptions = [...document.querySelectorAll('.language-option')];
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const hero = document.querySelector('.hero');
     if (!reduceMotion) {
-      hero.addEventListener('pointermove', event => {
-        const rect = hero.getBoundingClientRect();
-        hero.style.setProperty('--spot-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
-        hero.style.setProperty('--spot-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
-      });
-      hero.addEventListener('pointerleave', () => {
-        hero.style.setProperty('--spot-x', '58%');
-        hero.style.setProperty('--spot-y', '38%');
-      });
       if (!CSS.supports('animation-timeline: view()')) {
         document.documentElement.classList.add('motion-fallback');
         const trendObserver = new IntersectionObserver(entries => entries.forEach(entry => {
