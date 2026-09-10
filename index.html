@@ -329,15 +329,10 @@
     .flyers-head .section-heading em { color: var(--gold); }
     .flyers-head { margin-bottom: 3rem; }
     .flyers-head .section-heading { margin-bottom: 0; }
-    .flyer-rail { overflow: hidden; margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); }
-    .flyer-track { display: flex; gap: 1.5rem; width: max-content; animation: flyer-rail 70s linear infinite; }
-    .flyer-rail:hover .flyer-track, .flyer-rail:focus-within .flyer-track { animation-play-state: paused; }
-    @keyframes flyer-rail { from { transform: translateX(calc(-50% - .75rem)); } to { transform: translateX(0); } }
-    .flyer { flex: 0 0 14rem; margin: 0; cursor: zoom-in; }
-    @media (prefers-reduced-motion: reduce) {
-      .flyer-rail { overflow-x: auto; }
-      .flyer-track { animation: none; }
-    }
+    .flyer-rail { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+      margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); scrollbar-width: thin; }
+    .flyer-track { display: flex; gap: 1.5rem; width: max-content; }
+    .flyer { flex: 0 0 14rem; margin: 0; cursor: zoom-in; scroll-snap-align: start; }
     .lightbox:not([open]) { display: none; }
     .lightbox[open] { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 4vmin;
       width: 100%; height: 100%; max-width: none; max-height: none; margin: 0;
@@ -721,13 +716,6 @@
       </div>
       <div class="flyer-rail" data-rail>
         <div class="flyer-track">
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€"><figcaption>Tratamento 30€</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes"><figcaption>Unhas</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316"><figcaption>Mãos & pés</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316"><figcaption>Massagem</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€"><figcaption>Combo Beauty 40€</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
-          <figure class="flyer" aria-hidden="true" tabindex="-1"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual"><figcaption>Sorteio de setembro</figcaption></figure>
           <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€"><figcaption>Tratamento 30€</figcaption></figure>
           <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes"><figcaption>Unhas</figcaption></figure>
           <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316"><figcaption>Mãos & pés</figcaption></figure>
