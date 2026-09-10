@@ -494,7 +494,7 @@
           animation-timeline: view();
           animation-range: entry 0% cover 26%;
         }
-        .feature-media img, .diagnosis-media img, .wellbeing-media img {
+        .feature-media img, .diagnosis-media img, .diagnosis-media video, .wellbeing-media img {
           animation: image-parallax linear both;
           animation-timeline: view();
           animation-range: entry 0% exit 100%;
@@ -762,7 +762,9 @@
 
     <section class="diagnosis" id="sobre" aria-labelledby="diagnosis-title">
       <figure class="diagnosis-media reveal">
-        <img src="3926900488737946808_3926900427653664959.jpg" alt="Profissional do Studio 316 a trabalhar no salão" loading="lazy">
+        <video autoplay muted loop playsinline preload="metadata" poster="videos/metodo-poster.jpg" aria-label="Equipa do Studio 316 em trabalho no salão: color bar, manicure e atendimento">
+          <source src="videos/metodo-studio316.mp4" type="video/mp4">
+        </video>
         <figcaption>Segurança primeiro. Sempre.</figcaption>
       </figure>
       <div class="diagnosis-copy reveal">
