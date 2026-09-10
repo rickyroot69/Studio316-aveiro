@@ -320,6 +320,9 @@
       .badge img { width: auto; height: 3rem; }
     }
     .badge:hover { transform: translateY(-3px); }
+    .badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: 0; }
+    .badges-contact .badge { flex: 0 0 auto; }
+    .badges-contact img { height: 2.6rem; width: auto; }
     .button-in { display: inline-flex; align-items: center; gap: .6rem; }
     .ico { width: 1.5em; height: 1.5em; flex: none; }
     .local-map .ico { width: .95rem; height: .95rem; vertical-align: -.18rem; margin-right: .4rem; }
@@ -514,7 +517,6 @@
     .contact-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; padding: clamp(7rem, 12vw, 12rem) var(--pad) 8rem; }
     .contact-wrap .section-heading { max-width: 10ch; }
     .contact-lead { max-width: 39rem; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.65; color: rgb(255 253 248 / 75%); }
-    .contact-actions { margin-top: 2.5rem; }
     .contact-cards { align-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
     .contact-card { margin: 0; border-top: 1px solid rgb(255 255 255 / 35%); }
     .contact-card-wide { grid-column: 1 / -1; }
@@ -522,6 +524,8 @@
     .contact-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
     .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
     .contact-row dd { margin: 0; line-height: 1.55; }
+    .contact-row-badges { grid-template-columns: 1fr; gap: .8rem; }
+    .badges-contact a { text-decoration: none; }
     .contact-row a { text-decoration: underline; text-decoration-color: rgb(255 255 255 / 35%); text-underline-offset: .3rem; }
     .footer { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem var(--pad); border-top: 1px solid rgb(255 255 255 / 18%); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 
@@ -785,10 +789,6 @@
           <p class="eyebrow">Estamos à sua espera</p>
           <h2 class="section-heading" id="contact-title">Vamos criar a sua <em>melhor versão?</em></h2>
           <p class="contact-lead">Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.</p>
-          <div class="actions contact-actions">
-            <a class="button button-solid" href="tel:+351234351054">Ligar agora</a>
-            <a class="button" href="https://wa.me/351927829171" target="_blank" rel="noreferrer">Marcar por WhatsApp</a>
-          </div>
         </div>
         <div class="contact-cards reveal">
           <dl class="contact-card">
@@ -797,12 +797,24 @@
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351234351054">+351 234 351 054</a><br><a href="tel:+351927829171">+351 927 829 171</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351927829171" target="_blank" rel="noreferrer">+351 927 829 171 ↗</a></dd></div>
             <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer">@studio316aveiro ↗</a></dd></div>
+            <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
+              <a class="badge" style="--ar: 3.86" href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Studio 316 Aveiro" loading="lazy"></a>
+              <a class="badge" style="--ar: 2.76" href="tel:+351234351054" aria-label="Ligar 234 351 054"><img src="assets/badges/tel-aveiro.png" alt="Telefone 234 351 054" loading="lazy"></a>
+              <a class="badge" style="--ar: 2.76" href="https://wa.me/351927829171" target="_blank" rel="noreferrer" aria-label="WhatsApp 927 829 171"><img src="assets/badges/whatsapp-aveiro.png" alt="WhatsApp 927 829 171" loading="lazy"></a>
+              <a class="badge" style="--ar: 3.18" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Instagram studio316aveiro"><img src="assets/badges/instagram.png" alt="Instagram studio316aveiro" loading="lazy"></a>
+              <a class="badge" style="--ar: 2.58" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-aveiro.png" alt="Google Maps — Studio 316 Aveiro" loading="lazy"></a>
+            </dd></div>
           </dl>
           <dl class="contact-card">
             <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
             <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br>Av. Mário Sacramento 113<br>3830-052 Ílhavo, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
+            <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
+              <a class="badge" style="--ar: 3.86" href="espaco-ilhavo.html" aria-label="Ver o espaço do Hotel Ílhavo Plaza"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Hotel Ílhavo Plaza" loading="lazy"></a>
+              <a class="badge" style="--ar: 2.76" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><img src="assets/badges/whatsapp-ilhavo.png" alt="WhatsApp 913 456 651" loading="lazy"></a>
+              <a class="badge" style="--ar: 2.58" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-ilhavo.png" alt="Google Maps — Hotel Ílhavo Plaza" loading="lazy"></a>
+            </dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
             <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
@@ -944,6 +956,7 @@
       'Cada pessoa é única. Por isso, começamos por ouvir, avaliar e desenhar um cuidado feito à sua medida.': ['Cada persona es única. Por eso empezamos escuchando, evaluando y diseñando un cuidado a tu medida.', 'Every person is unique. That is why we begin by listening, assessing and designing care made for you.', 'Jeder Mensch ist einzigartig. Deshalb hören wir zuerst zu, analysieren und entwickeln eine Pflege, die zu Ihnen passt.', 'Chaque personne est unique. Nous commençons donc par écouter, évaluer et créer un soin sur mesure.'],
       'Reservas e agendamentos online por Instagram': ['Reservas y agendamientos online por Instagram', 'Online booking through Instagram', 'Online-Termine über Instagram', 'Réservations en ligne par Instagram'],
       'Consulte os nossos serviços': ['Consulte nuestros servicios', 'See our services', 'Unsere Leistungen ansehen', 'Découvrez nos services'],
+      'Atalhos': ['Accesos', 'Shortcuts', 'Direktlinks', 'Accès rapides'],
       'Cabelo saudável': ['Cabello sano', 'Healthy hair', 'Gesundes Haar', 'Cheveux sains'],
       'Cor apaixonante': ['Color irresistible', 'Captivating colour', 'Faszinierende Farbe', 'Couleur passion'],
       'Beleza natural': ['Belleza natural', 'Natural beauty', 'Natürliche Schönheit', 'Beauté naturelle'],
