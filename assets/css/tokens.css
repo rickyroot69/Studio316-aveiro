@@ -1,0 +1,40 @@
+/* ---------------------------------------------------------------------------
+   Design tokens do Studio 316
+   ---------------------------------------------------------------------------
+   Aqui vivem os tokens com o MESMO valor nas cinco paginas: tipografia e a
+   goteira lateral. As cores mudam de pagina para pagina (cada local tem a sua
+   paleta) e por isso ficam no :root de cada folha em css/paginas/.
+
+   Nomes de token em uso (o valor muda, o papel nao):
+
+     --ink          tinta principal / fundo escuro da pagina
+     --ink-deep     variante mais profunda da tinta
+     --paper        fundo claro
+     --ivory        fundo claro alternativo, mais quente
+     --brass        superficie intermedia (faixas, cartoes)
+     --leaf         cor de acento sobre fundo claro
+     --leaf-soft    cor de acento sobre fundo escuro
+     --rose         acento secundario
+     --line         cor das linhas finas, derivada da tinta
+     --pad          goteira lateral da pagina, respeita o notch
+     --display      tipo de titulo
+     --sans         tipo de texto corrido
+
+   Escala de breakpoints (mobile-first: os estilos base servem 320px e a
+   partir dai somam-se camadas):
+
+     480px    telemovel largo
+     768px    tablet vertical
+     1024px   tablet horizontal / portatil — duas colunas, menu completo
+     1280px   ecra grande
+
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Goteira lateral da pagina. Cresce com o ecra; em telemovel cada folha
+     troca-a por um max() com env(safe-area-inset-*) para nao entrar no notch. */
+  --pad: clamp(1.25rem, 4vw, 4.5rem);
+
+  --display: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, sans-serif;
+}
