@@ -14,10 +14,10 @@
   <meta property="og:image" content="https://studio316-aveiro.vercel.app/og-image-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Hotel Ílhavo Plaza">
+  <meta property="og:image:alt" content="Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Ílhavo Plaza Cabeleireiros">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232A2438'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23E8DCC4'%3E316%3C/text%3E%3C/svg%3E">
-  <title>Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Hotel Ílhavo Plaza</title>
+  <title>Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Ílhavo Plaza Cabeleireiros</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       {
         "@type": "HealthAndBeautyBusiness",
         "@id": "https://studio316-aveiro.vercel.app/#ilhavo",
-        "name": "Cabeleireiro Hotel Ílhavo Plaza",
+        "name": "Ílhavo Plaza Cabeleireiros",
         "brand": "Grupo Cabeleireiro Galeano",
         "telephone": "+351913456651",
         "address": {
@@ -238,7 +238,18 @@
     #aveiro .local-title { color: #2B3D27; }
     #ilhavo .local-title { color: #253034; }
     .local-main { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
-    .local-main img { transition: opacity .2s; }
+    .local-main img { transition: opacity .2s, transform .6s cubic-bezier(.2,.7,.3,1); }
+    .local-main a { display: block; height: 100%; }
+    .local-main a:hover img, .local-main a:focus-visible img { transform: scale(1.04); }
+    .signature { background: var(--ink-deep); color: var(--paper); display: grid; justify-items: center; gap: 1.5rem; padding: 2.8rem var(--pad) 3.2rem; text-align: center; }
+    .signature p { margin: 0; }
+    .signature-copy { font-size: .85rem; letter-spacing: .03em; color: color-mix(in srgb, var(--paper) 58%, transparent); }
+    .signature-credit { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem 1rem; }
+    .signature-credit > span { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .signature-credit a { display: inline-flex; align-items: center; color: inherit; text-decoration: none; opacity: .88; transition: opacity .25s; }
+    .signature-credit a:hover, .signature-credit a:focus-visible { opacity: 1; }
+    .signature-credit img { display: block; width: auto; height: 1.55rem; }
+    @media (prefers-reduced-motion: reduce) { .local-main a:hover img, .local-main a:focus-visible img { transform: none; } }
     .carousel-track {
       display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
       scrollbar-width: none; -webkit-overflow-scrolling: touch;
@@ -265,18 +276,28 @@
     }
     .local-info p { margin: 0 0 .4rem; font-size: .95rem; line-height: 1.6; color: color-mix(in srgb, var(--ink) 78%, white); }
     .local-actions { margin-top: 1.4rem; align-items: center; flex-wrap: wrap; }
-    .badges { --gap: .45rem; --escala: 15.14; display: flex; flex-wrap: nowrap; gap: var(--gap); align-items: center; margin-top: 1.2rem; }
-    .badge { display: block; flex: 0 0 calc((100% - 4 * var(--gap)) * var(--ar) / var(--escala)); min-width: 0; transition: transform .2s; }
-    .badge img { display: block; width: 100%; height: auto; }
-    @media (max-width: 900px) {
-      .badges { flex-wrap: wrap; gap: .5rem .7rem; }
-      .badge { flex: 0 0 auto; }
-      .badge img { width: auto; height: 3rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: .5rem .55rem; align-items: center; margin-top: 1.2rem; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .48rem 1.05rem .48rem .8rem;
+      border: 2px solid #8C8C8C; border-radius: 999px;
+      background: #1F1F1F; color: #F2F2F2;
+      font-family: var(--sans); font-size: .92rem; font-weight: 500; line-height: 1.2;
+      text-decoration: none; white-space: nowrap;
+      transition: transform .2s, border-color .2s, background .2s;
     }
-    .badge:hover { transform: translateY(-3px); }
-    .badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: 0; }
-    .badges-contact .badge { flex: 0 0 auto; }
-    .badges-contact img { height: 2.6rem; width: auto; }
+    .badge:hover, .badge:focus-visible { transform: translateY(-3px); border-color: #D6D6D6; background: #262626; }
+    .badge-ico { width: 1.3rem; height: 1.3rem; flex: none; }
+    .badge-tel { color: #F2F2F2; }
+    .badge-tel .badge-ico { color: #2E9BF0; }
+    .badge-wa .badge-ico { color: #25D366; }
+    .badge-map .badge-ico { color: #EA4335; }
+    .badge-book .badge-ico { color: #C7379F; }
+    .badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .55rem; margin: 0; }
+    @media (max-width: 560px) {
+      .badge { font-size: .85rem; padding: .42rem .9rem .42rem .7rem; }
+      .badge-ico { width: 1.15rem; height: 1.15rem; }
+    }
     .button-in { display: inline-flex; align-items: center; gap: .6rem; }
     .ico { width: 1.5em; height: 1.5em; flex: none; }
     .local-map .ico { width: .95rem; height: .95rem; vertical-align: -.18rem; margin-right: .4rem; }
@@ -346,13 +367,15 @@
     .intro-copy p { margin: 0; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.65; color: color-mix(in srgb, var(--ink) 78%, white); }
 
     .marquee {
-      overflow: hidden; padding: 1.2rem 0; background: var(--brass); color: var(--ink); border-block: 1px solid rgb(255 255 255 / 18%);
+      overflow: hidden; padding: 1.2rem 0; background: var(--gold); color: var(--ink); border-block: 1px solid rgb(255 255 255 / 18%);
     }
     .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
-    .marquee span { padding-right: 2.4rem; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
-    .marquee b { color: var(--gold); font-weight: 400; }
-    .marquee-link { display: block; color: inherit; text-decoration: none; transition: background .25s; }
-    .marquee-link:hover, .marquee-link:focus-visible { background: var(--gold); }
+    .marquee-track > span { display: flex; align-items: baseline; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
+    .mq { display: block; }
+    .marquee-services { text-transform: capitalize; }
+    .mq::after { content: "\2726"; margin-inline: .5em; color: color-mix(in srgb, var(--ink) 45%, transparent); font-style: normal; }
+    .marquee-link { display: block; color: inherit; text-decoration: none; transition: background .25s; text-transform: capitalize; }
+    .marquee-link:hover, .marquee-link:focus-visible { background: color-mix(in srgb, var(--gold) 82%, black); }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     .services { padding: clamp(6rem, 11vw, 10rem) var(--pad); background: var(--ink); color: var(--paper); }
@@ -503,6 +526,7 @@
     .contact-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
     .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
     .contact-row dd { margin: 0; line-height: 1.55; }
+    .contact-row dd a { white-space: nowrap; }
     .contact-row-badges { grid-template-columns: 1fr; gap: .8rem; }
     .badges-contact a { text-decoration: none; }
     .contact-row a { text-decoration: underline; text-decoration-color: rgb(255 255 255 / 35%); text-underline-offset: .3rem; }
@@ -590,6 +614,18 @@
   </style>
 </head>
 <body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <linearGradient id="ig-grad" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#FFD776"/><stop offset=".35" stop-color="#F0587D"/><stop offset=".7" stop-color="#C837AB"/><stop offset="1" stop-color="#7B41CE"/>
+      </linearGradient>
+      <symbol id="ico-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
+      <symbol id="ico-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+      <symbol id="ico-map" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+      <symbol id="ico-cal" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2v2H5.5A2.5 2.5 0 0 0 3 6.5v12A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-12A2.5 2.5 0 0 0 18.5 4H17V2h-2v2H9V2H7zM5 9h14v9.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V9z"/></symbol>
+      <symbol id="ico-ig" viewBox="0 0 24 24"><path fill="url(#ig-grad)" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></symbol>
+    </defs>
+  </svg>
   <svg class="icon-defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
     <symbol id="ico-phone" viewBox="0 0 24 24"><linearGradient id="tel-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ACC60"/><stop offset="1" stop-color="#3CB94F"/></linearGradient><circle cx="12" cy="12" r="12" fill="url(#tel-green)"/><path fill="#fff" transform="translate(4.9 4.9) scale(.592)" d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
     <symbol id="ico-whatsapp" viewBox="0 0 24 24"><linearGradient id="wa-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ACC60"/><stop offset="1" stop-color="#3CB94F"/></linearGradient><circle cx="12" cy="12" r="12" fill="url(#wa-green)"/><path fill="#fff" transform="translate(4.6 4.6) scale(.617)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></symbol>
@@ -606,19 +642,19 @@
     <div class="header-actions">
       <nav class="nav" id="nav" aria-label="Navegação principal">
         <a href="#top">Início</a>
-        <a class="nav-local" href="#aveiro">Aveiro</a>
-        <a class="nav-local" href="#ilhavo">Ílhavo</a>
+        <a class="nav-local" href="#aveiro" translate="no">Aveiro</a>
+        <a class="nav-local" href="#ilhavo" translate="no">Ílhavo</a>
         <a href="espaco-aveiro.html#servicos">Serviços</a>
         <a href="#campanhas">Campanhas</a>
         <a href="espaco-aveiro.html#resultados">Resultados</a>
         <a href="#sobre">Método</a>
-        <a class="nav-cta" href="#contactos">Marcar</a>
+        <a class="nav-cta" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer">Marcar</a>
       </nav>
       <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Reproduzir música ambiente">
         <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="sound-copy"><strong>Som</strong></span>
       </button>
-      <div class="language-picker">
+      <div class="language-picker" translate="no">
         <button class="language-toggle" type="button" aria-expanded="false" aria-controls="language-list" aria-label="Escolher idioma"><span>PT</span></button>
         <ul class="language-list" id="language-list">
           <li><button class="language-option active" type="button" data-lang="pt"><span>Português</span><small>PT</small></button></li>
@@ -641,37 +677,38 @@
 
       <article class="local" id="aveiro">
         <h3 class="local-title"><a href="espaco-aveiro.html" translate="no">Studio 316 · Aveiro</a></h3>
-        <div class="local-main"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></div>
+        <div class="local-main"><a href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></a></div>
         <div class="local-info">
           <p><span translate="no">R. do Sr. dos Aflitos 59</span>, <span translate="no">3800-260 Aveiro</span></p>
           <div class="badges">
-            <a class="badge" style="--ar: 3.86" href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Studio 316 Aveiro" loading="lazy"></a>
-            <a class="badge" style="--ar: 2.76" href="tel:+351234351054" aria-label="Ligar 234 351 054"><img src="assets/badges/tel-aveiro.png" alt="Telefone 234 351 054" loading="lazy"></a>
-            <a class="badge" style="--ar: 2.76" href="https://wa.me/351927829171" target="_blank" rel="noreferrer" aria-label="WhatsApp 927 829 171"><img src="assets/badges/whatsapp-aveiro.png" alt="WhatsApp 927 829 171" loading="lazy"></a>
-            <a class="badge" style="--ar: 3.18" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Instagram studio316aveiro"><img src="assets/badges/instagram.png" alt="Instagram studio316aveiro" loading="lazy"></a>
-            <a class="badge" style="--ar: 2.58" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-aveiro.png" alt="Google Maps — Studio 316 Aveiro" loading="lazy"></a>
+            <a class="badge badge-tel" href="tel:+351234351054" aria-label="Ligar 234 351 054"><svg class="badge-ico" aria-hidden="true"><use href="#ico-phone"/></svg><span translate="no">234-351-054</span></a>
+            <a class="badge badge-wa" href="https://wa.me/351927829171" target="_blank" rel="noreferrer" aria-label="WhatsApp 927 829 171"><svg class="badge-ico" aria-hidden="true"><use href="#ico-wa"/></svg><span translate="no">+351 927 829 171</span></a>
+            <a class="badge badge-ig" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Instagram studio316aveiro"><svg class="badge-ico" aria-hidden="true"><use href="#ico-ig"/></svg><span translate="no">@studio316aveiro</span></a>
+            <a class="badge badge-map" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><svg class="badge-ico" aria-hidden="true"><use href="#ico-map"/></svg><span translate="no">Studio 316 Aveiro</span></a>
+            <a class="badge badge-book" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer" aria-label="Marcar online"><svg class="badge-ico" aria-hidden="true"><use href="#ico-cal"/></svg><span>Marque Já</span></a>
           </div>
         </div>
       </article>
 
       <article class="local" id="ilhavo">
-        <h3 class="local-title"><a href="espaco-ilhavo.html" translate="no">Hotel Ílhavo Plaza · Cabeleireiros</a></h3>
-        <div class="local-main"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></div>
+        <h3 class="local-title"><a href="espaco-ilhavo.html" translate="no">Ílhavo Plaza Cabeleireiros</a></h3>
+        <div class="local-main"><a href="espaco-ilhavo.html" aria-label="Ver o espaço do Ílhavo Plaza Cabeleireiros"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></a></div>
         <div class="local-info">
-          <p><span translate="no">Hotel Ílhavo Plaza</span>, <span>3.º andar</span>, <span translate="no">Av. Mário Sacramento 113</span>, <span translate="no">3830-052 Ílhavo</span></p>
+          <p><span translate="no">Ílhavo Plaza Cabeleireiros</span>, <span>3.º andar</span>, <span translate="no">Av. Mário Sacramento 113</span>, <span translate="no">3830-052 Ílhavo</span></p>
           <div class="badges">
-            <a class="badge" style="--ar: 3.86" href="espaco-ilhavo.html" aria-label="Ver o espaço do Hotel Ílhavo Plaza"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Hotel Ílhavo Plaza" loading="lazy"></a>
-            <a class="badge" style="--ar: 2.76" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><img src="assets/badges/whatsapp-ilhavo.png" alt="WhatsApp 913 456 651" loading="lazy"></a>
-            <a class="badge" style="--ar: 2.58" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-ilhavo.png" alt="Google Maps — Hotel Ílhavo Plaza" loading="lazy"></a>
+            <a class="badge badge-wa" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><svg class="badge-ico" aria-hidden="true"><use href="#ico-wa"/></svg><span translate="no">+351 913 456 651</span></a>
+            <a class="badge badge-ig" href="https://www.instagram.com/ilhavoplazacabeleireiro/" target="_blank" rel="noreferrer" aria-label="Instagram ilhavoplazacabeleireiro"><svg class="badge-ico" aria-hidden="true"><use href="#ico-ig"/></svg><span translate="no">@ilhavoplazacabeleireiro</span></a>
+            <a class="badge badge-map" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><svg class="badge-ico" aria-hidden="true"><use href="#ico-map"/></svg><span translate="no">Ílhavo Plaza</span></a>
+            <a class="badge badge-book" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer" aria-label="Marcar online"><svg class="badge-ico" aria-hidden="true"><use href="#ico-cal"/></svg><span>Marque Já</span></a>
           </div>
         </div>
       </article>
     </section>
 
-    <a class="marquee marquee-link" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Reservas e agendamentos online por Instagram">
+    <a class="marquee marquee-link" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer" aria-label="Reservas e agendamentos online — 10% de desconto">
       <div class="marquee-track" aria-hidden="true">
-        <span>Reservas e agendamentos online por Instagram <b>✦</b> Consulte os nossos serviços <b>✦</b>&nbsp;</span>
-        <span>Reservas e agendamentos online por Instagram <b>✦</b> Consulte os nossos serviços <b>✦</b>&nbsp;</span>
+        <span><span class="mq">Reservas e agendamentos online</span><span class="mq">10% de desconto, reserve já</span></span>
+        <span><span class="mq">Reservas e agendamentos online</span><span class="mq">10% de desconto, reserve já</span></span>
       </div>
     </a>
 
@@ -705,10 +742,10 @@
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
+    <div class="marquee marquee-services" aria-hidden="true">
       <div class="marquee-track">
-        <span>Cabelo saudável <b>✦</b> Cor apaixonante <b>✦</b> Beleza natural <b>✦</b> Cuidado personalizado <b>✦</b>&nbsp;</span>
-        <span>Cabelo saudável <b>✦</b> Cor apaixonante <b>✦</b> Beleza natural <b>✦</b> Cuidado personalizado <b>✦</b>&nbsp;</span>
+        <span><span class="mq">Lavagem e brushing</span><span class="mq">Cortes</span><span class="mq">Coloração</span><span class="mq">Escova e alisamento</span><span class="mq">Combos especiais</span><span class="mq">Tratamentos</span><span class="mq">Madeixas &amp; balayage</span><span class="mq">Manicure</span><span class="mq">Pedicure</span></span>
+        <span><span class="mq">Lavagem e brushing</span><span class="mq">Cortes</span><span class="mq">Coloração</span><span class="mq">Escova e alisamento</span><span class="mq">Combos especiais</span><span class="mq">Tratamentos</span><span class="mq">Madeixas &amp; balayage</span><span class="mq">Manicure</span><span class="mq">Pedicure</span></span>
       </div>
     </div>
 
@@ -787,37 +824,42 @@
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351927829171" target="_blank" rel="noreferrer">+351 927 829 171 ↗</a></dd></div>
             <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer"><span translate="no">@studio316aveiro</span> ↗</a></dd></div>
             <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
-              <a class="badge" style="--ar: 3.86" href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Studio 316 Aveiro" loading="lazy"></a>
-              <a class="badge" style="--ar: 2.76" href="tel:+351234351054" aria-label="Ligar 234 351 054"><img src="assets/badges/tel-aveiro.png" alt="Telefone 234 351 054" loading="lazy"></a>
-              <a class="badge" style="--ar: 2.76" href="https://wa.me/351927829171" target="_blank" rel="noreferrer" aria-label="WhatsApp 927 829 171"><img src="assets/badges/whatsapp-aveiro.png" alt="WhatsApp 927 829 171" loading="lazy"></a>
-              <a class="badge" style="--ar: 3.18" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Instagram studio316aveiro"><img src="assets/badges/instagram.png" alt="Instagram studio316aveiro" loading="lazy"></a>
-              <a class="badge" style="--ar: 2.58" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-aveiro.png" alt="Google Maps — Studio 316 Aveiro" loading="lazy"></a>
+              <a class="badge badge-tel" href="tel:+351234351054" aria-label="Ligar 234 351 054"><svg class="badge-ico" aria-hidden="true"><use href="#ico-phone"/></svg><span translate="no">234-351-054</span></a>
+              <a class="badge badge-wa" href="https://wa.me/351927829171" target="_blank" rel="noreferrer" aria-label="WhatsApp 927 829 171"><svg class="badge-ico" aria-hidden="true"><use href="#ico-wa"/></svg><span translate="no">+351 927 829 171</span></a>
+              <a class="badge badge-ig" href="https://www.instagram.com/studio316aveiro/" target="_blank" rel="noreferrer" aria-label="Instagram studio316aveiro"><svg class="badge-ico" aria-hidden="true"><use href="#ico-ig"/></svg><span translate="no">@studio316aveiro</span></a>
+              <a class="badge badge-map" href="https://maps.app.goo.gl/DHaed5gpvFV7XrXc7?g_st=ic" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><svg class="badge-ico" aria-hidden="true"><use href="#ico-map"/></svg><span translate="no">Studio 316 Aveiro</span></a>
+              <a class="badge badge-book" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer" aria-label="Marcar online"><svg class="badge-ico" aria-hidden="true"><use href="#ico-cal"/></svg><span>Marque Já</span></a>
             </dd></div>
           </dl>
           <dl class="contact-card">
-            <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Hotel Ílhavo Plaza</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Hotel Ílhavo Plaza</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Ílhavo Plaza Cabeleireiros</strong></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Ílhavo Plaza Cabeleireiros</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
+            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/ilhavoplazacabeleireiro/" target="_blank" rel="noreferrer"><span translate="no">@ilhavoplazacabeleireiro</span> ↗</a></dd></div>
             <div class="contact-row contact-row-badges"><dt>Atalhos</dt><dd class="badges badges-contact">
-              <a class="badge" style="--ar: 3.86" href="espaco-ilhavo.html" aria-label="Ver o espaço do Hotel Ílhavo Plaza"><img src="assets/badges/espaco-aveiro.png" alt="Ver o espaço — Hotel Ílhavo Plaza" loading="lazy"></a>
-              <a class="badge" style="--ar: 2.76" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><img src="assets/badges/whatsapp-ilhavo.png" alt="WhatsApp 913 456 651" loading="lazy"></a>
-              <a class="badge" style="--ar: 2.58" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><img src="assets/badges/mapa-ilhavo.png" alt="Google Maps — Hotel Ílhavo Plaza" loading="lazy"></a>
+              <a class="badge badge-wa" href="https://wa.me/351913456651" target="_blank" rel="noreferrer" aria-label="WhatsApp 913 456 651"><svg class="badge-ico" aria-hidden="true"><use href="#ico-wa"/></svg><span translate="no">+351 913 456 651</span></a>
+              <a class="badge badge-ig" href="https://www.instagram.com/ilhavoplazacabeleireiro/" target="_blank" rel="noreferrer" aria-label="Instagram ilhavoplazacabeleireiro"><svg class="badge-ico" aria-hidden="true"><use href="#ico-ig"/></svg><span translate="no">@ilhavoplazacabeleireiro</span></a>
+              <a class="badge badge-map" href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer" aria-label="Abrir no Google Maps"><svg class="badge-ico" aria-hidden="true"><use href="#ico-map"/></svg><span translate="no">Ílhavo Plaza</span></a>
+              <a class="badge badge-book" href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer" aria-label="Marcar online"><svg class="badge-ico" aria-hidden="true"><use href="#ico-cal"/></svg><span>Marque Já</span></a>
             </dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
-            <div class="contact-row"><dt>Grupo</dt><dd>Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa</dd></div>
-            <div class="contact-row"><dt>Parceiro</dt><dd><a href="https://www.instagram.com/redkenpro/" target="_blank" rel="noreferrer"><span translate="no">@redkenpro</span> ↗</a></dd></div>
+            <div class="contact-row"><dt>Grupo</dt><dd translate="no">Grupo Galeano Cabeleireiros</dd></div>
           </dl>
         </div>
       </div>
       <footer class="footer">
-        <span translate="no">© <span id="year">2026</span> Grupo Cabeleireiro Galeano · Studio 316 Hair</span>
         <span>Hair · Nails · Estética · Massagem</span>
         <a href="#top">Voltar ao topo ↑</a>
       </footer>
     </section>
   </main>
+
+  <footer class="signature">
+    <p class="signature-copy">© <span id="year" translate="no" class="notranslate">2026</span> <span translate="no" class="notranslate">Grupo Galeano Cabeleireiros</span> — <span>Todos os direitos reservados</span></p>
+    <p class="signature-credit"><span>Desenvolvido e desenhado por</span><a href="https://centaury.net" target="_blank" rel="noreferrer" aria-label="Centaury"><img src="assets/img/entaury-logo.png" alt="entaury" width="215" height="42" loading="lazy"></a></p>
+  </footer>
 
   <dialog class="lightbox" id="lightbox" aria-label="Campanha em tamanho grande">
     <button class="lightbox-close" type="button" data-close aria-label="Fechar">✕</button>
@@ -882,7 +924,6 @@
       'Mãos & pés': ['Manos y pies', 'Hands & feet', 'Hände & Füße', 'Mains & pieds'],
       'Local': ['Local', 'Location', 'Standort', 'Adresse'],
       'Grupo': ['Grupo', 'Group', 'Gruppe', 'Groupe'],
-      'Grupo Cabeleireiro Galeano · dois espaços, a mesma equipa': ['Grupo Cabeleireiro Galeano · dos espacios, el mismo equipo', 'Grupo Cabeleireiro Galeano · two spaces, the same team', 'Grupo Cabeleireiro Galeano · zwei Räume, dasselbe Team', 'Grupo Cabeleireiro Galeano · deux espaces, la même équipe'],
       'Os nossos espaços': ['Nuestros espacios', 'Our spaces', 'Unsere Räume', 'Nos espaces'],
       'Loiro dos sonhos': ['Rubio de ensueño', 'Dream blonde', 'Traumblond', 'Blond de rêve'],
       'Técnica Oreo': ['Técnica Oreo', 'Oreo technique', 'Oreo-Technik', 'Technique Oreo'],
@@ -934,16 +975,21 @@
       'Confiança que fica.': ['Confianza que permanece.', 'Confidence that lasts.', 'Selbstvertrauen, das bleibt.', 'La confiance qui reste.'],
       'Cuidamos de cada detalhe para realçar a sua beleza natural. Mais brilho, mais leveza e um visual renovado — sempre com profissionalismo e atenção.': ['Cuidamos cada detalle para realzar tu belleza natural. Más brillo, más ligereza y una imagen renovada, siempre con profesionalidad y atención.', 'We care for every detail to enhance your natural beauty. More shine, more lightness and a renewed look — always with expertise and attention.', 'Wir kümmern uns um jedes Detail, um Ihre natürliche Schönheit zu unterstreichen. Mehr Glanz, mehr Leichtigkeit und ein frischer Look — immer professionell und aufmerksam.', 'Nous soignons chaque détail pour révéler votre beauté naturelle. Plus de brillance, de légèreté et un style renouvelé — toujours avec expertise et attention.'],
       'Cada pessoa é única. Por isso, começamos por ouvir, avaliar e desenhar um cuidado feito à sua medida.': ['Cada persona es única. Por eso empezamos escuchando, evaluando y diseñando un cuidado a tu medida.', 'Every person is unique. That is why we begin by listening, assessing and designing care made for you.', 'Jeder Mensch ist einzigartig. Deshalb hören wir zuerst zu, analysieren und entwickeln eine Pflege, die zu Ihnen passt.', 'Chaque personne est unique. Nous commençons donc par écouter, évaluer et créer un soin sur mesure.'],
-      'Reservas e agendamentos online por Instagram': ['Reservas y agendamientos online por Instagram', 'Online booking through Instagram', 'Online-Termine über Instagram', 'Réservations en ligne par Instagram'],
-      'Consulte os nossos serviços': ['Consulte nuestros servicios', 'See our services', 'Unsere Leistungen ansehen', 'Découvrez nos services'],
+      'Reservas e agendamentos online': ['Reservas y agendamientos online', 'Online booking', 'Online-Terminbuchung', 'Réservations en ligne'],
+      '10% de desconto, reserve já': ['10% de descuento, reserva ya', '10% off — book now', '10% Rabatt — jetzt buchen', '10% de remise — réservez maintenant'],
+      'Marque Já': ['Reserva ya', 'Book now', 'Jetzt buchen', 'Réservez'],
       'Atalhos': ['Accesos', 'Shortcuts', 'Direktlinks', 'Accès rapides'],
-      'Cabelo saudável': ['Cabello sano', 'Healthy hair', 'Gesundes Haar', 'Cheveux sains'],
-      'Cor apaixonante': ['Color irresistible', 'Captivating colour', 'Faszinierende Farbe', 'Couleur passion'],
-      'Beleza natural': ['Belleza natural', 'Natural beauty', 'Natürliche Schönheit', 'Beauté naturelle'],
-      'Cuidado personalizado': ['Cuidado personalizado', 'Personalised care', 'Individuelle Pflege', 'Soin personnalisé'],
+      'Lavagem e brushing': ['Lavado y brushing', 'Wash & blow-dry', 'Waschen & Föhnen', 'Shampooing & brushing'],
+      'Cortes': ['Cortes', 'Cuts', 'Schnitte', 'Coupes'],
+      'Coloração': ['Coloración', 'Colour', 'Coloration', 'Coloration'],
+      'Escova e alisamento': ['Brushing y alisado', 'Blow-dry & straightening', 'Föhnen & Glätten', 'Brushing & lissage'],
+      'Combos especiais': ['Combos especiales', 'Special combos', 'Spezial-Kombis', 'Forfaits spéciaux'],
+      'Tratamentos': ['Tratamientos', 'Treatments', 'Behandlungen', 'Soins'],
+      'Madeixas & balayage': ['Mechas y balayage', 'Highlights & balayage', 'Strähnen & Balayage', 'Mèches & balayage'],
+      'Manicure': ['Manicura', 'Manicure', 'Maniküre', 'Manucure'],
+      'Pedicure': ['Pedicura', 'Pedicure', 'Pediküre', 'Pédicure'],
       'Tudo para se sentir': ['Todo para sentirte', 'Everything to make you feel', 'Alles, damit Sie sich', 'Tout pour vous sentir'],
       'incrível.': ['increíble.', 'incredible.', 'großartig fühlen.', 'incroyable.'],
-      'Um espaço, quatro formas de cuidar de si. Tratamentos pensados para resultados visíveis e uma experiência de verdadeiro bem-estar.': ['Un espacio, cuatro formas de cuidarte. Tratamientos pensados para resultados visibles y una verdadera experiencia de bienestar.', 'One space, four ways to care for yourself. Treatments designed for visible results and a true wellbeing experience.', 'Ein Ort, vier Wege, sich etwas Gutes zu tun. Behandlungen für sichtbare Ergebnisse und echtes Wohlbefinden.', 'Un espace, quatre façons de prendre soin de vous. Des soins pensés pour des résultats visibles et une véritable expérience de bien-être.'],
       'Cabelo': ['Cabello', 'Hair', 'Haare', 'Cheveux'],
       'Unhas': ['Uñas', 'Nails', 'Nägel', 'Ongles'],
       'Massagem': ['Masaje', 'Massage', 'Massage', 'Massage'],
@@ -1005,7 +1051,8 @@
       'Abrir no mapa ↗': ['Abrir en Google Maps ↗', 'Open in Google Maps ↗', 'In Google Maps öffnen ↗', 'Ouvrir dans Google Maps ↗'],
       'Morada': ['Dirección', 'Address', 'Adresse', 'Adresse'],
       'Telefone': ['Teléfono', 'Phone', 'Telefon', 'Téléphone'],
-      'Parceiro': ['Colaborador', 'Partner', 'Partner', 'Partenaire'],
+      'Todos os direitos reservados': ['Todos los derechos reservados', 'All rights reserved', 'Alle Rechte vorbehalten', 'Tous droits réservés'],
+      'Desenvolvido e desenhado por': ['Desarrollado y diseñado por', 'Developed and designed by', 'Entwickelt und gestaltet von', 'Conçu et développé par'],
       'Voltar ao topo ↑': ['Volver arriba ↑', 'Back to top ↑', 'Nach oben ↑', 'Retour en haut ↑']
     };
     document.querySelectorAll('.shot').forEach((shot, index) => {
@@ -1016,7 +1063,7 @@
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const parent = node.parentElement;
-        return parent && node.nodeValue.trim() && !parent.closest('script, style, .language-picker, .sound-toggle, .music-credit, .brand, .hero-meta')
+        return parent && node.nodeValue.trim() && !parent.closest('script, style, [translate="no"], .language-picker, .sound-toggle, .music-credit, .brand, .hero-meta')
           ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
