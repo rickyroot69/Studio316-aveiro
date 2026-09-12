@@ -138,6 +138,12 @@
     .gallery::-webkit-scrollbar { display: none; }
     .shot { position: relative; height: min(66dvh, 42rem); margin: 0; overflow: hidden; scroll-snap-align: start; background: var(--ink-deep); }
     .shot:nth-child(2n) { margin-top: 3.5rem; height: min(58dvh, 37rem); }
+    .gallery .shot { animation: shot-float 8s ease-in-out infinite; will-change: transform; }
+    .gallery .shot:nth-child(3n+2) { animation-delay: -2.6s; }
+    .gallery .shot:nth-child(3n+3) { animation-delay: -5.2s; }
+    .gallery .shot:hover, .gallery .shot:focus-within { animation-play-state: paused; }
+    @keyframes shot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.2rem); } }
+    @media (prefers-reduced-motion: reduce) { .gallery .shot { animation: none; } }
     .shot figcaption {
       position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; gap: 1rem;
       padding: 3rem 1.1rem 1.1rem; background: linear-gradient(transparent, rgb(5 5 15 / 82%));
