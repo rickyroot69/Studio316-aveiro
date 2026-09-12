@@ -1,0 +1,66 @@
+/* Regras identicas nas cinco paginas. Carregado antes do <style> de cada
+   pagina, para que a paleta e os ajustes proprios continuem a mandar.
+
+   Escala de breakpoints do projeto:
+     980px  layout de duas colunas passa a uma (menu, fichas, servicos)
+     640px  ajustes de tipografia e espacamento
+     560px  telemovel estreito
+   O index usa ainda 1200px e 820px, mas so para o numero de colunas da
+   grelha de campanhas (4 -> 3 -> 2). */
+
+*, *::before, *::after { box-sizing: border-box; }
+img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+.language-picker { position: relative; }
+.language-picker.open .language-toggle::after { transform: translateY(2px) rotate(225deg); }
+.language-picker.open .language-list { opacity: 1; visibility: visible; transform: none; }
+@keyframes hair-shine { 0%, 65%, 100% { background-position: 100% center; } 35% { background-position: 0 center; } }
+@keyframes curtain-open { to { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); } }
+.signature { background: var(--ink-deep); color: var(--paper); display: grid; justify-items: center; gap: 1.5rem; padding: 2.8rem var(--pad) 3.2rem; text-align: center; }
+.signature p { margin: 0; }
+.signature-copy { font-size: .85rem; letter-spacing: .03em; color: color-mix(in srgb, var(--paper) 58%, transparent); }
+.signature-credit { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem 1rem; }
+.signature-credit > span { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.signature-credit a { display: inline-flex; align-items: center; color: inherit; text-decoration: none; opacity: .88; transition: opacity .25s; }
+.signature-credit a:hover, .signature-credit a:focus-visible { opacity: 1; }
+.signature-credit img { display: block; width: auto; height: 1.55rem; }
+.badges { display: flex; flex-wrap: wrap; gap: .5rem .55rem; align-items: center; margin-top: 1.2rem; }
+.badge {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .48rem 1.05rem .48rem .8rem;
+      border: 2px solid #8C8C8C; border-radius: 999px;
+      background: #1F1F1F; color: #F2F2F2;
+      font-family: var(--sans); font-size: .92rem; font-weight: 500; line-height: 1.2;
+      text-decoration: none; white-space: nowrap;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+.badge:hover, .badge:focus-visible { transform: translateY(-3px); border-color: #D6D6D6; background: #262626; }
+.badge-ico { width: 1.3rem; height: 1.3rem; flex: none; }
+.badge-tel { color: #F2F2F2; }
+.badge-tel .badge-ico { color: #2E9BF0; }
+.badge-wa .badge-ico { color: #25D366; }
+.badge-map .badge-ico { color: #EA4335; }
+.badge-book .badge-ico { color: #C7379F; }
+.badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .55rem; margin: 0; }
+@media (max-width: 560px) {
+      .badge { font-size: .85rem; padding: .42rem .9rem .42rem .7rem; }
+      .badge-ico { width: 1.15rem; height: 1.15rem; }
+    }
+.marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.wellbeing .section-heading em { color: var(--leaf); }
+.wellbeing-copy .section-heading { max-width: 9ch; }
+.contact-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; padding: clamp(7rem, 12vw, 12rem) var(--pad) 8rem; }
+.contact-wrap .section-heading { max-width: 10ch; }
+.contact-cards { align-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
+.contact-card { margin: 0; border-top: 1px solid rgb(255 255 255 / 35%); }
+.contact-card-wide { grid-column: 1 / -1; }
+.contact-title dd strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
+.contact-row { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid rgb(255 255 255 / 24%); }
+.contact-row dd { margin: 0; line-height: 1.55; }
+.contact-row dd a { white-space: nowrap; }
+.contact-row-badges { grid-template-columns: 1fr; gap: .8rem; }
+.contact-row a { text-decoration: underline; text-decoration-color: rgb(255 255 255 / 35%); text-underline-offset: .3rem; }
+.footer { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem var(--pad); border-top: 1px solid rgb(255 255 255 / 18%); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+/* --- afinacao para telemovel --- */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
