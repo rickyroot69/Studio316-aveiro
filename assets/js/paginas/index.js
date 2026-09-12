@@ -92,7 +92,16 @@ addEventListener('click', event => {
   if (!languagePicker.contains(event.target)) closeLanguagePicker();
 });
 addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeLanguagePicker();
+  if (event.key !== 'Escape') return;
+  closeLanguagePicker();
+  // Escape tambem fecha o menu de telemovel e devolve o foco a quem o abriu.
+  if (nav.classList.contains('open')) {
+    nav.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = languageMeta[currentLang].menu;
+    toggle.focus();
+  }
 });
 
 ambience.volume = .22;
@@ -201,8 +210,8 @@ document.querySelectorAll('[data-carousel]').forEach(carousel => {
   const caixa = document.getElementById('lightbox');
   if (!caixa) return;
   const alvo = caixa.querySelector('img');
-  document.querySelectorAll('.flyer img, .galeria-foto img').forEach(img => {
-    img.closest('.flyer, .galeria-foto').addEventListener('click', () => {
+  document.querySelectorAll('.flyer img, .strip-photo img').forEach(img => {
+    img.closest('.flyer, .strip-photo').addEventListener('click', () => {
       alvo.src = img.currentSrc || img.src;
       alvo.alt = img.alt;
       caixa.showModal();
@@ -211,15 +220,15 @@ document.querySelectorAll('[data-carousel]').forEach(carousel => {
   caixa.addEventListener('click', e => { if (e.target === caixa || e.target.hasAttribute('data-close')) caixa.close(); });
 })();
 
-// galeria: setas, avanco automatico e clique para ampliar
+// tira de fotos: setas, avanco automatico e clique para ampliar
 (() => {
-  const rail = document.querySelector('[data-galeria]');
+  const rail = document.querySelector('[data-strip]');
   if (!rail) return;
   const passo = () => {
-    const foto = rail.querySelector('.galeria-foto');
+    const foto = rail.querySelector('.strip-photo');
     return foto ? foto.getBoundingClientRect().width + 16 : 320;
   };
-  document.querySelectorAll('.galeria-seta').forEach(botao => {
+  document.querySelectorAll('.strip-arrow').forEach(botao => {
     botao.addEventListener('click', () => {
       rail.scrollBy({ left: passo() * Number(botao.dataset.ir) * 2, behavior: 'smooth' });
     });

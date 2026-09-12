@@ -9,7 +9,9 @@
    grelha de campanhas (4 -> 3 -> 2). */
 
 *, *::before, *::after { box-sizing: border-box; }
-img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* As imagens preenchem a caixa que o layout lhes da; o max-width e a rede
+   de seguranca para que nunca passem do contentor. */
+img, video { display: block; width: 100%; max-width: 100%; height: 100%; object-fit: cover; }
 a { color: inherit; text-decoration: none; }
 .language-picker { position: relative; }
 .language-picker.open .language-toggle::after { transform: translateY(2px) rotate(225deg); }
@@ -42,7 +44,7 @@ a { color: inherit; text-decoration: none; }
 .badge-map .badge-ico { color: #EA4335; }
 .badge-book .badge-ico { color: #C7379F; }
 .badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .55rem; margin: 0; }
-@media (max-width: 560px) {
+@media (max-width: 479.98px) {
       .badge { font-size: .85rem; padding: .42rem .9rem .42rem .7rem; }
       .badge-ico { width: 1.15rem; height: 1.15rem; }
     }

@@ -422,7 +422,7 @@ h1 em {
 .contact-row .badge { text-decoration: none; }
 
 .reveal { opacity: 1; transform: none; }
-@media (max-width: 980px) {
+@media (max-width: 1023.98px) {
   .header { grid-template-columns: 1fr auto; }
   .location { display: none; }
   .brand { grid-column: 1; justify-self: start; min-width: 0; }
@@ -450,7 +450,7 @@ h1 em {
   .wellbeing-media { min-height: 38rem; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
   .locations-head .section-heading { font-size: clamp(1.25rem, 5vw, 1.6rem); }
   .local-actions .button { flex: 1 1 8rem; width: auto; min-width: 0; gap: .7rem; padding: .65rem .8rem; font-size: .62rem; }
 
@@ -496,7 +496,7 @@ h1 em {
 }
 
 /* Telemóveis baixos: comprime a cabeceira para que os dois espaços caibam sem scroll */
-@media (max-width: 980px) and (max-height: 720px) {
+@media (max-width: 1023.98px) and (max-height: 45rem) {
   .locations-head { gap: .8rem; padding: calc(4.9rem + .55rem) var(--pad) .75rem; }
   .locations-logo { width: 3.9rem; }
   .locations-head .section-heading { font-size: clamp(1.15rem, 4.6vw, 1.45rem); }
@@ -520,8 +520,12 @@ h1 em {
 
 /* --- afinacao para telemovel --- */
 
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
+  /* Em telemovel a goteira encosta ao minimo, mas nunca entra no notch. */
   :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+  /* A ultima faixa da pagina afasta-se da barra de gestos. */
+  .signature { padding-bottom: calc(3.2rem + env(safe-area-inset-bottom, 0px)); }
+  .nav { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
   .contact-row a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
   .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
 }
@@ -540,6 +544,6 @@ h1 em {
   .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
     display: inline-flex; align-items: center; min-height: 44px;
   }
-  .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+  .strip-arrow, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
   .look-like { opacity: 1; transform: none; }
 }

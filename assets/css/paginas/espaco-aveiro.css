@@ -66,7 +66,7 @@ body {
 .wellbeing-media { display: grid; grid-template-columns: 1fr 1fr; min-height: 48rem; }
 .wellbeing-media figure { position: relative; margin: 0; overflow: hidden; }
 .wellbeing-media figure:last-child { margin-top: 7rem; }
-@media (max-width: 980px) {
+@media (max-width: 1023.98px) {
   .lookbook-head { display: block; }
   .lookbook-head p { max-width: none; margin-top: 1.4rem; }
 }
@@ -153,7 +153,7 @@ body {
 }
 .hero-meta span + span { padding-top: 1.2rem; border-top: 1px solid rgb(255 255 255 / 50%); }
 
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
   .top-back { font-size: .6rem; }
   .top-brand { font-size: 1rem; }
   .gallery { grid-auto-columns: 80vw; }
@@ -208,7 +208,7 @@ body {
 .service-thumb video, .service-thumb img { transition: transform .65s; }
 .service:hover .service-thumb video, .service:hover .service-thumb img { transform: scale(1.05); }
 
-@media (max-width: 980px) {
+@media (max-width: 1023.98px) {
   .wellbeing { grid-template-columns: 1fr; }
   .wellbeing-media { min-height: 30rem; }
   .wellbeing-media figure:last-child { margin-top: 3rem; }
@@ -228,7 +228,7 @@ body {
 .contact-row dt { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .contact-row .badge { text-decoration: none; }
 
-@media (max-width: 980px) {
+@media (max-width: 1023.98px) {
   .contact-wrap { grid-template-columns: 1fr; }
   .contact-row { grid-template-columns: 1fr; gap: .45rem; }
   .contact-cards { grid-template-columns: 1fr; }
@@ -237,9 +237,13 @@ body {
 
 /* --- afinacao para telemovel --- */
 
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
   .top-back { display: inline-block; padding-block: .45rem; }
+  /* Em telemovel a goteira encosta ao minimo, mas nunca entra no notch. */
   :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
+  /* A ultima faixa da pagina afasta-se da barra de gestos. */
+  .signature { padding-bottom: calc(3.2rem + env(safe-area-inset-bottom, 0px)); }
+  .nav { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
   .contact-row a, .footer a { display: inline-block; padding-block: .3rem; }
   .wellbeing-media figcaption { right: 0; }
 }
@@ -258,6 +262,6 @@ body {
   .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
     display: inline-flex; align-items: center; min-height: 44px;
   }
-  .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+  .strip-arrow, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
   .look-like { opacity: 1; transform: none; }
 }

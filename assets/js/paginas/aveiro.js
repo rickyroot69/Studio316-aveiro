@@ -108,7 +108,16 @@ addEventListener('click', event => {
   if (!languagePicker.contains(event.target)) closeLanguagePicker();
 });
 addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeLanguagePicker();
+  if (event.key !== 'Escape') return;
+  closeLanguagePicker();
+  // Escape tambem fecha o menu de telemovel e devolve o foco a quem o abriu.
+  if (nav.classList.contains('open')) {
+    nav.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = languageMeta[currentLang].menu;
+    toggle.focus();
+  }
 });
 
 ambience.volume = .22;
