@@ -111,6 +111,16 @@
     .badge-map .badge-ico { color: #EA4335; }
     .badge-book .badge-ico { color: #C7379F; }
     .badges-contact { display: flex; flex-wrap: wrap; gap: .5rem .55rem; margin: 0; }
+    .wellbeing { display: grid; grid-template-columns: 1fr 1fr; background: var(--brass); color: var(--ink-deep); }
+    .wellbeing .section-heading em { color: var(--leaf); }
+    .wellbeing-copy { padding: clamp(5rem, 9vw, 9rem) var(--pad); }
+    .wellbeing-copy .section-heading { max-width: 9ch; }
+    .wellbeing-copy p { max-width: 35rem; font-size: 1.08rem; line-height: 1.7; }
+    .wellbeing-copy .button { color: var(--ink-deep); }
+    .wellbeing-copy .eyebrow { color: var(--ink-deep); }
+    .wellbeing-media { display: grid; grid-template-columns: 1fr 1fr; min-height: 48rem; }
+    .wellbeing-media figure { position: relative; margin: 0; overflow: hidden; }
+    .wellbeing-media figure:last-child { margin-top: 7rem; }
     @media (max-width: 560px) {
       .badge { font-size: .85rem; padding: .42rem .9rem .42rem .7rem; }
       .badge-ico { width: 1.15rem; height: 1.15rem; }
@@ -268,6 +278,9 @@
     .service:hover .service-thumb video, .service:hover .service-thumb img { transform: scale(1.05); }
 
     @media (max-width: 900px) {
+      .wellbeing { grid-template-columns: 1fr; }
+      .wellbeing-media { min-height: 30rem; }
+      .wellbeing-media figure:last-child { margin-top: 3rem; }
       .services-head { display: block; }
       .services-head p { margin-top: 1.4rem; }
       .services-media { justify-content: flex-start; margin-top: 2rem; }
@@ -430,6 +443,19 @@
           <p>Design de sobrancelhas e extensão de pestanas para um olhar mais intenso e natural.</p>
           <div class="service-thumb"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas" loading="lazy"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy"></div>
         </article>
+      </div>
+    </section>
+
+    <section class="wellbeing" aria-labelledby="wellbeing-title">
+      <div class="wellbeing-copy">
+        <p class="eyebrow">Tempo para si</p>
+        <h2 class="section-heading" id="wellbeing-title">Cuidar de si nunca é um exagero. <em>É prioridade.</em></h2>
+        <p>Uma massagem regular ajuda a aliviar o stress, reduzir tensões musculares e recuperar o bem-estar. Ofereça ao seu corpo o cuidado que merece.</p>
+        <a class="button" href="tel:+351234351054">Marcar sessão</a>
+      </div>
+      <div class="wellbeing-media">
+        <figure><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy"></figure>
+        <figure><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy"></figure>
       </div>
     </section>
 
