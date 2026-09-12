@@ -342,6 +342,27 @@
       .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
       .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
+
+    /* --- alvos tacteis: minimo 44x44 em toque (P1) --- */
+    @media (pointer: coarse) {
+      .menu-toggle { min-height: 44px; padding-block: .95rem; }
+      .language-toggle { min-height: 44px; }
+      .language-option { min-height: 44px; }
+      .sound-toggle { min-height: 44px; min-width: 44px; }
+      .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+      .top-back { min-height: 44px; display: inline-flex; align-items: center; }
+      .brand { min-height: 44px; display: inline-flex; align-items: center; }
+      .badge { min-height: 44px; }
+      .footer a, .footer span a { min-height: 44px; display: inline-flex; align-items: center; }
+      .nav a { min-height: 44px; display: flex; align-items: center; }
+      .menu-toggle { min-width: 44px; }
+      .contact-row dd a, .local-info a, .feature-copy a, .diagnosis-copy a, .intro-copy a,
+      .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
+        display: inline-flex; align-items: center; min-height: 44px;
+      }
+      .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+      .look-like { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -359,7 +380,7 @@
   </svg>
   <div class="top" id="top">
     <a class="top-back" href="index.html#ilhavo">← Voltar a Ílhavo</a>
-    <span class="top-brand" translate="no"><img src="assets/img/hotel-ilhavo-plaza-logo.png" alt="Ílhavo Plaza Cabeleireiros"></span>
+    <span class="top-brand" translate="no"><img src="assets/img/hotel-ilhavo-plaza-logo.png" alt="Ílhavo Plaza Cabeleireiros" width="798" height="222"></span>
     <div class="top-lang" translate="no">
       <div class="language-picker">
         <button class="language-toggle" type="button" aria-expanded="false" aria-controls="language-list" aria-label="Escolher idioma"><span>PT</span></button>
@@ -381,18 +402,18 @@
         <p>Cor, textura e movimento criados para pessoas reais. Alguns dos trabalhos feitos no salão do Hotel Ílhavo Plaza.</p>
       </div>
       <div class="gallery" aria-label="Galeria de trabalhos Ílhavo Plaza Cabeleireiros">
-        <figure class="shot"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" loading="lazy"><figcaption><span>Sala</span><span>Ílhavo</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/16.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/18.jpg" alt="Cabelo castanho com camadas e movimento" loading="lazy"><figcaption><span>Camadas</span><span>Movimento</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/19.jpg" alt="Corte bob em castanho escuro" loading="lazy"><figcaption><span>Bob</span><span>Castanho</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/20.jpg" alt="Cabelo comprido e liso com iluminação" loading="lazy"><figcaption><span>Loiro</span><span>Liso</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" loading="lazy" width="563" height="1000"><figcaption><span>Sala</span><span>Ílhavo</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/16.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy" width="271" height="361"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/18.jpg" alt="Cabelo castanho com camadas e movimento" loading="lazy" width="255" height="355"><figcaption><span>Camadas</span><span>Movimento</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/19.jpg" alt="Corte bob em castanho escuro" loading="lazy" width="236" height="358"><figcaption><span>Bob</span><span>Castanho</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/20.jpg" alt="Cabelo comprido e liso com iluminação" loading="lazy" width="235" height="353"><figcaption><span>Loiro</span><span>Liso</span></figcaption></figure>
       </div>
       <p class="gallery-hint">Arraste para explorar →</p>
     </section>
 
     <section class="hero" id="apresentacao" aria-label="Ílhavo Plaza Cabeleireiros">
       <div class="hero-media">
-        <img src="ilhavo/10.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeiras turquesa e parede envidraçada sobre o terraço">
+        <img src="ilhavo/10.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeiras turquesa e parede envidraçada sobre o terraço" width="1000" height="563">
       </div>
       <div class="hero-spotlight" aria-hidden="true"></div>
       <div class="hero-curtain" aria-hidden="true"></div>
@@ -432,7 +453,7 @@
           <span class="service-number">02</span>
           <h3>Unhas</h3>
           <p>Cuidados de mãos e pés com foco na beleza, conforto e bem-estar.</p>
-          <div class="service-thumb"><video data-slow="0.5" muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy"></div>
+          <div class="service-thumb"><video data-slow="0.5" muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy" width="256" height="328"></div>
         </article>
         <article class="service">
           <span class="service-number">03</span>
@@ -444,13 +465,13 @@
           <span class="service-number">04</span>
           <h3>Massagem</h3>
           <p>Sessões para aliviar o stress, reduzir tensões musculares e recuperar o seu bem-estar.</p>
-          <div class="service-thumb"><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy"><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy"></div>
+          <div class="service-thumb"><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy" width="900" height="605"><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy" width="900" height="1080"></div>
         </article>
         <article class="service">
           <span class="service-number">05</span>
           <h3>Sobrancelhas &amp; Pestanas</h3>
           <p>Design de sobrancelhas e extensão de pestanas para um olhar mais intenso e natural.</p>
-          <div class="service-thumb"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas" loading="lazy"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy"></div>
+          <div class="service-thumb"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas" loading="lazy" width="171" height="341"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy" width="264" height="337"></div>
         </article>
       </div>
     </section>

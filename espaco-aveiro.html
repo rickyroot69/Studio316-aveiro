@@ -333,6 +333,27 @@
       .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
       .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
+
+    /* --- alvos tacteis: minimo 44x44 em toque (P1) --- */
+    @media (pointer: coarse) {
+      .menu-toggle { min-height: 44px; padding-block: .95rem; }
+      .language-toggle { min-height: 44px; }
+      .language-option { min-height: 44px; }
+      .sound-toggle { min-height: 44px; min-width: 44px; }
+      .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+      .top-back { min-height: 44px; display: inline-flex; align-items: center; }
+      .brand { min-height: 44px; display: inline-flex; align-items: center; }
+      .badge { min-height: 44px; }
+      .footer a, .footer span a { min-height: 44px; display: inline-flex; align-items: center; }
+      .nav a { min-height: 44px; display: flex; align-items: center; }
+      .menu-toggle { min-width: 44px; }
+      .contact-row dd a, .local-info a, .feature-copy a, .diagnosis-copy a, .intro-copy a,
+      .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
+        display: inline-flex; align-items: center; min-height: 44px;
+      }
+      .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+      .look-like { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -372,16 +393,16 @@
         <p>Cor, textura e movimento criados para pessoas reais. Alguns dos trabalhos feitos no Studio 316 · Aveiro.</p>
       </div>
       <div class="gallery" aria-label="Galeria de trabalhos Studio 316 Aveiro">
-        <figure class="shot"><img src="trabalhos/19.jpg" alt="Corte em camadas com brilho, vista de costas" loading="lazy"><figcaption><span>Camadas</span><span>Brilho</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas, olhar renovado" loading="lazy"><figcaption><span>Sobrancelhas</span><span>Pestanas</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/21.jpg" alt="Pontas vermelhas em cabelo escuro com caracóis" loading="lazy"><figcaption><span>Pontas vermelhas</span><span>Caracóis</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/22.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/23.jpg" alt="Manicure em rosa com anel dourado" loading="lazy"><figcaption><span>Manicure</span><span>Rosa</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/24.jpg" alt="Bob loiro com raiz natural" loading="lazy"><figcaption><span>Bob</span><span>Raiz natural</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/25.jpg" alt="Pedicure em rosa vibrante" loading="lazy"><figcaption><span>Pedicure</span><span>Rosa</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/26.jpg" alt="Balayage castanho com ondas soltas" loading="lazy"><figcaption><span>Balayage</span><span>Ondas soltas</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/27.jpg" alt="Caracóis definidos após permanente" loading="lazy"><figcaption><span>Caracóis</span><span>Definição</span></figcaption></figure>
-        <figure class="shot"><img src="trabalhos/28.jpg" alt="Loiro liso com luzes, corte médio" loading="lazy"><figcaption><span>Loiro</span><span>Luzes</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/19.jpg" alt="Corte em camadas com brilho, vista de costas" loading="lazy" width="750" height="1000"><figcaption><span>Camadas</span><span>Brilho</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas, olhar renovado" loading="lazy" width="171" height="341"><figcaption><span>Sobrancelhas</span><span>Pestanas</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/21.jpg" alt="Pontas vermelhas em cabelo escuro com caracóis" loading="lazy" width="864" height="1000"><figcaption><span>Pontas vermelhas</span><span>Caracóis</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/22.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy" width="1000" height="990"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/23.jpg" alt="Manicure em rosa com anel dourado" loading="lazy" width="274" height="344"><figcaption><span>Manicure</span><span>Rosa</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/24.jpg" alt="Bob loiro com raiz natural" loading="lazy" width="1000" height="1000"><figcaption><span>Bob</span><span>Raiz natural</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/25.jpg" alt="Pedicure em rosa vibrante" loading="lazy" width="257" height="335"><figcaption><span>Pedicure</span><span>Rosa</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/26.jpg" alt="Balayage castanho com ondas soltas" loading="lazy" width="1000" height="1000"><figcaption><span>Balayage</span><span>Ondas soltas</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/27.jpg" alt="Caracóis definidos após permanente" loading="lazy" width="1000" height="1000"><figcaption><span>Caracóis</span><span>Definição</span></figcaption></figure>
+        <figure class="shot"><img src="trabalhos/28.jpg" alt="Loiro liso com luzes, corte médio" loading="lazy" width="563" height="1000"><figcaption><span>Loiro</span><span>Luzes</span></figcaption></figure>
       </div>
       <p class="gallery-hint">Arraste para explorar →</p>
     </section>
@@ -431,7 +452,7 @@
           <span class="service-number">02</span>
           <h3>Unhas</h3>
           <p>Cuidados de mãos e pés com foco na beleza, conforto e bem-estar.</p>
-          <div class="service-thumb"><video data-slow="0.5" muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy"></div>
+          <div class="service-thumb"><video data-slow="0.5" muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy" width="256" height="328"></div>
         </article>
         <article class="service">
           <span class="service-number">03</span>
@@ -443,7 +464,7 @@
           <span class="service-number">04</span>
           <h3>Sobrancelhas &amp; Pestanas</h3>
           <p>Design de sobrancelhas e extensão de pestanas para um olhar mais intenso e natural.</p>
-          <div class="service-thumb"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas" loading="lazy"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy"></div>
+          <div class="service-thumb"><img src="trabalhos/20.jpg" alt="Antes e depois de sobrancelhas e pestanas" loading="lazy" width="171" height="341"><img src="trabalhos/30.jpg" alt="Detalhe de extensão de pestanas" loading="lazy" width="264" height="337"></div>
         </article>
       </div>
     </section>
@@ -455,8 +476,8 @@
         <p>Uma massagem regular ajuda a aliviar o stress, reduzir tensões musculares e recuperar o bem-estar. Ofereça ao seu corpo o cuidado que merece.</p>
       </div>
       <div class="wellbeing-media">
-        <figure><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy"></figure>
-        <figure><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy"></figure>
+        <figure><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy" width="900" height="605"></figure>
+        <figure><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy" width="900" height="1080"></figure>
       </div>
     </section>
 

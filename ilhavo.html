@@ -400,7 +400,7 @@
     .checks span::before { content: "✦"; margin-right: .7rem; color: var(--brass); }
 
     .transformation-lab {
-      display: grid; grid-template-columns: .72fr 1.28fr; min-height: 95vh;
+      display: grid; grid-template-columns: .72fr 1.28fr; min-height: 95dvh;
       background: var(--ink); color: var(--paper); overflow: hidden;
     }
     .transformation-lab .section-heading em { color: var(--leaf-soft); }
@@ -591,7 +591,7 @@
       .feature, .transformation-lab, .diagnosis, .wellbeing, .contact-wrap { grid-template-columns: 1fr; }
       .feature-copy { grid-row: 1; }
       .feature-media { min-height: 40rem; }
-      .compare { min-height: 70vh; }
+      .compare { min-height: 70dvh; }
       .diagnosis-media { width: min(82%, 40rem); height: 42rem; }
       .wellbeing-media { min-height: 38rem; }
     }
@@ -637,7 +637,7 @@
       .feature-media { min-height: 34rem; }
       .feature-copy { padding-inline: var(--pad); }
       .transform-copy { padding-inline: var(--pad); }
-      .compare { min-height: 72vh; }
+      .compare { min-height: 72dvh; }
       .checks { grid-template-columns: 1fr; }
       .diagnosis-media { width: calc(100% - 1.5rem); height: 30rem; }
       .diagnosis-media figcaption { right: -.75rem; bottom: 1rem; }
@@ -683,6 +683,27 @@
       :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
       .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
       .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
+    }
+
+    /* --- alvos tacteis: minimo 44x44 em toque (P1) --- */
+    @media (pointer: coarse) {
+      .menu-toggle { min-height: 44px; padding-block: .95rem; }
+      .language-toggle { min-height: 44px; }
+      .language-option { min-height: 44px; }
+      .sound-toggle { min-height: 44px; min-width: 44px; }
+      .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+      .top-back { min-height: 44px; display: inline-flex; align-items: center; }
+      .brand { min-height: 44px; display: inline-flex; align-items: center; }
+      .badge { min-height: 44px; }
+      .footer a, .footer span a { min-height: 44px; display: inline-flex; align-items: center; }
+      .nav a { min-height: 44px; display: flex; align-items: center; }
+      .menu-toggle { min-width: 44px; }
+      .contact-row dd a, .local-info a, .feature-copy a, .diagnosis-copy a, .intro-copy a,
+      .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
+        display: inline-flex; align-items: center; min-height: 44px;
+      }
+      .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+      .look-like { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -743,7 +764,7 @@
   <main id="conteudo">
     <section class="hero" id="inicio" aria-label="Ílhavo Plaza Cabeleireiros">
       <div class="hero-media">
-        <img src="ilhavo/10.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeiras turquesa e parede envidraçada sobre o terraço">
+        <img src="ilhavo/10.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeiras turquesa e parede envidraçada sobre o terraço" width="1000" height="563">
       </div>
       <div class="hero-spotlight" aria-hidden="true"></div>
       <div class="hero-curtain" aria-hidden="true"></div>
@@ -794,7 +815,7 @@
           <span class="service-number">02</span>
           <h3>Unhas</h3>
           <p>Cuidados de mãos e pés com foco na beleza, conforto e bem-estar.</p>
-          <div class="service-thumb"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy"></div>
+          <div class="service-thumb"><video muted loop playsinline preload="metadata" poster="videos/ig/poster/unhas.jpg" aria-label="Trabalho de unhas no Studio 316"><source src="videos/ig/unhas.mp4" type="video/mp4"></video><img src="trabalhos/29.jpg" alt="Pedicure em vinho no Studio 316" loading="lazy" width="256" height="328"></div>
         </article>
         <article class="service reveal">
           <span class="service-number">03</span>
@@ -806,7 +827,7 @@
           <span class="service-number">04</span>
           <h3>Massagem</h3>
           <p>Sessões para aliviar o stress, reduzir tensões musculares e recuperar o seu bem-estar.</p>
-          <div class="service-thumb"><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy"><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy"></div>
+          <div class="service-thumb"><img src="assets/img/massagem-1.jpg" alt="Massagem de costas no Studio 316" loading="lazy" width="900" height="605"><img src="assets/img/massagem-2.jpg" alt="Sala de massagem do Studio 316 com velas e ambiente de relaxamento" loading="lazy" width="900" height="1080"></div>
         </article>
       </div>
     </section>
@@ -817,17 +838,17 @@
         <h2 class="section-heading reveal" id="flyers-title">O que está <em>em destaque.</em></h2>
       </div>
       <div class="flyer-grid">
-        <figure class="flyer"><img src="3918741754922279733.jpg" alt="Cartaz de boas-vindas: Bem-vinda à sua melhor versão" loading="lazy"><figcaption>Bem-vinda</figcaption></figure>
-        <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy"><figcaption>Tratamento 30€</figcaption></figure>
-        <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy"><figcaption>Unhas</figcaption></figure>
-        <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy"><figcaption>Mãos & pés</figcaption></figure>
-        <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy"><figcaption>Massagem</figcaption></figure>
+        <figure class="flyer"><img src="3918741754922279733.jpg" alt="Cartaz de boas-vindas: Bem-vinda à sua melhor versão" loading="lazy" width="1274" height="1274"><figcaption>Bem-vinda</figcaption></figure>
+        <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" loading="lazy" width="1050" height="1400"><figcaption>Tratamento 30€</figcaption></figure>
+        <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" loading="lazy" width="1050" height="1400"><figcaption>Unhas</figcaption></figure>
+        <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" loading="lazy" width="1050" height="1400"><figcaption>Mãos & pés</figcaption></figure>
+        <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" loading="lazy" width="1071" height="1400"><figcaption>Massagem</figcaption></figure>
       </div>
     </section>
 
     <section class="feature" aria-labelledby="blonde-title">
       <div class="feature-media">
-        <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
+        <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy" width="1332" height="1400">
       </div>
       <div class="feature-copy reveal">
         <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer"><span translate="no">@ropinheirohair</span></a></p>
@@ -847,8 +868,8 @@
         <p>Mova o controlo e compare o resultado real. Cor mais luminosa, acabamento polido e movimento sem perder a identidade.</p>
       </div>
       <div class="compare">
-        <img src="assets/img/transform-after.jpg" alt="Resultado depois da transformação: cabelo loiro luminoso e polido" loading="lazy">
-        <div class="compare-layer"><img src="assets/img/transform-before.jpg" alt="Cabelo antes da transformação" loading="lazy"></div>
+        <img src="assets/img/transform-after.jpg" alt="Resultado depois da transformação: cabelo loiro luminoso e polido" loading="lazy" width="720" height="1280">
+        <div class="compare-layer"><img src="assets/img/transform-before.jpg" alt="Cabelo antes da transformação" loading="lazy" width="720" height="1280"></div>
         <span class="compare-label before">Antes</span>
         <span class="compare-label after">Depois</span>
         <input class="compare-range" type="range" min="0" max="100" value="48" aria-label="Comparar cabelo antes e depois">
@@ -858,7 +879,7 @@
 
     <section class="diagnosis" id="sobre" aria-labelledby="diagnosis-title">
       <figure class="diagnosis-media reveal">
-        <img src="3926900488737946808_3926900427653664959.jpg" alt="Profissional do Studio 316 a trabalhar no salão" loading="lazy">
+        <img src="3926900488737946808_3926900427653664959.jpg" alt="Profissional do Studio 316 a trabalhar no salão" loading="lazy" width="1400" height="1400">
         <figcaption>Segurança primeiro. Sempre.</figcaption>
       </figure>
       <div class="diagnosis-copy reveal">
@@ -884,21 +905,21 @@
         </div>
       </div>
       <div class="gallery" aria-label="Galeria do espaço Ílhavo Plaza Cabeleireiros">
-        <figure class="shot"><img src="ilhavo/01.jpg" alt="Zona de atendimento com cadeiras turquesa e expositor Redken junto às janelas" loading="lazy"><figcaption><span>Sala</span><span>Turquesa</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/09.jpg" alt="Painel de madeira e expositor de produtos na zona de cor" loading="lazy"><figcaption><span>Zona de cor</span><span>Madeira</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/02.jpg" alt="Expositor de produtos Redken e sofá turquesa na sala do salão" loading="lazy"><figcaption><span>Produtos</span><span translate="no">Redken</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/05.jpg" alt="Cadeiras turquesa junto às janelas com vista para o terraço" loading="lazy"><figcaption><span>Cadeiras</span><span>Vista</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/15.jpg" alt="Vista panorâmica da sala com o céu de Ílhavo ao fundo" loading="lazy"><figcaption><span>Panorâmica</span><span>Ílhavo</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/12.jpg" alt="Cliente na cadeira junto às janelas durante o atendimento" loading="lazy"><figcaption><span>Atendimento</span><span>Luz natural</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/08.jpg" alt="Bancada de trabalho junto às janelas com plantas" loading="lazy"><figcaption><span>Bancada</span><span>Plantas</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/13.jpg" alt="Bancada de produtos junto à janela com vista sobre Ílhavo" loading="lazy"><figcaption><span>Produtos</span><span>Janela</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/11.jpg" alt="Recepção do salão com expositor de produtos e plantas" loading="lazy"><figcaption><span>Recepção</span><span>Entrada</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/06.jpg" alt="Terraço do Hotel Ílhavo Plaza visto da sala do salão" loading="lazy"><figcaption><span>Terraço</span><span>Hotel</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/07.jpg" alt="Esplanada do terraço com mesas e vista sobre Ílhavo" loading="lazy"><figcaption><span>Esplanada</span><span>Vista</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/10.jpg" alt="Sala do salão com parede de vidro e vista sobre a cidade" loading="lazy"><figcaption><span>Sala</span><span>Vidro</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/14.jpg" alt="Zona de espera com decoração floral" loading="lazy"><figcaption><span>Espera</span><span>Decoração</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/03.jpg" alt="Entrada envidraçada do salão no piso do hotel" loading="lazy"><figcaption><span>Entrada</span><span>Vidro</span></figcaption></figure>
-        <figure class="shot"><img src="ilhavo/04.jpg" alt="Corredor de acesso ao salão no Hotel Ílhavo Plaza" loading="lazy"><figcaption><span>Acesso</span><span>Hotel</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/01.jpg" alt="Zona de atendimento com cadeiras turquesa e expositor Redken junto às janelas" loading="lazy" width="1000" height="563"><figcaption><span>Sala</span><span>Turquesa</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/09.jpg" alt="Painel de madeira e expositor de produtos na zona de cor" loading="lazy" width="1000" height="563"><figcaption><span>Zona de cor</span><span>Madeira</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/02.jpg" alt="Expositor de produtos Redken e sofá turquesa na sala do salão" loading="lazy" width="1000" height="563"><figcaption><span>Produtos</span><span translate="no">Redken</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/05.jpg" alt="Cadeiras turquesa junto às janelas com vista para o terraço" loading="lazy" width="1000" height="563"><figcaption><span>Cadeiras</span><span>Vista</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/15.jpg" alt="Vista panorâmica da sala com o céu de Ílhavo ao fundo" loading="lazy" width="1000" height="563"><figcaption><span>Panorâmica</span><span>Ílhavo</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/12.jpg" alt="Cliente na cadeira junto às janelas durante o atendimento" loading="lazy" width="563" height="1000"><figcaption><span>Atendimento</span><span>Luz natural</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/08.jpg" alt="Bancada de trabalho junto às janelas com plantas" loading="lazy" width="1000" height="563"><figcaption><span>Bancada</span><span>Plantas</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/13.jpg" alt="Bancada de produtos junto à janela com vista sobre Ílhavo" loading="lazy" width="1000" height="563"><figcaption><span>Produtos</span><span>Janela</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/11.jpg" alt="Recepção do salão com expositor de produtos e plantas" loading="lazy" width="563" height="1000"><figcaption><span>Recepção</span><span>Entrada</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/06.jpg" alt="Terraço do Hotel Ílhavo Plaza visto da sala do salão" loading="lazy" width="1000" height="563"><figcaption><span>Terraço</span><span>Hotel</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/07.jpg" alt="Esplanada do terraço com mesas e vista sobre Ílhavo" loading="lazy" width="1000" height="563"><figcaption><span>Esplanada</span><span>Vista</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/10.jpg" alt="Sala do salão com parede de vidro e vista sobre a cidade" loading="lazy" width="1000" height="563"><figcaption><span>Sala</span><span>Vidro</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/14.jpg" alt="Zona de espera com decoração floral" loading="lazy" width="1000" height="563"><figcaption><span>Espera</span><span>Decoração</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/03.jpg" alt="Entrada envidraçada do salão no piso do hotel" loading="lazy" width="1000" height="563"><figcaption><span>Entrada</span><span>Vidro</span></figcaption></figure>
+        <figure class="shot"><img src="ilhavo/04.jpg" alt="Corredor de acesso ao salão no Hotel Ílhavo Plaza" loading="lazy" width="563" height="1000"><figcaption><span>Acesso</span><span>Hotel</span></figcaption></figure>
       </div>
       <p class="gallery-hint">Arraste para explorar →</p>
     </section>
@@ -1022,8 +1043,8 @@
       'Espaços': ['Espacios', 'Spaces', 'Räume', 'Espaces'],
       'Site': ['Web', 'Website', 'Website', 'Site'],
       '3.º andar': ['3.er piso', '3rd floor', '3. Etage', '3e étage'],
-      'Ver o espaço de Aveiro ↗': ['Ver el espacio de Aveiro ↗', 'See the Aveiro space ↗', 'Den Raum in Aveiro ansehen ↗', 'Voir l’espace d’Aveiro ↗'],
-      'Sala': ['Sala', 'Room', 'Raum', 'Salle'],
+      'Ver o espaço de Aveiro ↗': ['Ver el espacio de Aveiro ↗', 'See the Aveiro space ↗', 'Den Standort Aveiro ansehen ↗', 'Voir l’espace d’Aveiro ↗'],
+      'Sala': ['Sala', 'Salon', 'Salon', 'Salon'],
       'Turquesa': ['Turquesa', 'Turquoise', 'Türkis', 'Turquoise'],
       'Zona de cor': ['Zona de color', 'Colour bar', 'Farbbereich', 'Espace couleur'],
       'Madeira': ['Madera', 'Wood', 'Holz', 'Bois'],
@@ -1157,8 +1178,8 @@
       'Enviar para avaliação ↗': ['Enviar para diagnóstico ↗', 'Send for consultation ↗', 'Zur Beratung senden ↗', 'Envoyer pour diagnostic ↗'],
       'Arraste para explorar →': ['Desliza para explorar →', 'Swipe to explore →', 'Wischen zum Entdecken →', 'Faites glisser pour explorer →'],
       'Estamos à sua espera': ['Te esperamos', 'We are waiting for you', 'Wir freuen uns auf Sie', 'Nous vous attendons'],
-      'Vamos criar a sua': ['Vamos a crear tu', 'Let’s create your', 'Gestalten wir Ihre', 'Créons votre'],
-      'melhor versão?': ['¿mejor versión?', 'best version?', 'beste Version?', 'meilleure version ?'],
+      'Vamos criar a sua': ['¿Vamos a crear tu', 'Let’s create your', 'Gestalten wir Ihre', 'Créons votre'],
+      'melhor versão?': ['mejor versión?', 'best version?', 'beste Version?', 'meilleure version ?'],
       'Marque a sua avaliação e transforme o seu visual com segurança, profissionalismo e um cuidado feito para si.': ['Reserva tu diagnóstico y transforma tu imagen con seguridad, profesionalidad y un cuidado hecho para ti.', 'Book your consultation and transform your look with safety, expertise and care made for you.', 'Buchen Sie Ihre Beratung und verändern Sie Ihren Look sicher, professionell und mit individueller Pflege.', 'Réservez votre diagnostic et transformez votre style en toute sécurité, avec expertise et un soin sur mesure.'],
       'Abrir no mapa ↗': ['Abrir en Google Maps ↗', 'Open in Google Maps ↗', 'In Google Maps öffnen ↗', 'Ouvrir dans Google Maps ↗'],
       'Morada': ['Dirección', 'Address', 'Adresse', 'Adresse'],

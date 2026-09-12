@@ -611,6 +611,27 @@
       .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
       .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
     }
+
+    /* --- alvos tacteis: minimo 44x44 em toque (P1) --- */
+    @media (pointer: coarse) {
+      .menu-toggle { min-height: 44px; padding-block: .95rem; }
+      .language-toggle { min-height: 44px; }
+      .language-option { min-height: 44px; }
+      .sound-toggle { min-height: 44px; min-width: 44px; }
+      .skip-link { min-height: 44px; display: inline-flex; align-items: center; }
+      .top-back { min-height: 44px; display: inline-flex; align-items: center; }
+      .brand { min-height: 44px; display: inline-flex; align-items: center; }
+      .badge { min-height: 44px; }
+      .footer a, .footer span a { min-height: 44px; display: inline-flex; align-items: center; }
+      .nav a { min-height: 44px; display: flex; align-items: center; }
+      .menu-toggle { min-width: 44px; }
+      .contact-row dd a, .local-info a, .feature-copy a, .diagnosis-copy a, .intro-copy a,
+      .local-title a, .signature-credit a, .signature-copy a, p.eyebrow a {
+        display: inline-flex; align-items: center; min-height: 44px;
+      }
+      .galeria-seta, .lightbox-close, .look-like { min-height: 44px; min-width: 44px; }
+      .look-like { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -671,13 +692,13 @@
   <main id="conteudo">
     <section class="locations" id="locais" aria-labelledby="locations-title">
       <div class="locations-head">
-        <img src="assets/img/galeano-logo.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo">
+        <img src="assets/img/galeano-logo.png" alt="Grupo Cabeleireiro Galeano" class="locations-logo" width="343" height="348">
         <h1 class="section-heading" id="locations-title">Dois espaços, <em>a mesma excelência,</em> pensados para si.</h1>
       </div>
 
       <article class="local" id="aveiro">
         <h3 class="local-title"><a href="espaco-aveiro.html" translate="no">Studio 316 · Aveiro</a></h3>
-        <div class="local-main"><a href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem"></a></div>
+        <div class="local-main"><a href="espaco-aveiro.html" aria-label="Ver o espaço do Studio 316 Aveiro"><img src="9.jpg" alt="Sala do Studio 316 Aveiro com parede verde assinada e zona de lavagem" width="965" height="1400"></a></div>
         <div class="local-info">
           <p><span translate="no">R. do Sr. dos Aflitos 59</span>, <span translate="no">3800-260 Aveiro</span></p>
           <div class="badges">
@@ -692,7 +713,7 @@
 
       <article class="local" id="ilhavo">
         <h3 class="local-title"><a href="espaco-ilhavo.html" translate="no">Ílhavo Plaza Cabeleireiros</a></h3>
-        <div class="local-main"><a href="espaco-ilhavo.html" aria-label="Ver o espaço do Ílhavo Plaza Cabeleireiros"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço"></a></div>
+        <div class="local-main"><a href="espaco-ilhavo.html" aria-label="Ver o espaço do Ílhavo Plaza Cabeleireiros"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" width="563" height="1000"></a></div>
         <div class="local-info">
           <p><span translate="no">Ílhavo Plaza Cabeleireiros</span>, <span>3.º andar</span>, <span translate="no">Av. Mário Sacramento 113</span>, <span translate="no">3830-052 Ílhavo</span></p>
           <div class="badges">
@@ -719,13 +740,13 @@
       </div>
       <div class="flyer-rail" data-rail>
         <div class="flyer-track">
-          <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€"><figcaption>Tratamento 30€</figcaption></figure>
-          <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes"><figcaption>Unhas</figcaption></figure>
-          <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316"><figcaption>Mãos & pés</figcaption></figure>
-          <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316"><figcaption>Massagem</figcaption></figure>
-          <figure class="flyer"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€"><figcaption>Combo Beauty 40€</figcaption></figure>
-          <figure class="flyer"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
-          <figure class="flyer"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual"><figcaption>Sorteio de setembro</figcaption></figure>
+          <figure class="flyer"><img src="3921710401537984751.jpg" alt="Panfleto da campanha de tratamento a 30€" width="1050" height="1400"><figcaption>Tratamento 30€</figcaption></figure>
+          <figure class="flyer"><img src="3922932102586318984.jpg" alt="Panfleto de unhas: a beleza está nos detalhes" width="1050" height="1400"><figcaption>Unhas</figcaption></figure>
+          <figure class="flyer"><img src="3933440303245239388.jpg" alt="Panfleto de mãos e pés do Studio 316" width="1050" height="1400"><figcaption>Mãos & pés</figcaption></figure>
+          <figure class="flyer"><img src="3938140371328048420.jpg" alt="Panfleto de massagem e bem-estar do Studio 316" width="1071" height="1400"><figcaption>Massagem</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/combo-beauty.jpg" alt="Combo Beauty de setembro: brow lamination e extensão de pestanas por 40€" width="990" height="1000"><figcaption>Combo Beauty 40€</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/combo-olhar-brilho.jpg" alt="Combo Olhar &amp; Brilho: pestanas, sobrancelha, gelinho e pé tradicional por 70€" width="896" height="1000"><figcaption>Olhar &amp; Brilho 70€</figcaption></figure>
+          <figure class="flyer"><img src="campanhas/sorteio-setembro.jpg" alt="Sorteio de setembro do Studio 316 Aveiro: ganha uma mudança de visual" width="562" height="1000"><figcaption>Sorteio de setembro</figcaption></figure>
         </div>
       </div>
     </section>
@@ -752,23 +773,23 @@
     <section class="galeria" aria-label="Galeria do Studio 316">
       <div class="galeria-rail" data-galeria>
         <div class="galeria-track">
-          <figure class="galeria-foto"><img src="galeria/01.jpg" alt="Manicure francesa feita no Studio 316" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/02.jpg" alt="Unhas em gel brancas, formato amendoado" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/03.jpg" alt="Zona de lavagem do salão, com cliente atendida" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/04.jpg" alt="Unhas pretas brilhantes, acabamento espelhado" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/05.jpg" alt="Loiro comprido e liso, junto ao color bar" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/06.jpg" alt="Vista da sala do Studio 316 em Aveiro" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/07.jpg" alt="Loiro curto com raiz esbatida, visto de trás" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/08.jpg" alt="Cartaz: cada cabelo tem uma história" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/09.jpg" alt="Corte lob loiro, trabalhado em sala" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/10.jpg" alt="Cachos definidos em cabelo castanho comprido" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/11.jpg" alt="Equipa a trabalhar numa transformação de cor" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/12.jpg" alt="Ondas largas em cabelo castanho comprido" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/13.jpg" alt="Sala do salão com clientes em atendimento" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/14.jpg" alt="Loiro polido com brilho, visto de trás" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/15.jpg" alt="Cabelo preto liso e comprido, com brilho" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/16.jpg" alt="Balayage em ondas compridas" loading="lazy" decoding="async"></figure>
-          <figure class="galeria-foto"><img src="galeria/17.jpg" alt="Posto de manicure do Studio 316" loading="lazy" decoding="async"></figure>
+          <figure class="galeria-foto"><img src="galeria/01.jpg" alt="Manicure francesa feita no Studio 316" loading="lazy" decoding="async" width="750" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/02.jpg" alt="Unhas em gel brancas, formato amendoado" loading="lazy" decoding="async" width="512" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/03.jpg" alt="Zona de lavagem do salão, com cliente atendida" loading="lazy" decoding="async" width="563" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/04.jpg" alt="Unhas pretas brilhantes, acabamento espelhado" loading="lazy" decoding="async" width="770" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/05.jpg" alt="Loiro comprido e liso, junto ao color bar" loading="lazy" decoding="async" width="708" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/06.jpg" alt="Vista da sala do Studio 316 em Aveiro" loading="lazy" decoding="async" width="689" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/07.jpg" alt="Loiro curto com raiz esbatida, visto de trás" loading="lazy" decoding="async" width="460" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/08.jpg" alt="Cartaz: cada cabelo tem uma história" loading="lazy" decoding="async" width="618" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/09.jpg" alt="Corte lob loiro, trabalhado em sala" loading="lazy" decoding="async" width="563" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/10.jpg" alt="Cachos definidos em cabelo castanho comprido" loading="lazy" decoding="async" width="1000" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/11.jpg" alt="Equipa a trabalhar numa transformação de cor" loading="lazy" decoding="async" width="563" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/12.jpg" alt="Ondas largas em cabelo castanho comprido" loading="lazy" decoding="async" width="1000" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/13.jpg" alt="Sala do salão com clientes em atendimento" loading="lazy" decoding="async" width="689" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/14.jpg" alt="Loiro polido com brilho, visto de trás" loading="lazy" decoding="async" width="563" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/15.jpg" alt="Cabelo preto liso e comprido, com brilho" loading="lazy" decoding="async" width="460" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/16.jpg" alt="Balayage em ondas compridas" loading="lazy" decoding="async" width="460" height="1000"></figure>
+          <figure class="galeria-foto"><img src="galeria/17.jpg" alt="Posto de manicure do Studio 316" loading="lazy" decoding="async" width="563" height="1000"></figure>
         </div>
       </div>
       <div class="galeria-nav">
@@ -779,7 +800,7 @@
 
     <section class="feature" aria-labelledby="blonde-title">
       <div class="feature-media">
-        <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy">
+        <img src="3922471290344109905.jpg" alt="Madeixas longas e luminosas realizadas no Studio 316" loading="lazy" width="1332" height="1400">
       </div>
       <div class="feature-copy reveal">
         <p class="eyebrow">Especialistas em cor · <a href="https://www.instagram.com/ropinheirohair/" target="_blank" rel="noreferrer"><span translate="no">@ropinheirohair</span></a></p>
