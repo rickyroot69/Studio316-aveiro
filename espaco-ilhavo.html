@@ -200,17 +200,6 @@
     @keyframes hero-image-settle { from { transform: scale(1.1); filter: saturate(.3) contrast(1.15); } to { transform: scale(1); filter: saturate(.76) contrast(1.05); } }
     @keyframes curtain-open { to { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); } }
     .hero-copy { max-width: 39rem; margin-bottom: 2.1rem; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.55; color: rgb(255 253 248 / 82%); }
-    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
-    .button {
-      display: inline-flex; align-items: center; justify-content: space-between; gap: 2.2rem;
-      min-width: 13rem; min-height: 2.75rem; padding: .8rem 1.15rem; border: 1px solid currentColor;
-      color: var(--paper); font-size: .7rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
-      transition: background .2s, color .2s, transform .2s;
-    }
-    .button::after { content: "↗"; font-size: 1rem; }
-    .button:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
-    .button-solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-    .button-solid:hover { background: var(--brass); border-color: var(--brass); color: var(--ink-deep); }
     .hero-meta {
       position: absolute; z-index: 4; right: var(--pad); top: 50%; display: flex; gap: 1.2rem;
       writing-mode: vertical-rl; transform: translateY(-50%); color: var(--paper); font-size: .6rem; font-weight: 700;
@@ -229,7 +218,6 @@
       .hero-meta { display: none; }
       .hero h1 { font-size: clamp(3.4rem, 16vw, 5.3rem); }
       .hero-copy { font-size: .96rem; }
-      .button { width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -309,38 +297,23 @@
     .contact-row-badges { grid-template-columns: 1fr; gap: .8rem; }
     .contact-row .badge { text-decoration: none; }
     .footer { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem var(--pad); border-top: 1px solid rgb(255 255 255 / 18%); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-
-    .wellbeing { display: grid; grid-template-columns: 1fr 1fr; background: var(--brass); color: var(--ink-deep); }
     .wellbeing .section-heading em { color: var(--leaf); }
-    .wellbeing-copy { padding: clamp(5rem, 9vw, 9rem) var(--pad); }
     .wellbeing-copy .section-heading { max-width: 9ch; }
-    .wellbeing-copy p { max-width: 35rem; font-size: 1.08rem; line-height: 1.7; }
-    .wellbeing-copy .button { color: var(--ink-deep); }
     .wellbeing-copy .eyebrow { color: var(--ink-deep); }
-    .wellbeing-media { display: grid; grid-template-columns: 1fr 1fr; min-height: 48rem; }
-    .wellbeing-media figure { position: relative; margin: 0; overflow: hidden; }
-    .wellbeing-media figure:last-child { margin-top: 7rem; }
 
     @media (max-width: 900px) {
       .contact-wrap { grid-template-columns: 1fr; }
       .contact-row { grid-template-columns: 1fr; gap: .45rem; }
       .contact-cards { grid-template-columns: 1fr; }
       .footer { flex-direction: column; }
-      .wellbeing { grid-template-columns: 1fr; }
-      .wellbeing-media { min-height: 30rem; }
-      .wellbeing-media figure:last-child { margin-top: 3rem; }
     }
 
     /* --- afinacao para telemovel --- */
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 6rem; }
-    @supports (height: 100dvh) {
-      .lightbox img { max-height: 92dvh; }
-    }
     @media (max-width: 640px) {
       .top-back { display: inline-block; padding-block: .45rem; }
       :root { --pad: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); }
-      .contact-row a, .local-info a, .footer a, .diagnosis-copy a, .feature-copy a { display: inline-block; padding-block: .3rem; }
-      .diagnosis-media figcaption, .feature-media figcaption, .wellbeing-media figcaption { right: 0; }
+      .contact-row a, .footer a { display: inline-block; padding-block: .3rem; }
     }
 
     /* --- alvos tacteis: minimo 44x44 em toque (P1) --- */
