@@ -83,5 +83,24 @@ Ao mudar um texto no HTML e preciso mudar a chave correspondente no dicionario.
 
 ```sh
 python3 -m http.server 8316     # a partir da raiz do projeto
-vercel --prod                   # publicar
 ```
+
+## Publicacao
+
+O site e estatico: nao ha passo de build, o que esta no repositorio e o que o
+servidor entrega. O `vercel.json` fixa isso, para que a escolha de preset no
+painel da Vercel nao mude nada:
+
+| Definicao | Valor |
+|---|---|
+| Framework Preset | Other |
+| Build Command | (vazio) |
+| Output Directory | `.` (a raiz) |
+| Install Command | (vazio) |
+| Production Branch | **`master`** |
+
+O ramo principal deste repositorio chama-se `master`, nao `main`. Sem trocar o
+Production Branch na Vercel, os pushes nao publicam nada.
+
+Com o repositorio ligado, cada push para `master` publica. Sem ligacao, publica-se
+a partir da maquina com `vercel --prod`.
