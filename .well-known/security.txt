@@ -1,0 +1,5 @@
+Contact: tel:+351234351054
+Contact: https://galeanocabeleireiro.com/
+Expires: 2027-10-06T00:00:00.000Z
+Preferred-Languages: pt, es, en
+Canonical: https://galeanocabeleireiro.com/.well-known/security.txt

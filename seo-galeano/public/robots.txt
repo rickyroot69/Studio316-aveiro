@@ -1,0 +1,15 @@
+# robots.txt — galeanocabeleireiro.com
+# Grupo Galeano Cabeleireiros (Studio 316 Aveiro · Ílhavo Plaza Cabeleireiros)
+
+User-agent: *
+Allow: /
+
+# Ficheiros de media pesados que não precisam de ser rastreados como páginas
+Disallow: /assets/audio/
+
+# Ficheiros internos / de desenvolvimento (ajustar se existirem)
+Disallow: /*.map$
+Disallow: /node_modules/
+Disallow: /.git/
+
+Sitemap: https://galeanocabeleireiro.com/sitemap.xml

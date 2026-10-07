@@ -1,4 +1,4 @@
-# Studio 316 — Grupo Galeano Cabeleireiros
+# Studio 316 — Grupo Galeano Cabeleireiro
 
 Site estatico de cinco paginas. Sem framework, sem build: os ficheiros que estao
 no repositorio sao os que o servidor entrega.
@@ -9,9 +9,12 @@ no repositorio sao os que o servidor entrega.
 |---|---|
 | `index.html` | Landing do grupo, com os dois locais |
 | `aveiro.html` | Studio 316 · Aveiro |
-| `ilhavo.html` | Ílhavo Plaza Cabeleireiros |
+| `ilhavo.html` | Ílhavo Plaza Cabeleireiro |
 | `espaco-aveiro.html` | Galeria de trabalhos de Aveiro |
 | `espaco-ilhavo.html` | Galeria de trabalhos de Ílhavo |
+| `robots.txt` | Regras de indexacao + link para o sitemap |
+| `sitemap.xml` | 3 URLs principais + sitemap de imagens |
+| `llms.txt` | Resumo dos dois locais para assistentes de IA (nao oficial) |
 
 ## Estrutura
 
@@ -104,3 +107,12 @@ Production Branch na Vercel, os pushes nao publicam nada.
 
 Com o repositorio ligado, cada push para `master` publica. Sem ligacao, publica-se
 a partir da maquina com `vercel --prod`.
+
+O `.vercelignore` tambem fixa `/*` com excecoes explicitas — qualquer ficheiro
+novo na raiz (`robots.txt`, `sitemap.xml`, etc.) tem de ser adicionado la com
+`!ficheiro`, senao fica de fora do deploy e devolve 404 em produçao.
+
+O `vercel.json` redireciona `studio316-aveiro.vercel.app` e `www` para
+`https://galeanocabeleireiro.com` (308) e define HSTS, `X-Content-Type-Options`,
+`X-Frame-Options`, `Referrer-Policy` e cache de 1 ano para `assets/`, `videos/`
+e imagens.

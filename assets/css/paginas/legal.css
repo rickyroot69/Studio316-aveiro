@@ -1,0 +1,45 @@
+/* Estilo das paginas legais (privacidade, cookies). Paleta propria, clara e
+   neutra — nao e a paleta de nenhum dos locais, porque estas paginas nao
+   pertencem a nenhum dos dois, pertencem ao grupo. */
+:root {
+  --ink: #2A2438;
+  --paper: #FFFDF8;
+  --ivory: #F3EFE4;
+  --gold: #B8933F;
+  --line: color-mix(in srgb, var(--ink) 16%, transparent);
+}
+html { background: var(--paper); }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); line-height: 1.6;
+}
+.legal-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.2rem var(--pad); border-bottom: 1px solid var(--line);
+}
+.legal-top a { font-weight: 700; letter-spacing: .02em; }
+.legal-top a:hover, .legal-top a:focus-visible { color: var(--gold); }
+.legal-main { max-width: 46rem; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--pad) 5rem; }
+.legal-main h1 {
+  font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 5vw, 2.7rem);
+  margin: 0 0 .4rem;
+}
+.legal-updated { font-size: .85rem; color: color-mix(in srgb, var(--ink) 60%, transparent); margin: 0 0 2.4rem; }
+.legal-main h2 {
+  font-family: var(--display); font-weight: 400; font-size: 1.35rem;
+  margin: 2.4rem 0 .8rem; padding-top: 1.6rem; border-top: 1px solid var(--line);
+}
+.legal-main h2:first-of-type { padding-top: 0; border-top: 0; }
+.legal-main p, .legal-main li { font-size: .98rem; }
+.legal-main ul { padding-left: 1.3rem; }
+.legal-main a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); }
+.legal-main a:hover, .legal-main a:focus-visible { color: var(--gold); }
+.legal-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .9rem; }
+.legal-table th, .legal-table td { text-align: left; padding: .55rem .7rem; border: 1px solid var(--line); vertical-align: top; }
+.legal-table th { background: var(--ivory); font-weight: 700; }
+.legal-table { display: block; overflow-x: auto; }
+.legal-footer { padding: 2rem var(--pad) 3rem; text-align: center; font-size: .82rem; color: color-mix(in srgb, var(--ink) 55%, transparent); }
+
+@media (max-width: 639.98px) {
+  .legal-main { padding-top: 2rem; }
+}

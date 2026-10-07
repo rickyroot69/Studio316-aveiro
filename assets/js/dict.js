@@ -64,6 +64,8 @@ window.STUDIO316_DICT = {
   'Marcar': ['Reservar', 'Book', 'Buchen', 'Réserver'],
   'Hair · Nails · Estética · Massagem': ['Cabello · Uñas · Estética · Masaje', 'Hair · Nails · Beauty · Massage', 'Haare · Nägel · Kosmetik · Massage', 'Coiffure · Ongles · Esthétique · Massage'],
   'A sua beleza,': ['Tu belleza,', 'Your beauty,', 'Ihre Schönheit,', 'Votre beauté,'],
+  'Cabeleireiro em Aveiro,': ['Peluquería en Aveiro,', 'Hairdresser in Aveiro,', 'Friseur in Aveiro,', 'Coiffeur à Aveiro,'],
+  'Cabeleireiro em Ílhavo,': ['Peluquería en Ílhavo,', 'Hairdresser in Ílhavo,', 'Friseur in Ílhavo,', 'Coiffeur à Ílhavo,'],
   'sem filtros.': ['sin filtros.', 'unfiltered.', 'ungefiltert.', 'sans filtres.'],
   'Especialistas em transformação e beleza. Criamos resultados elegantes e personalizados, respeitando sempre a sua identidade e a saúde do seu cabelo.': ['Especialistas en transformación y belleza. Creamos resultados elegantes y personalizados, respetando siempre tu identidad y la salud de tu cabello.', 'Specialists in transformation and beauty. We create elegant, personalised results while always respecting your identity and hair health.', 'Spezialisten für Verwandlung und Schönheit. Wir schaffen elegante, individuelle Ergebnisse und achten stets auf Ihre Persönlichkeit und Haargesundheit.', 'Spécialistes de la transformation et de la beauté. Nous créons des résultats élégants et personnalisés dans le respect de votre identité et de la santé de vos cheveux.'],
   'Beleza que se sente.': ['Belleza que se siente.', 'Beauty you can feel.', 'Schönheit, die man spürt.', 'La beauté qui se ressent.'],

@@ -2,21 +2,128 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ====== GA4 + Google Consent Mode v2 (RGPD) ======
+       Substituir G-NR1QCR9TMY pelo ID de medicao real do GA4.
+       Nada e medido com cookies ate o visitante aceitar (RGPD / CNPD). -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    try {
+      if (localStorage.getItem('galeano_consent') === 'granted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) {}
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR1QCR9TMY"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-NR1QCR9TMY');
+
+    // Eventos de conversao: marcacao, chamada, WhatsApp, Instagram, mapa.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a'); if (!a) return;
+      var h = a.href || '';
+      var local = a.closest('#ilhavo, [data-local="ilhavo"]') || /913456651|ilhavo/i.test(h) ? 'ilhavo'
+                : (/234351054|927829171|studio316aveiro/i.test(h) ? 'aveiro' : 'geral');
+      var ev = null;
+      if (h.indexOf('koibox') > -1) ev = 'booking_click';
+      else if (h.indexOf('tel:') === 0) ev = 'phone_click';
+      else if (h.indexOf('wa.me') > -1) ev = 'whatsapp_click';
+      else if (h.indexOf('instagram.com') > -1) ev = 'instagram_click';
+      else if (/maps\.(app\.goo\.gl|google)|google\.com\/maps/.test(h)) ev = 'directions_click';
+      if (ev) gtag('event', ev, { salon: local, link_url: h });
+    });
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Trabalhos reais do salão do Hotel Ílhavo Plaza — cor, corte, textura e cuidado de mãos e pés.">
+  <meta name="description" content="Salão de cabeleireiro no Hotel Ílhavo Plaza, 3.º andar, Av. Mário Sacramento 113, Ílhavo. Cortes, cor, loiros, unhas, pestanas e massagem com vista para o terraço. Marque online.">
+  <link rel="canonical" href="https://galeanocabeleireiro.com/espaco-ilhavo.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="PT-01">
+  <meta name="geo.placename" content="Ílhavo">
+  <meta name="geo.position" content="40.6032746;-8.6729964">
   <meta name="theme-color" content="#4A1F8C">
-  <meta property="og:title" content="Ílhavo Plaza Cabeleireiros — O espaço">
-  <meta property="og:description" content="Trabalhos reais do salão do Hotel Ílhavo Plaza — cor, corte, textura e cuidado de mãos e pés.">
+  <meta property="og:title" content="Ílhavo Plaza Cabeleireiro · Cabeleireiro em Ílhavo">
+  <meta property="og:description" content="Trabalhos reais do salão do Hotel Ílhavo Plaza — cor, corte, textura, unhas e massagem.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grupo Galeano Cabeleireiro">
   <meta property="og:locale" content="pt_PT">
-  <meta property="og:url" content="https://studio316-aveiro.vercel.app/espaco-ilhavo.html">
-  <meta property="og:image" content="https://studio316-aveiro.vercel.app/og-image-v2.jpg">
+  <meta property="og:url" content="https://galeanocabeleireiro.com/espaco-ilhavo.html">
+  <meta property="og:image" content="https://galeanocabeleireiro.com/og-image-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Ílhavo Plaza Cabeleireiros">
+  <meta property="og:image:alt" content="Grupo Cabeleireiro Galeano — Studio 316 Aveiro e Ílhavo Plaza Cabeleireiro">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%234A1F8C'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='serif' font-size='27' fill='%23E6E5E4'%3EIP%3C/text%3E%3C/svg%3E">
-  <title>Ílhavo Plaza Cabeleireiros — O espaço</title>
+  <title>Cabeleireiro em Ílhavo | Ílhavo Plaza Cabeleireiro (Hotel Ílhavo Plaza)</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HairSalon",
+        "@id": "https://galeanocabeleireiro.com/espaco-ilhavo.html#salon",
+        "name": "Ílhavo Plaza Cabeleireiro",
+        "description": "Cabeleireiro e salão de beleza dentro do Hotel Ílhavo Plaza, em Ílhavo: cortes, coloração, loiros, madeixas, tratamentos, unhas, estética, sobrancelhas, pestanas e massagem.",
+        "url": "https://galeanocabeleireiro.com/espaco-ilhavo.html",
+        "image": [
+          "https://galeanocabeleireiro.com/ilhavo/10.jpg",
+          "https://galeanocabeleireiro.com/ilhavo/12.jpg"
+        ],
+        "logo": "https://galeanocabeleireiro.com/assets/img/hotel-ilhavo-plaza-logo.png",
+        "telephone": "+351913456651",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Mário Sacramento 113, 3.º andar (Hotel Ílhavo Plaza)",
+          "postalCode": "3830-052",
+          "addressLocality": "Ílhavo",
+          "addressRegion": "Aveiro",
+          "addressCountry": "PT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 40.6032746, "longitude": -8.6729964 },
+        "containedInPlace": { "@type": "Hotel", "name": "Hotel Ílhavo Plaza" },
+        "areaServed": ["Ílhavo", "Gafanha da Nazaré", "Costa Nova", "Barra", "Vagos", "Aveiro"],
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+351913456651", "contactType": "reservations", "availableLanguage": ["pt", "es", "en"] }
+        ],
+        "sameAs": ["https://www.instagram.com/ilhavoplazacabeleireiro/"],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": "https://reservas.koibox.cloud/studio-316",
+          "name": "Marcar online"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços Ílhavo Plaza Cabeleireiro",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cortes de cabelo" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coloração, madeixas e balayage" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tratamentos capilares" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manicure e pedicure" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sobrancelhas e pestanas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem" } }
+          ]
+        },
+        "parentOrganization": { "@id": "https://galeanocabeleireiro.com/#org" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://galeanocabeleireiro.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Ílhavo Plaza Cabeleireiro", "item": "https://galeanocabeleireiro.com/espaco-ilhavo.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- TODO: adicionar openingHoursSpecification quando o horário de Ílhavo for confirmado
+       (a ficha do Google de Ílhavo ainda não tem horário publicado). -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/paginas/espaco-ilhavo.css">
@@ -36,7 +143,7 @@
   </svg>
   <div class="top" id="top">
     <a class="top-back" href="index.html#ilhavo">← Voltar a Ílhavo</a>
-    <span class="top-brand" translate="no"><img src="assets/img/hotel-ilhavo-plaza-logo.png" alt="Ílhavo Plaza Cabeleireiros" width="798" height="222"></span>
+    <span class="top-brand" translate="no"><img src="assets/img/hotel-ilhavo-plaza-logo.png" alt="Ílhavo Plaza Cabeleireiro" width="798" height="222"></span>
     <div class="top-lang" translate="no">
       <div class="language-picker">
         <button class="language-toggle" type="button" aria-expanded="false" aria-controls="language-list" aria-label="Escolher idioma"><span>PT</span></button>
@@ -57,7 +164,7 @@
         <h1 id="lookbook-title">Transformações <em>reais.</em></h1>
         <p>Cor, textura e movimento criados para pessoas reais. Alguns dos trabalhos feitos no salão do Hotel Ílhavo Plaza.</p>
       </div>
-      <div class="gallery" aria-label="Galeria de trabalhos Ílhavo Plaza Cabeleireiros">
+      <div class="gallery" aria-label="Galeria de trabalhos Ílhavo Plaza Cabeleireiro">
         <figure class="shot"><img src="ilhavo/12.jpg" alt="Sala do salão do Hotel Ílhavo Plaza com cadeira junto às janelas e vista para o terraço" loading="lazy" width="563" height="1000"><figcaption><span>Sala</span><span>Ílhavo</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/16.jpg" alt="Cliente sorridente com loiro iluminado" loading="lazy" width="271" height="361"><figcaption><span>Loiro</span><span>Iluminado</span></figcaption></figure>
         <figure class="shot"><img src="ilhavo/18.jpg" alt="Cabelo castanho com camadas e movimento" loading="lazy" width="255" height="355"><figcaption><span>Camadas</span><span>Movimento</span></figcaption></figure>
@@ -67,7 +174,7 @@
       <p class="gallery-hint">Arraste para explorar →</p>
     </section>
 
-    <section class="hero" id="apresentacao" aria-label="Ílhavo Plaza Cabeleireiros">
+    <section class="hero" id="apresentacao" aria-label="Ílhavo Plaza Cabeleireiro">
       <div class="hero-media">
         <img src="ilhavo/10.jpg" alt="Sala do cabeleireiro do Hotel Ílhavo Plaza com cadeiras turquesa e parede envidraçada sobre o terraço" width="1000" height="563">
       </div>
@@ -75,10 +182,10 @@
       <div class="hero-curtain" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="eyebrow">Hair · Nails · Estética · Massagem</p>
-        <h1>A sua beleza, <em>sem filtros.</em></h1>
+        <h2>A sua beleza, <em>sem filtros.</em></h2>
         <p class="hero-copy">Especialistas em transformação e beleza. Criamos resultados elegantes e personalizados, respeitando sempre a sua identidade e a saúde do seu cabelo.</p>
       </div>
-      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Ílhavo Plaza Cabeleireiros</span></div>
+      <div class="hero-meta" aria-hidden="true" translate="no"><span translate="no">Ílhavo Plaza Cabeleireiro</span></div>
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -142,8 +249,8 @@
         </div>
         <div class="contact-cards">
           <dl class="contact-card">
-            <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Ílhavo Plaza Cabeleireiros</strong></dd></div>
-            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Ílhavo Plaza Cabeleireiros</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
+            <div class="contact-row contact-title"><dt>Local</dt><dd><strong translate="no">Ílhavo Plaza Cabeleireiro</strong></dd></div>
+            <div class="contact-row"><dt>Morada</dt><dd><span translate="no">Ílhavo Plaza Cabeleireiro</span><br>3.º andar<br><span translate="no">Av. Mário Sacramento 113</span><br><span translate="no">3830-052 Ílhavo</span>, Portugal<br><a href="https://www.google.com/maps/search/?api=1&amp;query=40.60333,-8.6725" target="_blank" rel="noreferrer">Abrir no mapa ↗</a></dd></div>
             <div class="contact-row"><dt>Telefone</dt><dd><a href="tel:+351913456651">+351 913 456 651</a></dd></div>
             <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">+351 913 456 651 ↗</a></dd></div>
             <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/ilhavoplazacabeleireiro/" target="_blank" rel="noreferrer"><span translate="no">@ilhavoplazacabeleireiro</span> ↗</a></dd></div>
@@ -169,7 +276,7 @@
             </dd></div>
           </dl>
           <dl class="contact-card contact-card-wide">
-            <div class="contact-row"><dt>Grupo</dt><dd translate="no">Grupo Galeano Cabeleireiros</dd></div>
+            <div class="contact-row"><dt>Grupo</dt><dd translate="no">Grupo Galeano Cabeleireiro</dd></div>
           </dl>
         </div>
       </div>
@@ -178,14 +285,69 @@
         <a href="#top">Voltar ao topo ↑</a>
       </footer>
     </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 class="section-heading" id="faq-title">Perguntas <em>frequentes.</em></h2>
+      <details>
+        <!-- TODO: horario de Ilhavo ainda nao confirmado (a ficha do Google tambem nao o tem publicado) -->
+        <summary>Qual o horário do salão no Hotel Ílhavo Plaza?</summary>
+        <p>A confirmar — contacte-nos por telefone ou WhatsApp.</p>
+      </details>
+      <details>
+        <summary>Como posso marcar uma consulta?</summary>
+        <p>Pode marcar <a href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer">online com 10% de desconto</a>, por telefone ou por WhatsApp (<a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">913 456 651</a>).</p>
+      </details>
+      <details>
+        <!-- TODO: confirmar estacionamento do Hotel Ilhavo Plaza para clientes do salao -->
+        <summary>Há estacionamento no Hotel Ílhavo Plaza?</summary>
+        <p>A confirmar.</p>
+      </details>
+      <details>
+        <!-- TODO: precos orientativos dos servicos principais -->
+        <summary>Quanto custam os serviços?</summary>
+        <p>Os preços variam por serviço e diagnóstico — fale connosco por telefone ou WhatsApp para um orçamento.</p>
+      </details>
+      <details>
+        <!-- TODO: confirmar se atendem sem marcacao previa -->
+        <summary>Atendem sem marcação prévia?</summary>
+        <p>A confirmar — recomendamos marcar com antecedência para garantir horário.</p>
+      </details>
+    </section>
   </main>
 
   <footer class="signature">
-    <p class="signature-copy">© <span id="year" translate="no" class="notranslate">2026</span> <span translate="no" class="notranslate">Grupo Galeano Cabeleireiros</span> — <span>Todos os direitos reservados</span></p>
+    <p class="signature-copy">© <span id="year" translate="no" class="notranslate">2026</span> <span translate="no" class="notranslate">Grupo Galeano Cabeleireiro</span> — <span>Todos os direitos reservados</span></p>
+    <p class="signature-links"><a href="/politica-privacidade.html">Privacidade</a> · <a href="/politica-cookies.html">Cookies</a> · <a href="https://www.livroreclamacoes.pt/Inicio" target="_blank" rel="noopener noreferrer">Livro de Reclamações</a></p>
     <p class="signature-credit"><span>Desenvolvido e desenhado por</span><a href="https://centaury.net" target="_blank" rel="noreferrer" aria-label="Centaury"><img src="assets/img/entaury-logo.png" alt="entaury" width="215" height="42" loading="lazy"></a></p>
   </footer>
 
   <script src="assets/js/dict.js"></script>
   <script src="assets/js/paginas/espaco-ilhavo.js"></script>
+  <!-- ====== Banner de cookies (RGPD / CNPD) ====== -->
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookies" hidden
+       style="position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:auto;
+              background:#2A2438;color:#fff;padding:16px 18px;border-radius:12px;font:14px/1.45 system-ui,sans-serif;
+              box-shadow:0 8px 30px rgba(0,0,0,.3)">
+    Usamos cookies de análise para melhorar o site. Pode aceitar ou recusar.
+    <a href="/politica-cookies.html" style="color:#fff;text-decoration:underline">Saber mais</a>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
+      <button id="cookie-reject" style="padding:8px 14px;border-radius:8px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer">Recusar</button>
+      <button id="cookie-accept" style="padding:8px 14px;border-radius:8px;border:0;background:#fff;color:#2A2438;cursor:pointer;font-weight:600">Aceitar</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('cookie-banner'), v = null;
+      try { v = localStorage.getItem('galeano_consent'); } catch (e) {}
+      if (!v) b.hidden = false;
+      function set(val) {
+        try { localStorage.setItem('galeano_consent', val); } catch (e) {}
+        if (val === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' });
+        b.hidden = true;
+      }
+      document.getElementById('cookie-accept').onclick = function () { set('granted'); };
+      document.getElementById('cookie-reject').onclick = function () { set('denied'); };
+    })();
+  </script>
 </body>
 </html>

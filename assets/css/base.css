@@ -18,9 +18,16 @@ a { color: inherit; text-decoration: none; }
 .language-picker.open .language-list { opacity: 1; visibility: visible; transform: none; }
 @keyframes hair-shine { 0%, 65%, 100% { background-position: 100% center; } 35% { background-position: 0 center; } }
 @keyframes curtain-open { to { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); } }
+.faq { padding: clamp(4rem, 9vw, 7rem) var(--pad); max-width: 46rem; margin: 0 auto; }
+.faq summary { cursor: pointer; font-family: var(--display); font-size: 1.1rem; padding: 1.1rem 0; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details p { margin: 0 0 1.2rem; opacity: .85; }
 .signature { background: var(--ink-deep); color: var(--paper); display: grid; justify-items: center; gap: 1.5rem; padding: 2.8rem var(--pad) 3.2rem; text-align: center; }
 .signature p { margin: 0; }
 .signature-copy { font-size: .85rem; letter-spacing: .03em; color: color-mix(in srgb, var(--paper) 58%, transparent); }
+.signature-links { font-size: .78rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; color: color-mix(in srgb, var(--paper) 58%, transparent); }
+.signature-links a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--paper) 35%, transparent); }
+.signature-links a:hover, .signature-links a:focus-visible { color: var(--paper); }
 .signature-credit { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem 1rem; }
 .signature-credit > span { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .signature-credit a { display: inline-flex; align-items: center; color: inherit; text-decoration: none; opacity: .88; transition: opacity .25s; }
