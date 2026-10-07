@@ -93,6 +93,14 @@
           { "@type": "ContactPoint", "telephone": "+351913456651", "contactType": "reservations", "availableLanguage": ["pt", "es", "en"] }
         ],
         "sameAs": ["https://www.instagram.com/ilhavoplazacabeleireiro/"],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday"],
+            "opens": "10:00",
+            "closes": "19:00"
+          }
+        ],
         "potentialAction": {
           "@type": "ReserveAction",
           "target": "https://reservas.koibox.cloud/studio-316",
@@ -122,8 +130,6 @@
     ]
   }
   </script>
-  <!-- TODO: adicionar openingHoursSpecification quando o horário de Ílhavo for confirmado
-       (a ficha do Google de Ílhavo ainda não tem horário publicado). -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/paginas/espaco-ilhavo.css">
@@ -289,18 +295,16 @@
     <section class="faq" id="faq" aria-labelledby="faq-title">
       <h2 class="section-heading" id="faq-title">Perguntas <em>frequentes.</em></h2>
       <details>
-        <!-- TODO: horario de Ilhavo ainda nao confirmado (a ficha do Google tambem nao o tem publicado) -->
         <summary>Qual o horário do salão no Hotel Ílhavo Plaza?</summary>
-        <p>A confirmar — contacte-nos por telefone ou WhatsApp.</p>
+        <p>Segunda, terça, quinta, sexta e sábado, das 10h às 19h. Fecha à quarta-feira e ao domingo.</p>
       </details>
       <details>
         <summary>Como posso marcar uma consulta?</summary>
         <p>Pode marcar <a href="https://reservas.koibox.cloud/studio-316" target="_blank" rel="noreferrer">online com 10% de desconto</a>, por telefone ou por WhatsApp (<a href="https://wa.me/351913456651" target="_blank" rel="noreferrer">913 456 651</a>).</p>
       </details>
       <details>
-        <!-- TODO: confirmar estacionamento do Hotel Ilhavo Plaza para clientes do salao -->
         <summary>Há estacionamento no Hotel Ílhavo Plaza?</summary>
-        <p>A confirmar.</p>
+        <p>Sim — estacionamento gratuito no local, coberto, descoberto e também na rua.</p>
       </details>
       <details>
         <!-- TODO: precos orientativos dos servicos principais -->
