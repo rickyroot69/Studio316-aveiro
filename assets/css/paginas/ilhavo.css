@@ -6,15 +6,16 @@
   inherits: true;
   initial-value: 50%;
 }
-/* Paleta Hotel Ílhavo Plaza — turquesa das cadeiras da sala + cinza escuro
-   #1F272B cinza profundo · #253034 cinza do texto
+/* Paleta Hotel Ílhavo Plaza — azul-petroleo (mesmo tom de espaco-ilhavo.html) + cinza escuro
+   --ink/--ink-deep: azul-petroleo, usado nos blocos grandes de fundo (header, hero, services...)
+   --charcoal/--charcoal-deep: cinza escuro original, usado so como cor de texto sobre claro
    #1A6E6B turquesa (acentos sobre claro) · #6FC5C1 turquesa clara (sobre escuro)
    #DDE5E5 prateado claro (painéis)
    #EDF1F1 off-white frio (fundo) · #FBFDFD papel · #A9BDBC prateado (brilho h1)
    Studio 316 Aveiro usa a mesma estrutura em verde (ver aveiro.html) */
 :root {
-  --ink: #253034;
-  --ink-deep: #1F272B;
+  --ink: #4490A7;
+  --ink-deep: #2F6474;
   --leaf: #1A6E6B;
   --leaf-soft: #6FC5C1;
   --brass: #DDE5E5;
@@ -22,26 +23,27 @@
   --paper: #FBFDFD;
   --rose: #A9BDBC;
   --charcoal: #253034;
+  --charcoal-deep: #1F272B;
   --focus: #1A6E6B;
-  --line: color-mix(in srgb, var(--ink) 22%, transparent);
+  --line: color-mix(in srgb, var(--charcoal) 22%, transparent);
 }
 html { scroll-behavior: smooth; background: var(--ivory); }
 body {
   margin: 0;
   overflow-x: hidden;
   background: var(--ivory);
-  color: var(--ink);
+  color: var(--charcoal);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 body.menu-open { overflow: hidden; }
 button { color: inherit; font: inherit; }
-::selection { background: var(--brass); color: var(--ink-deep); }
+::selection { background: var(--brass); color: var(--charcoal-deep); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
 
 .skip-link {
   position: fixed; z-index: 999; left: 1rem; top: 1rem;
-  padding: .75rem 1rem; background: var(--paper); color: var(--ink);
+  padding: .75rem 1rem; background: var(--paper); color: var(--charcoal);
   transform: translateY(-180%); transition: transform .2s;
 }
 .skip-link:focus { transform: none; }
@@ -59,7 +61,7 @@ button { color: inherit; font: inherit; }
   transition: background .25s, color .25s, height .25s, box-shadow .25s;
 }
 .header.scrolled {
-  height: 5.2rem; color: var(--paper); background: rgb(31 39 43 / 92%);
+  height: 5.2rem; color: var(--paper); background: rgb(47 100 116 / 92%);
   box-shadow: 0 1px 0 color-mix(in srgb, var(--paper) 18%, transparent); backdrop-filter: blur(14px);
 }
 .location, .nav a, .menu-toggle {
@@ -90,7 +92,7 @@ button { color: inherit; font: inherit; }
 .language-list {
   position: absolute; right: 0; top: calc(100% + .55rem); width: 13.7rem; margin: 0; padding: .45rem;
   list-style: none; border: 1px solid var(--line); border-radius: 1rem;
-  background: var(--paper); color: var(--ink); box-shadow: 0 1.2rem 3rem rgb(14 26 29 / 20%);
+  background: var(--paper); color: var(--charcoal); box-shadow: 0 1.2rem 3rem rgb(14 26 29 / 20%);
   opacity: 0; visibility: hidden; transform: translateY(-.4rem); transition: opacity .2s, visibility .2s, transform .2s;
 }
 .language-option {
@@ -107,7 +109,7 @@ button { color: inherit; font: inherit; }
   background: transparent; color: inherit; cursor: pointer;
   transition: transform .2s, background .2s, color .2s;
 }
-.sound-toggle:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
+.sound-toggle:hover { transform: translateY(-2px); background: var(--paper); color: var(--charcoal); }
 .sound-bars { display: flex; align-items: end; gap: 2px; width: 1rem; height: 1rem; }
 .sound-bars i { width: 2px; height: 30%; background: currentColor; transform-origin: bottom; }
 .sound-bars i:nth-child(2) { height: 80%; }
@@ -176,7 +178,7 @@ h1 em {
   transition: background .2s, color .2s, transform .2s;
 }
 .button::after { content: "↗"; font-size: 1rem; }
-.button:hover { transform: translateY(-2px); background: var(--paper); color: var(--ink); }
+.button:hover { transform: translateY(-2px); background: var(--paper); color: var(--charcoal); }
 .hero-meta {
   position: absolute; z-index: 4; right: var(--pad); top: 50%; display: flex; gap: 1.2rem;
   writing-mode: vertical-rl; transform: translateY(-50%); font-size: .6rem; font-weight: 700;
@@ -191,7 +193,7 @@ h1 em {
 .flyers .section-heading em,
 .diagnosis .section-heading em { color: var(--leaf); }
 
-.flyers { padding: clamp(5rem, 10vw, 9rem) var(--pad); background: var(--brass); color: var(--ink-deep); }
+.flyers { padding: clamp(5rem, 10vw, 9rem) var(--pad); background: var(--brass); color: var(--charcoal-deep); }
 .flyers-head { margin-bottom: 3rem; }
 .flyers-head .section-heading { margin-bottom: 0; }
 .flyer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.5rem; }
@@ -210,13 +212,13 @@ h1 em {
 }
 .intro h2 em, .section-heading em { color: var(--brass); font-weight: 400; }
 .intro-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 52rem; }
-.intro-copy p { margin: 0; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.65; color: color-mix(in srgb, var(--ink) 78%, white); }
+.intro-copy p { margin: 0; font-size: clamp(1rem, 1.35vw, 1.22rem); line-height: 1.65; color: color-mix(in srgb, var(--charcoal) 78%, white); }
 
 .marquee {
-  overflow: hidden; padding: 1.2rem 0; background: var(--brass); color: var(--ink); border-block: 1px solid rgb(255 255 255 / 18%);
+  overflow: hidden; padding: 1.2rem 0; background: var(--brass); color: var(--charcoal); border-block: 1px solid rgb(255 255 255 / 18%);
 }
 .marquee span { padding-right: 2.4rem; font-family: var(--display); font-size: clamp(1.55rem, 3vw, 3rem); font-style: italic; white-space: nowrap; }
-.marquee b { color: var(--ink-deep); font-weight: 400; }
+.marquee b { color: var(--charcoal-deep); font-weight: 400; }
 
 .services { padding: clamp(6rem, 11vw, 10rem) var(--pad); background: var(--ink); color: var(--paper); }
 .services .section-heading em { color: var(--leaf-soft); }
@@ -293,12 +295,12 @@ h1 em {
 
 .diagnosis {
   position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 9vw, 10rem);
-  padding: clamp(6rem, 12vw, 12rem) var(--pad); background: var(--brass); color: var(--ink-deep); overflow: hidden;
+  padding: clamp(6rem, 12vw, 12rem) var(--pad); background: var(--brass); color: var(--charcoal-deep); overflow: hidden;
 }
 .diagnosis::before { content: "316"; position: absolute; right: -2vw; top: -6vw; font-family: var(--display); font-size: clamp(12rem, 30vw, 32rem); font-style: italic; line-height: .8; color: var(--ink); pointer-events: none; }
 .diagnosis-media { position: relative; z-index: 1; align-self: start; height: min(72vw, 52rem); }
 .diagnosis-media img { object-position: center; }
-.diagnosis-media figcaption { position: absolute; right: -2rem; bottom: 2rem; padding: 1rem; background: var(--brass); color: var(--ink-deep); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.diagnosis-media figcaption { position: absolute; right: -2rem; bottom: 2rem; padding: 1rem; background: var(--brass); color: var(--charcoal-deep); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .diagnosis-copy { position: relative; z-index: 1; align-self: start; }
 .diagnosis-copy .section-heading { max-width: 9ch; }
 .diagnosis-copy > p { max-width: 38rem; font-size: 1.08rem; line-height: 1.7; }
@@ -307,7 +309,7 @@ h1 em {
 .step:last-child { border-bottom: 1px solid var(--line); }
 .step::before { content: "0" counter(step); position: absolute; left: 0; top: 1.45rem; color: var(--brass); font-family: var(--display); font-style: italic; }
 .step strong { display: block; margin-bottom: .35rem; font-family: var(--display); font-size: 1.45rem; font-weight: 400; }
-.step p { margin: 0; color: color-mix(in srgb, var(--ink) 70%, white); line-height: 1.55; }
+.step p { margin: 0; color: color-mix(in srgb, var(--charcoal) 70%, white); line-height: 1.55; }
 
 .lookbook { padding: clamp(6rem, 11vw, 10rem) 0; background: var(--ink); color: var(--paper); }
 .lookbook .section-heading em { color: var(--leaf-soft); }
@@ -345,7 +347,7 @@ h1 em {
 }
 .shot:hover .look-like, .look-like:focus-visible, .look-like.liked { opacity: 1; transform: none; }
 .look-like:hover { transform: scale(1.08); }
-.look-like.liked { background: var(--brass); color: var(--ink-deep); border-color: var(--brass); }
+.look-like.liked { background: var(--brass); color: var(--charcoal-deep); border-color: var(--brass); }
 .look-like svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.7; }
 .look-like.liked svg { fill: currentColor; }
 .gallery-hint { margin: 1.4rem var(--pad) 0; font-size: .65rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }

@@ -2,11 +2,11 @@
    ../base.css, carregado antes desta folha. */
 
 :root {
-  /* prateado + violeta + rosado — identidade propria desta pagina */
-  --ink: #4A1F8C;          /* violeta, o chao da pagina */
-  --ink-deep: #2E0F5C;     /* violeta profundo */
-  --leaf: #6B2FB0;         /* violeta medio, sobre prata */
-  --leaf-soft: #8A4FE8;
+  /* prateado + azul-petroleo + rosado — identidade propria desta pagina */
+  --ink: #4490A7;          /* azul-petroleo, o chao da pagina */
+  --ink-deep: #2F6474;     /* azul-petroleo profundo */
+  --leaf: #63AABF;         /* azul-petroleo medio, sobre prata */
+  --leaf-soft: #A1CCD9;
   --rose: #EFB8D2;         /* rosado, o acento */
   --rose-deep: #C97BA4;
   --brass: #CBC9C6;        /* prateado */
