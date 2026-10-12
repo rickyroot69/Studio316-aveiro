@@ -17,8 +17,11 @@
       "destination": "https://galeanocabeleireiro.com/:path*",
       "permanent": true
     },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/aveiro.html", "destination": "/espaco-aveiro.html", "permanent": true },
+    { "source": "/ilhavo.html", "destination": "/espaco-ilhavo.html", "permanent": true }
   ],
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
