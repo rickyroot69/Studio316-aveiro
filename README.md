@@ -8,8 +8,8 @@ no repositorio sao os que o servidor entrega.
 | Ficheiro | O que e |
 |---|---|
 | `index.html` | Landing do grupo, com os dois locais |
-| `aveiro.html` | Studio 316 · Aveiro |
-| `ilhavo.html` | Ílhavo Plaza Cabeleireiro |
+| `aveiro.html` | Studio 316 · Aveiro (legado: em producao redireciona para `espaco-aveiro.html`) |
+| `ilhavo.html` | Ílhavo Plaza Cabeleireiro (legado: em producao redireciona para `espaco-ilhavo.html`) |
 | `espaco-aveiro.html` | Galeria de trabalhos de Aveiro |
 | `espaco-ilhavo.html` | Galeria de trabalhos de Ílhavo |
 | `robots.txt` | Regras de indexacao + link para o sitemap |
@@ -112,7 +112,20 @@ O `.vercelignore` tambem fixa `/*` com excecoes explicitas — qualquer ficheiro
 novo na raiz (`robots.txt`, `sitemap.xml`, etc.) tem de ser adicionado la com
 `!ficheiro`, senao fica de fora do deploy e devolve 404 em produçao.
 
-O `vercel.json` redireciona `studio316-aveiro.vercel.app` e `www` para
-`https://galeanocabeleireiro.com` (308) e define HSTS, `X-Content-Type-Options`,
+O `vercel.json` faz estes redirecionamentos permanentes (308):
+
+| Origem | Destino |
+|---|---|
+| `studio316-aveiro.vercel.app/*` e `www.galeanocabeleireiro.com/*` | `https://galeanocabeleireiro.com/*` |
+| `/index.html` | `/` |
+| `/aveiro.html` | `/espaco-aveiro.html` |
+| `/ilhavo.html` | `/espaco-ilhavo.html` |
+| qualquer URL com `/` final (`trailingSlash: false`) | a mesma URL sem a barra |
+
+Servem para que cada pagina tenha uma unica URL indexavel e o Search Console
+nao reporte paginas duplicadas. O aviso "Pagina com redirecionamento" no
+Search Console para estas URLs e esperado e nao precisa de correcao.
+
+Tambem define HSTS, `X-Content-Type-Options`,
 `X-Frame-Options`, `Referrer-Policy` e cache de 1 ano para `assets/`, `videos/`
 e imagens.
